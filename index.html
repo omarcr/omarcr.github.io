@@ -21,9 +21,7 @@
         <nav class="nav">
             <div class="nav__logo">
                 <!-- Logo SVG -->
-                <svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                    <circle cx="30" cy="30" r="30" fill="var(--primary-blue)"/>
-                </svg>
+                <img src="assets/AdobeStock_961244866.svg" alt="Equ Healthcare Logo" class="logo" />
                 <span>Equ Healthcare</span>
             </div>
             <ul class="nav__menu">
@@ -74,11 +72,16 @@
         <!-- About Us Section -->
         <section class="about" id="about">
             <h2 class="section-title" data-key="about_title">About Us</h2>
+            <!-- Centered Logo -->
+            <div class="about__logo-container">
+                <img src="assets/AdobeStock_961244866.svg" alt="Equ Healthcare Logo" class="about-logo">
+            </div>
             <div class="about__content">
                 <p data-key="about_p1">At Equ Healthcare, we specialize in developing interpretable AI solutions that are transparent and culturally tailored for the Hispanic/Latino community. Our focus on balance, precision, and equity ensures that our technology not only advances healthcare outcomes but also fosters trust and engagement.</p>
                 <p data-key="about_p2">Founded as a spin-out from research at MIT and Harvard Medical School, Equ Healthcare is built upon a strong foundation of scientific innovation. Supported by the National Science Foundation, we leverage cutting-edge technology to bridge gaps in healthcare disparities.</p>
             </div>
         </section>
+
         
         <!-- Pillars Section -->
         <section class="pillars">
@@ -149,6 +152,10 @@
                 <div class="product-card">
                     <span class="status-badge" data-key="product1_status">In Development</span>
                     <h3 data-key="product1_title">Equ-1 Amigo</h3>
+                    <!-- Image for Equ-1 Amigo -->
+                    <div class="product-image-container">
+                        <img src="assets/AdobeStock_779927281.svg" alt="Equ-1 Amigo" class="product-image">
+                    </div>
                     <p data-key="product1_desc">AI-Powered Diet and Physical Activity Coach for the Hispanic Community.</p>
                     <ul>
                         <li data-key="product1_feature1">Personalized diet recommendations based on cultural preferences.</li>
@@ -166,6 +173,10 @@
                 <div class="product-card">
                     <span class="status-badge" data-key="product2_status">In Development</span>
                     <h3 data-key="product2_title">Equ-2 Amiga</h3>
+                    <!-- Image for Equ-2 Amiga -->
+                    <div class="product-image-container">
+                        <img src="assets/AdobeStock_776091365.svg" alt="Equ-2 Amiga" class="product-image">
+                    </div>
                     <p data-key="product2_desc">AI Assistant for Healthcare Providers in Complex Clinical Analysis.</p>
                     <ul>
                         <li data-key="product2_feature1">Evidence-based treatment recommendations.</li>
@@ -183,6 +194,10 @@
                 <div class="product-card">
                     <span class="status-badge" data-key="product3_status">In Development</span>
                     <h3 data-key="product3_title">Equ-3 Abu</h3>
+                    <!-- Image for Equ-3 Abu -->
+                    <div class="product-image-container">
+                        <img src="assets/abu.png" alt="Equ-3 Abu" class="product-image">
+                    </div>
                     <p data-key="product3_desc">Connects individuals with the right therapist to meet their unique needs, ensuring culturally sensitive mental health support.</p>
                     <ul>
                         <li data-key="product3_feature1">Personalized matching based on individual preferences.</li>
@@ -198,6 +213,7 @@
                 </div>
             </div>
         </section>
+
         
         <!-- Our Approach Section -->
         <section class="approach" id="approach">
@@ -231,6 +247,12 @@
             <h2 class="section-title" data-key="technology_title">Neurosymbolic AI: The Future of Healthcare</h2>
             <div class="technology__content">
                 <p data-key="technology_p1">Our commitment to R&D drives us to the forefront of AI innovation in healthcare. We leverage neurosymbolic intelligence—a fusion of neural networks and symbolic AI—to manage complex health data and deliver precise, interpretable solutions.</p>
+                
+                <!-- Image for Neurosymbolic AI -->
+                <div class="ai-image-container">
+                    <img src="assets/AdobeStock_786500293.jpeg" alt="Neurosymbolic AI Image" class="ai-image">
+                </div>
+
                 <h3 data-key="technology_h3_nn">Neural Networks</h3>
                 <p data-key="technology_p2">Excel at pattern recognition, uncovering trends and anomalies within vast datasets encompassing metabolic, nutritional, and mental health metrics.</p>
                 <h3 data-key="technology_h3_sa">Symbolic AI</h3>
@@ -240,19 +262,27 @@
             </div>
         </section>
         
-        <!-- N=1 Section -->
-        <section class="n1">
+        <!-- N=1 Section with Image -->
+        <section class="n1" id="n1">
             <h2 class="section-title" data-key="n1_title">N=1 for Precision Medicine</h2>
             <div class="n1__content">
                 <p data-key="n1_text">At Equ Healthcare, we embrace the concept of 'n=1' in precision medicine, designing digital health solutions that address the unique needs of each individual. By integrating personalized care with interpretable technology, we provide support precisely tailored to each person's circumstances.</p>
             </div>
+            <!-- Full-width image -->
+            <div class="n1-image-container">
+                <img src="assets/AdobeStock_187198026.jpeg" alt="N=1 Approach" class="n1-image">
+            </div>
         </section>
         
         <!-- Vision Section -->
-        <section class="vision">
+        <section class="vision" id="vision">
             <h2 class="section-title" data-key="vision_title">Our Vision</h2>
             <div class="vision__content">
                 <p data-key="vision_text">We start in the Hispanic community in the US with a goal to expand to Latin America, bringing equitable healthcare solutions to a broader audience.</p>
+                <!-- Image of Vision -->
+                <div class="vision-image-container">
+                    <img src="assets/image17.jpg" alt="Vision Image" class="vision-image">
+                </div>
             </div>
         </section>
         

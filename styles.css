@@ -820,3 +820,113 @@ footer .social-links a:focus {
         display: flex;
     }
 }
+
+
+/* new sections modified separately */
+
+
+/* Logo styling */
+.nav__logo .logo {
+    width: 60px; /* Adjust as necessary */
+    height: auto;
+}
+
+/* Make the container full width */
+.n1-image-container {
+    position: relative;
+    width: 100vw; /* Full viewport width */
+    margin-left: calc(-50vw + 50%); /* Aligns to the edge of the screen */
+}
+
+.n1-image {
+    width: 100%; /* Ensures the image fills the full container */
+    height: auto;
+}
+/* Mobile responsiveness */
+@media screen and (max-width: 768px) {
+    .n1-image {
+        max-width: 100%; /* Ensures full width on smaller screens */
+    }
+}
+
+.about__logo-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px; /* Add space between logo and content */
+}
+
+.about-logo {
+    width: 150px; /* Adjust the size of the logo as needed */
+    height: auto;
+}
+
+/* Container for product images */
+.product-image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15px; /* Adds space between image and text */
+}
+
+/* Product image styling - round images */
+.product-image {
+    width: 150px; /* Ensure the image is square for round effect */
+    height: 150px; /* Match width to make it a circle */
+    object-fit: cover; /* Ensures the image scales properly */
+    border-radius: 50%; /* Makes the image round */
+}
+
+/* Adjust product image size for mobile */
+@media screen and (max-width: 768px) {
+    .product-image {
+        width: 100px; /* Smaller size for mobile */
+        height: 100px; /* Match width */
+    }
+}
+
+/* Container for the vision image */
+.vision-image-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px; /* Adds space above the image */
+    margin-bottom: 20px; /* Adds space below the image */
+}
+
+/* Vision image styling */
+.vision-image {
+    width: 100%;
+    max-width: 800px; /* Ensures the image is not too large on wide screens */
+    height: auto; /* Maintains aspect ratio */
+    border-radius: 10px; /* Adds slight rounding to the corners */
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2); /* Adds a subtle shadow for emphasis */
+}
+
+/* Responsive adjustments for smaller screens */
+@media screen and (max-width: 768px) {
+    .vision-image {
+        max-width: 100%; /* Ensures the image scales well on mobile */
+    }
+}
+
+/* Container for the AI image */
+.ai-image-container {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0; /* Space above and below the image */
+}
+
+/* AI image styling */
+.ai-image {
+    width: 100%;
+    max-width: 1000px; /* Ensures it does not get too large */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 10px; /* Slight rounding of the corners */
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2); /* Adds a subtle shadow to highlight the image */
+}
+
+/* Responsive image scaling */
+@media screen and (max-width: 768px) {
+    .ai-image {
+        max-width: 100%; /* Ensures the image scales down on mobile */
+    }
+}
