@@ -1,0 +1,1178 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <title>Equ Healthcare - Balancing Health and Equity</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Meta tag for content language -->
+    <meta http-equiv="Content-Language" content="en">
+    <!-- Internal CSS -->
+    <style>
+        /* Root Variables */
+        :root {
+            /* Primary Colors */
+            --primary-blue: #2A9D8F;
+            --secondary-navy: #264653;
+            --accent-warm: #E9C46A;
+            --accent-alert: #E76F51;
+            --hover-state: #F4A261;
+
+            /* Background Variations */
+            --gradient-primary: linear-gradient(135deg, var(--primary-blue), var(--accent-warm));
+            --gradient-secondary: linear-gradient(45deg, var(--secondary-navy), var(--primary-blue));
+
+            /* Text Colors */
+            --text-dark: #264653;
+            --text-light: #FFFFFF;
+
+            /* System States */
+            --focus-ring: var(--accent-alert);
+            --success: #2A9D8F;
+            --warning: #E9C46A;
+            --error: #E76F51;
+
+            /* Font Stacks */
+            --font-primary: 'Montserrat', sans-serif;
+            --font-secondary: 'Open Sans', sans-serif;
+
+            /* Font Sizes */
+            --text-xs: 0.75rem;
+            --text-sm: 0.875rem;
+            --text-base: 1rem;
+            --text-lg: 1.125rem;
+            --text-xl: 1.25rem;
+            --text-2xl: 1.5rem;
+            --text-3xl: 1.875rem;
+            --text-4xl: 2.25rem;
+
+            /* Breakpoints */
+            --mobile: 320px;
+            --tablet: 768px;
+            --laptop: 1024px;
+            --desktop: 1280px;
+
+            /* Animation Timing */
+            --ease-out: cubic-bezier(0.33, 1, 0.68, 1);
+            --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+
+            /* Animation Durations */
+            --duration-fast: 150ms;
+            --duration-normal: 300ms;
+            --duration-slow: 500ms;
+        }
+
+        /* Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-secondary);
+            color: var(--text-dark);
+            background-color: #fff;
+            line-height: 1.6;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+            transition: color var(--duration-normal);
+        }
+
+        a:hover {
+            color: var(--hover-state);
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        /* Skip Link */
+        .skip-link {
+            position: absolute;
+            top: -100px;
+            left: 0;
+            background: var(--accent-alert);
+            color: var(--text-light);
+            padding: 0.5rem 1rem;
+            z-index: 100;
+        }
+
+        .skip-link:focus {
+            top: 0;
+        }
+
+        /* Navigation */
+        nav {
+            position: sticky;
+            top: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            background-color: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            z-index: 999;
+        }
+
+        .nav__logo {
+            font-family: var(--font-primary);
+            font-size: var(--text-2xl);
+            color: var(--text-dark);
+            display: flex;
+            align-items: center;
+        }
+
+        .nav__logo svg {
+            width: 40px;
+            height: 40px;
+            margin-right: 0.5rem;
+        }
+
+        .nav__menu {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .nav__item {
+            position: relative;
+        }
+
+        .nav__link {
+            color: var(--text-dark);
+            font-size: var(--text-base);
+            padding: 0.5rem 0;
+        }
+
+        .nav__link::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+            width: 0%;
+            height: 2px;
+            background-color: var(--accent-warm);
+            transition: width var(--duration-normal);
+        }
+
+        .nav__link:hover::after {
+            width: 100%;
+        }
+
+        /* Language Switcher */
+        .language-switcher {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+        }
+
+        .language-switcher button {
+            background: none;
+            border: none;
+            color: var(--text-dark);
+            font-size: var(--text-base);
+            cursor: pointer;
+            transition: color var(--duration-normal);
+        }
+
+        .language-switcher button.active {
+            color: var(--accent-alert);
+        }
+
+        /* Hamburger Menu */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+        }
+
+        .hamburger div {
+            width: 25px;
+            height: 3px;
+            background-color: var(--text-dark);
+            transition: all var(--duration-fast);
+        }
+
+        .hamburger.open div:nth-child(1) {
+            transform: translateY(8px) rotate(45deg);
+        }
+
+        .hamburger.open div:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.open div:nth-child(3) {
+            transform: translateY(-8px) rotate(-45deg);
+        }
+
+        /* Mobile Menu */
+        .nav__menu--mobile {
+            display: none;
+            flex-direction: column;
+            background-color: rgba(255, 255, 255, 0.95);
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            padding: 1rem 2rem;
+            transition: max-height 0.3s ease-in-out;
+            max-height: 0;
+            overflow: hidden;
+        }
+
+        .nav__menu--mobile.open {
+            max-height: 500px;
+        }
+
+        .nav__menu--mobile .nav__item {
+            margin-bottom: 1rem;
+        }
+
+        /* Scroll Progress Indicator */
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 5px;
+            background: var(--accent-alert);
+            width: 0%;
+            z-index: 1000;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: left;
+            color: var(--text-dark);
+            overflow: hidden;
+            padding: 0 2rem;
+            background: var(--gradient-primary);
+        }
+
+        .hero__content {
+            max-width: 800px;
+            z-index: 1;
+        }
+
+        .hero__title {
+            font-family: var(--font-primary);
+            font-size: var(--text-4xl);
+            margin-bottom: 1rem;
+            animation: fadeInDown var(--duration-normal) var(--ease-out);
+            line-height: 1.2;
+            color: var(--text-light);
+        }
+
+        .hero__subtitle {
+            font-size: var(--text-xl);
+            margin-bottom: 2rem;
+            animation: fadeInUp var(--duration-normal) var(--ease-out);
+            color: var(--text-light);
+        }
+
+        .hero__cta-group {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .hero__cta {
+            display: inline-block;
+            padding: 0.75rem 2rem;
+            background-color: var(--accent-alert);
+            color: var(--text-light);
+            border-radius: 8px;
+            font-size: var(--text-base);
+            font-family: var(--font-primary);
+            cursor: pointer;
+            transition: background-color var(--duration-normal);
+        }
+
+        .hero__cta--secondary {
+            background-color: var(--text-light);
+            color: var(--accent-alert);
+            border: 2px solid var(--accent-alert);
+        }
+
+        .hero__cta:hover {
+            background-color: var(--hover-state);
+        }
+
+        .hero__cta--secondary:hover {
+            background-color: var(--accent-alert);
+            color: var(--text-light);
+        }
+
+        /* Animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Sections */
+        section {
+            padding: 4rem 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            font-family: var(--font-primary);
+            font-size: var(--text-3xl);
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 4px;
+            background: var(--accent-warm);
+            left: 25%;
+            bottom: -10px;
+        }
+
+        /* Pillars Section */
+        .pillars {
+            background-color: #F9F9F9;
+        }
+
+        .pillars__grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .pillar {
+            background-color: #FFFFFF;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform var(--duration-normal), box-shadow var(--duration-normal);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pillar:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .pillar h3 {
+            font-family: var(--font-primary);
+            font-size: var(--text-xl);
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .pillar h3 svg {
+            width: 30px;
+            height: 30px;
+            margin-right: 0.5rem;
+        }
+
+        .pillar p {
+            font-size: var(--text-base);
+            color: var(--text-dark);
+        }
+
+        /* Products Section */
+        .products {
+            background-color: #FFFFFF;
+        }
+
+        .products__grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .product-card {
+            position: relative;
+            background-color: #F9F9F9;
+            padding: 2rem;
+            border-radius: 10px;
+            transition: transform var(--duration-normal), box-shadow var(--duration-normal);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .product-card h3 {
+            font-family: var(--font-primary);
+            font-size: var(--text-xl);
+            margin-bottom: 1rem;
+        }
+
+        .product-card p {
+            font-size: var(--text-base);
+            margin-bottom: 1rem;
+            flex-grow: 1;
+        }
+
+        .product-card ul {
+            text-align: left;
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+        }
+
+        .product-card ul li {
+            margin-bottom: 0.5rem;
+            font-size: var(--text-base);
+        }
+
+        .product-card .status-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background-color: var(--warning);
+            color: var(--text-light);
+            padding: 0.25rem 0.5rem;
+            font-size: var(--text-xs);
+            border-radius: 5px;
+        }
+
+        .product-card .progress-bar {
+            width: 100%;
+            height: 10px;
+            background-color: #E0E0E0;
+            border-radius: 5px;
+            overflow: hidden;
+            margin-bottom: 1rem;
+        }
+
+        .product-card .progress-bar .progress {
+            height: 100%;
+            background-color: var(--accent-warm);
+            width: 0%;
+            animation: loadProgress var(--duration-slow) forwards;
+        }
+
+        @keyframes loadProgress {
+            to {
+                width: var(--progress);
+            }
+        }
+
+        .product-card .progress-label {
+            font-size: var(--text-sm);
+            margin-bottom: 1rem;
+        }
+
+        .product-card .cta {
+            padding: 0.5rem 1.5rem;
+            background-color: var(--accent-alert);
+            color: var(--text-light);
+            border-radius: 50px;
+            font-size: var(--text-base);
+            cursor: pointer;
+            transition: background-color var(--duration-normal);
+        }
+
+        .product-card .cta:hover {
+            background-color: var(--hover-state);
+        }
+
+        /* Additional Sections */
+        .about,
+        .mission,
+        .approach,
+        .technology,
+        .n1,
+        .vision {
+            background-color: #FFFFFF;
+            text-align: center;
+        }
+
+        .about__content,
+        .mission__content,
+        .technology__content,
+        .n1__content,
+        .vision__content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .about__content p,
+        .mission__content p,
+        .technology__content p,
+        .n1__content p,
+        .vision__content p {
+            font-size: var(--text-base);
+            margin-bottom: 1.5rem;
+        }
+
+        .approach__grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .approach__item {
+            background-color: #F9F9F9;
+            padding: 2rem;
+            border-radius: 10px;
+            transition: transform var(--duration-normal), box-shadow var(--duration-normal);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .approach__item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .approach__item h3 {
+            font-family: var(--font-primary);
+            font-size: var(--text-xl);
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        .approach__item p {
+            font-size: var(--text-base);
+            color: var(--text-dark);
+        }
+
+        /* Team Section */
+        .team {
+            background-color: #F9F9F9;
+        }
+
+        .team__grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            justify-content: center;
+        }
+
+        .team-member {
+            text-align: center;
+            padding: 2rem;
+            background-color: #FFFFFF;
+            border-radius: 10px;
+            position: relative;
+            overflow: hidden;
+            transition: transform var(--duration-normal), box-shadow var(--duration-normal);
+        }
+
+        .team-member:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .team-member .avatar {
+            width: 100px;
+            height: 100px;
+            background-color: var(--secondary-navy);
+            border-radius: 50%;
+            margin: 0 auto 1rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .team-member h3 {
+            font-family: var(--font-primary);
+            font-size: var(--text-lg);
+            margin-bottom: 0.5rem;
+            color: var(--text-dark);
+        }
+
+        .team-member p {
+            font-size: var(--text-base);
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+        }
+
+        .team-member .social-links a {
+            color: var(--text-dark);
+            margin: 0 0.5rem;
+            font-size: var(--text-lg);
+        }
+
+        /* Contact Section */
+        .contact {
+            background-color: #FFFFFF;
+            text-align: center;
+        }
+
+        .contact__form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact__form input,
+        .contact__form textarea {
+            width: 100%;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border: 1px solid #CCCCCC;
+            border-radius: 5px;
+            font-size: var(--text-base);
+        }
+
+        .contact__form button {
+            padding: 0.75rem 2rem;
+            background-color: var(--accent-alert);
+            color: var(--text-light);
+            border: none;
+            font-size: var(--text-base);
+            cursor: pointer;
+            border-radius: 50px;
+            transition: background-color var(--duration-normal);
+        }
+
+        .contact__form button:hover {
+            background-color: var(--hover-state);
+        }
+
+        .success-message {
+            color: var(--success);
+            margin-top: 1rem;
+            font-size: var(--text-base);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--secondary-navy);
+            color: var(--text-light);
+            text-align: center;
+            padding: 2rem;
+            font-size: var(--text-sm);
+        }
+
+        footer .footer__links {
+            margin-bottom: 1rem;
+        }
+
+        footer .footer__links a {
+            color: var(--text-light);
+            margin: 0 0.5rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav__menu {
+                display: none;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .language-switcher {
+                position: absolute;
+                top: 1rem;
+                right: 2rem;
+            }
+
+            .hero {
+                text-align: center;
+            }
+
+            .hero__content {
+                padding: 2rem 0;
+            }
+
+            .hero__cta-group {
+                flex-direction: column;
+            }
+        }
+
+        /* Accessibility */
+        a:focus,
+        button:focus,
+        input:focus,
+        textarea:focus {
+            outline: 2px solid var(--focus-ring);
+            outline-offset: 2px;
+        }
+    </style>
+</head>
+<body>
+    <a href="#main" class="skip-link">Skip to main content</a>
+    <!-- Scroll Progress Indicator -->
+    <div class="progress-bar" id="progress-bar"></div>
+    <!-- Navigation -->
+    <nav class="nav nav--sticky">
+        <div class="nav__logo">
+            <!-- Logo SVG -->
+            <svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="30" cy="30" r="30" fill="var(--primary-blue)"/>
+            </svg>
+            Equ Healthcare
+        </div>
+        <div class="nav__menu">
+            <div class="nav__item"><a href="#about" class="nav__link" data-key="nav_about" lang="en">About</a></div>
+            <div class="nav__item"><a href="#solutions" class="nav__link" data-key="nav_solutions" lang="en">Solutions</a></div>
+            <div class="nav__item"><a href="#approach" class="nav__link" data-key="nav_approach" lang="en">Approach</a></div>
+            <div class="nav__item"><a href="#technology" class="nav__link" data-key="nav_technology" lang="en">Technology</a></div>
+            <div class="nav__item"><a href="#team" class="nav__link" data-key="nav_team" lang="en">Team</a></div>
+            <div class="nav__item"><a href="#contact" class="nav__link" data-key="nav_contact" lang="en">Contact</a></div>
+        </div>
+        <!-- Language Switcher -->
+        <div class="language-switcher">
+            <button id="lang-en" class="active" data-lang="en">EN</button> | <button id="lang-es" data-lang="es">ES</button>
+        </div>
+        <!-- Hamburger Menu -->
+        <div class="hamburger" id="hamburger">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <!-- Mobile Menu -->
+        <div class="nav__menu--mobile" id="mobileMenu">
+            <div class="nav__item"><a href="#about" class="nav__link" data-key="nav_about" lang="en">About</a></div>
+            <div class="nav__item"><a href="#solutions" class="nav__link" data-key="nav_solutions" lang="en">Solutions</a></div>
+            <div class="nav__item"><a href="#approach" class="nav__link" data-key="nav_approach" lang="en">Approach</a></div>
+            <div class="nav__item"><a href="#technology" class="nav__link" data-key="nav_technology" lang="en">Technology</a></div>
+            <div class="nav__item"><a href="#team" class="nav__link" data-key="nav_team" lang="en">Team</a></div>
+            <div class="nav__item"><a href="#contact" class="nav__link" data-key="nav_contact" lang="en">Contact</a></div>
+        </div>
+    </nav>
+    <main id="main">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero__content">
+                <h1 class="hero__title" data-key="hero_title" lang="en">Balancing health and equity for the Hispanic community in the United States, one equation at a time.</h1>
+                <p class="hero__subtitle" data-key="hero_subtitle" lang="en">Empowering the Hispanic/Latino community with culturally tailored, transparent AI healthcare solutions for a healthier future.</p>
+                <div class="hero__cta-group">
+                    <a href="#solutions" class="hero__cta" data-key="hero_cta_explore" lang="en">Explore Our Solutions</a>
+                    <a href="#about" class="hero__cta hero__cta--secondary" data-key="hero_cta_start" lang="en">Start Your Health Journey</a>
+                </div>
+            </div>
+        </section>
+        <!-- About Us Section -->
+        <section class="about" id="about">
+            <h2 class="section-title" data-key="about_title" lang="en">About Us</h2>
+            <div class="about__content">
+                <p data-key="about_p1" lang="en">At Equ Healthcare, we specialize in developing interpretable AI solutions that are transparent and culturally tailored for the Hispanic/Latino community. Our focus on balance, precision, and equity ensures that our technology not only advances healthcare outcomes but also fosters trust and engagement.</p>
+                <p data-key="about_p2" lang="en">Founded as a spin-out from research at MIT and Harvard Medical School, Equ Healthcare is built upon a strong foundation of scientific innovation. Supported by the National Science Foundation, we leverage cutting-edge technology to bridge gaps in healthcare disparities.</p>
+            </div>
+        </section>
+        <!-- Pillars Section -->
+        <section class="pillars">
+            <h2 class="section-title" data-key="pillars_title" lang="en">Our Pillars</h2>
+            <div class="pillars__grid">
+                <div class="pillar">
+                    <h3 data-key="pillar1_title" lang="en">
+                        <!-- Icon SVG -->
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <circle cx="12" cy="12" r="10" stroke="var(--primary-blue)" stroke-width="2" fill="none"/>
+                        </svg>
+                        Equilibrium | Equilibrio
+                    </h3>
+                    <p data-key="pillar1_text" lang="en">Our AI platform harmonizes metabolic, nutritional, and mental health by leveraging real-time data and adaptive algorithms. This ensures personalized, actionable insights that empower individuals to achieve and maintain optimal health.</p>
+                </div>
+                <div class="pillar">
+                    <h3 data-key="pillar2_title" lang="en">
+                        <!-- Icon SVG -->
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <rect x="4" y="4" width="16" height="16" stroke="var(--primary-blue)" stroke-width="2" fill="none"/>
+                        </svg>
+                        Equation | Ecuación
+                    </h3>
+                    <p data-key="pillar2_text" lang="en">We utilize advanced neurosymbolic AI, integrating neural networks for pattern recognition with symbolic reasoning for decision-making. This unique approach delivers precise, evidence-based interventions while maintaining full transparency.</p>
+                </div>
+                <div class="pillar">
+                    <h3 data-key="pillar3_title" lang="en">
+                        <!-- Icon SVG -->
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M12 2L2 22h20L12 2z" stroke="var(--primary-blue)" stroke-width="2" fill="none"/>
+                        </svg>
+                        Equity | Equidad
+                    </h3>
+                    <p data-key="pillar3_text" lang="en">Our dedication to healthcare equity means delivering culturally tailored, accessible, and interpretable care. We enable underserved Hispanic/Latino communities to confidently engage with personalized health plans.</p>
+                </div>
+                <div class="pillar">
+                    <h3 data-key="pillar4_title" lang="en">
+                        <!-- Icon SVG -->
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <circle cx="12" cy="12" r="8" stroke="var(--primary-blue)" stroke-width="2" fill="none"/>
+                            <line x1="2" y1="12" x2="22" y2="12" stroke="var(--primary-blue)" stroke-width="2"/>
+                            <line x1="12" y1="2" x2="12" y2="22" stroke="var(--primary-blue)" stroke-width="2"/>
+                        </svg>
+                        Equality | Igualdad
+                    </h3>
+                    <p data-key="pillar4_text" lang="en">By employing white-box AI models, we ensure fairness and transparency in healthcare delivery. Our technology supports equitable treatment and outcomes for all individuals, regardless of socioeconomic background.</p>
+                </div>
+            </div>
+        </section>
+        <!-- Our Mission Section -->
+        <section class="mission">
+            <h2 class="section-title" data-key="mission_title" lang="en">Our Mission</h2>
+            <div class="mission__content">
+                <p data-key="mission_text" lang="en">At Equ Healthcare, we are dedicated to revolutionizing precision healthcare for the Hispanic/Latino community through scientifically validated, culturally responsive, and transparent AI solutions.</p>
+            </div>
+        </section>
+        <!-- Products Section -->
+        <section class="products" id="solutions">
+            <h2 class="section-title" data-key="solutions_title" lang="en">Our Solutions</h2>
+            <div class="products__grid">
+                <!-- Equ-1 Amigo -->
+                <div class="product-card">
+                    <span class="status-badge" data-key="product1_status" lang="en">In Development</span>
+                    <h3 data-key="product1_title" lang="en">Equ-1 Amigo</h3>
+                    <p data-key="product1_desc" lang="en">AI-Powered Diet and Physical Activity Coach for the Hispanic Community.</p>
+                    <ul>
+                        <li data-key="product1_feature1" lang="en">Personalized diet recommendations based on cultural preferences.</li>
+                        <li data-key="product1_feature2" lang="en">Activity tracking and goal setting.</li>
+                        <li data-key="product1_feature3" lang="en">Interactive daily tips and motivational messages.</li>
+                        <li data-key="product1_feature4" lang="en">Progress tracking with rewards and achievements.</li>
+                    </ul>
+                    <div class="progress-bar">
+                        <div class="progress" style="--progress:70%;"></div>
+                    </div>
+                    <div class="progress-label" data-key="product1_progress" lang="en">Prototype Testing Phase (70%)</div>
+                    <button class="cta" data-key="product1_cta" lang="en">Join Waitlist</button>
+                </div>
+                <!-- Equ-2 Amiga -->
+                <div class="product-card">
+                    <span class="status-badge" data-key="product2_status" lang="en">In Development</span>
+                    <h3 data-key="product2_title" lang="en">Equ-2 Amiga</h3>
+                    <p data-key="product2_desc" lang="en">AI Assistant for Healthcare Providers in Complex Clinical Analysis.</p>
+                    <ul>
+                        <li data-key="product2_feature1" lang="en">Evidence-based treatment recommendations.</li>
+                        <li data-key="product2_feature2" lang="en">Clear, interpretable insights to enhance decision-making.</li>
+                        <li data-key="product2_feature3" lang="en">Seamless integration with existing healthcare systems.</li>
+                        <li data-key="product2_feature4" lang="en">Support for improved patient outcomes.</li>
+                    </ul>
+                    <div class="progress-bar">
+                        <div class="progress" style="--progress:50%;"></div>
+                    </div>
+                    <div class="progress-label" data-key="product2_progress" lang="en">Development Phase (50%)</div>
+                    <button class="cta" data-key="product2_cta" lang="en">Sign Up for Updates</button>
+                </div>
+                <!-- Equ-3 Abu -->
+                <div class="product-card">
+                    <span class="status-badge" data-key="product3_status" lang="en">In Development</span>
+                    <h3 data-key="product3_title" lang="en">Equ-3 Abu</h3>
+                    <p data-key="product3_desc" lang="en">Connects individuals with the right therapist to meet their unique needs, ensuring culturally sensitive mental health support.</p>
+                    <ul>
+                        <li data-key="product3_feature1" lang="en">Personalized matching based on individual preferences.</li>
+                        <li data-key="product3_feature2" lang="en">Network of culturally competent therapists.</li>
+                        <li data-key="product3_feature3" lang="en">Confidential and user-friendly platform.</li>
+                        <li data-key="product3_feature4" lang="en">Support in both English and Spanish.</li>
+                    </ul>
+                    <div class="progress-bar">
+                        <div class="progress" style="--progress:30%;"></div>
+                    </div>
+                    <div class="progress-label" data-key="product3_progress" lang="en">Research Phase (30%)</div>
+                    <button class="cta" data-key="product3_cta" lang="en">Learn More</button>
+                </div>
+            </div>
+        </section>
+        <!-- Our Approach Section -->
+        <section class="approach" id="approach">
+            <h2 class="section-title" data-key="approach_title" lang="en">Our Approach</h2>
+            <div class="approach__grid">
+                <div class="approach__item">
+                    <h3 data-key="approach1_title" lang="en">Modularity</h3>
+                    <p data-key="approach1_text" lang="en">Our solutions operate as distinct components, transforming complex healthcare processes into manageable, focused units.</p>
+                </div>
+                <div class="approach__item">
+                    <h3 data-key="approach2_title" lang="en">Abstraction</h3>
+                    <p data-key="approach2_text" lang="en">By abstracting key healthcare operations, we streamline personalized care with AI-driven modules addressing specific needs.</p>
+                </div>
+                <div class="approach__item">
+                    <h3 data-key="approach3_title" lang="en">Scalability</h3>
+                    <p data-key="approach3_text" lang="en">Our adaptable system scales with evolving healthcare demands, incorporating advanced AI functionalities to serve broader populations.</p>
+                </div>
+                <div class="approach__item">
+                    <h3 data-key="approach4_title" lang="en">Interoperability</h3>
+                    <p data-key="approach4_text" lang="en">Each module integrates seamlessly within the healthcare ecosystem, ensuring efficient data exchange and enhancing care delivery.</p>
+                </div>
+            </div>
+        </section>
+        <!-- Technology Section -->
+        <section class="technology" id="technology">
+            <h2 class="section-title" data-key="technology_title" lang="en">Neurosymbolic AI: The Future of Healthcare</h2>
+            <div class="technology__content">
+                <p data-key="technology_p1" lang="en">Our commitment to R&D drives us to the forefront of AI innovation in healthcare. We leverage neurosymbolic intelligence—a fusion of neural networks and symbolic AI—to manage complex health data and deliver precise, interpretable solutions.</p>
+                <h3 data-key="technology_h3_nn" lang="en">Neural Networks</h3>
+                <p data-key="technology_p2" lang="en">Excel at pattern recognition, uncovering trends and anomalies within vast datasets encompassing metabolic, nutritional, and mental health metrics.</p>
+                <h3 data-key="technology_h3_sa" lang="en">Symbolic AI</h3>
+                <p data-key="technology_p3" lang="en">Utilize logical reasoning and decision-making frameworks, applying clinical knowledge to provide clear, structured treatment recommendations.</p>
+                <h3 data-key="technology_h3_integration" lang="en">Integration</h3>
+                <p data-key="technology_p4" lang="en">By integrating these AI paradigms, our neurosymbolic AI offers a holistic and transparent approach to complex medical challenges, enhancing predictive accuracy and ensuring understandable reasoning behind each decision.</p>
+            </div>
+        </section>
+        <!-- N=1 Section -->
+        <section class="n1">
+            <h2 class="section-title" data-key="n1_title" lang="en">N=1 for Precision Medicine</h2>
+            <div class="n1__content">
+                <p data-key="n1_text" lang="en">At Equ Healthcare, we embrace the concept of 'n=1' in precision medicine, designing digital health solutions that address the unique needs of each individual. By integrating personalized care with interpretable technology, we provide support precisely tailored to each person's circumstances.</p>
+            </div>
+        </section>
+        <!-- Vision Section -->
+        <section class="vision">
+            <h2 class="section-title" data-key="vision_title" lang="en">Our Vision</h2>
+            <div class="vision__content">
+                <p data-key="vision_text" lang="en">We start in the Hispanic community in the US with a goal to expand to Latin America, bringing equitable healthcare solutions to a broader audience.</p>
+            </div>
+        </section>
+		<!-- Supporters Section -->
+		<section class="supporters">
+			<h2 class="section-title" data-key="supporters_title" lang="en">Our Supporters</h2>
+			<div class="supporters__grid">
+				<div class="supporter">
+					<img src="mit_lockup_std-one-line_rgb_bright-red.png" alt="MIT" width="500" />
+					<p data-key="MIT" lang="en"></p>
+				</div>
+				<div class="supporter">
+					<img src="hms-logo-final-rgb.png" alt="harv" width="400" />
+					<p data-key="harv" lang="en"></p>
+				</div>
+				</div>
+			</div>
+		</section>
+        <!-- Team Section -->
+        <section class="team" id="team">
+            <h2 class="section-title" data-key="team_title" lang="en">Meet Our Founder</h2>
+            <div class="team__grid">
+			<div class="team-member">
+				<div class="avatar">
+					<img src="0217_9637_lightroom.jpg" alt="Dr. Omar Costilla-Reyes" />
+				</div>
+				<h3 data-key="founder_name" lang="en">Dr. Omar Costilla-Reyes</h3>
+				<p data-key="founder_title" lang="en">Founder & CEO</p>
+				<div class="social-links">
+					<a href="https://www.linkedin.com/in/omarcore/"target="_blank">LinkedIn</a>
+					<a href="https://x.com/konet"target="_blank">Twitter</a>
+				</div>
+			</div>
+            </div>
+        </section>
+        <!-- Contact Section -->
+        <section class="contact" id="contact">
+            <h2 class="section-title" data-key="contact_title" lang="en">Contact Us</h2>
+            <form class="contact__form">
+                <input type="email" placeholder="Your Email" aria-label="Your Email">
+                <textarea rows="5" placeholder="Your Message" aria-label="Your Message"></textarea>
+                <button type="submit">Send Message</button>
+                <!-- Success message -->
+                <p class="success-message" style="display:none;">Thank you! We'll get back to you soon.</p>
+            </form>
+        </section>
+    </main>
+    <!-- Footer -->
+    <footer>
+        <div class="footer__links">
+            <a href="#" data-key="footer_privacy" lang="en">Privacy Policy</a> | <a href="#" data-key="footer_terms" lang="en">Terms of Service</a>
+        </div>
+        <p data-key="footer_copy" lang="en">© Equ Healthcare Technologies. All rights reserved.</p>
+        <!-- Social Media Icons -->
+        <div class="social-links">
+            <a href="#">LinkedIn</a>
+            <a href="#">Twitter</a>
+        </div>
+    </footer>
+    <!-- JavaScript for Interactive Elements -->
+    <script>
+        // Scroll Progress Indicator
+        document.addEventListener('scroll', function() {
+            const scrollTop = document.documentElement.scrollTop;
+            const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrollPercent = (scrollTop / scrollHeight) * 100;
+            document.getElementById('progress-bar').style.width = scrollPercent + '%';
+        });
+
+        // Hamburger Menu Toggle
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobileMenu');
+        hamburger.addEventListener('click', function() {
+            hamburger.classList.toggle('open');
+            mobileMenu.classList.toggle('open');
+        });
+
+        // Contact Form Submission
+        const contactForm = document.querySelector('.contact__form');
+        const successMessage = document.querySelector('.success-message');
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            // Simulate form submission
+            successMessage.style.display = 'block';
+            contactForm.reset();
+        });
+
+        // Language Switching Functionality
+
+        const translations = {
+            "nav_about": {
+                "en": "About",
+                "es": "Acerca de"
+            },
+            "nav_solutions": {
+                "en": "Solutions",
+                "es": "Soluciones"
+            },
+            "nav_approach": {
+                "en": "Approach",
+                "es": "Enfoque"
+            },
+            "nav_technology": {
+                "en": "Technology",
+                "es": "Tecnología"
+            },
+            "nav_team": {
+                "en": "Team",
+                "es": "Equipo"
+            },
+            "nav_contact": {
+                "en": "Contact",
+                "es": "Contacto"
+            },
+            "hero_title": {
+                "en": "Balancing health and equity for the Hispanic community in the United States, one equation at a time.",
+                "es": "Equilibrando salud y equidad para la comunidad hispana en Estados Unidos, una ecuación a la vez."
+            },
+            "hero_subtitle": {
+                "en": "Empowering the Hispanic/Latino community with culturally tailored, transparent AI healthcare solutions for a healthier future.",
+                "es": "Empoderando a la comunidad hispana/latina con soluciones de salud basadas en IA culturalmente adaptadas y transparentes para un futuro más saludable."
+            },
+            "hero_cta_explore": {
+                "en": "Explore Our Solutions",
+                "es": "Explora Nuestras Soluciones"
+            },
+            "hero_cta_start": {
+                "en": "Start Your Health Journey",
+                "es": "Comienza Tu Viaje de Salud"
+            },
+            "about_title": {
+                "en": "About Us",
+                "es": "Sobre Nosotros"
+            },
+            "about_p1": {
+                "en": "At Equ Healthcare, we specialize in developing interpretable AI solutions that are transparent and culturally tailored for the Hispanic/Latino community. Our focus on balance, precision, and equity ensures that our technology not only advances healthcare outcomes but also fosters trust and engagement.",
+                "es": "En Equ Healthcare, nos especializamos en desarrollar soluciones de IA interpretables que son transparentes y culturalmente adaptadas para la comunidad hispana/latina. Nuestro enfoque en el equilibrio, la precisión y la equidad garantiza que nuestra tecnología no solo mejore los resultados de salud, sino que también fomente la confianza y el compromiso."
+            },
+            "about_p2": {
+                "en": "Founded as a spin-out from research at MIT and Harvard Medical School, Equ Healthcare is built upon a strong foundation of scientific innovation. Supported by the National Science Foundation, we leverage cutting-edge technology to bridge gaps in healthcare disparities.",
+                "es": "Fundada como una derivación de investigaciones en MIT y Harvard Medical School, Equ Healthcare se basa en una sólida fundación de innovación científica. Con el apoyo de la National Science Foundation, aprovechamos la tecnología de vanguardia para cerrar brechas en las disparidades de atención médica."
+            },
+            "pillars_title": {
+                "en": "Our Pillars",
+                "es": "Nuestros Pilares"
+            },
+            "pillar1_title": {
+                "en": "Equilibrium | Equilibrio",
+                "es": "Equilibrio | Equilibrium"
+            },
+            "pillar1_text": {
+                "en": "Our AI platform harmonizes metabolic, nutritional, and mental health by leveraging real-time data and adaptive algorithms. This ensures personalized, actionable insights that empower individuals to achieve and maintain optimal health.",
+                "es": "Nuestra plataforma de IA armoniza la salud metabólica, nutricional y mental aprovechando datos en tiempo real y algoritmos adaptativos. Esto garantiza conocimientos personalizados y accionables que empoderan a las personas para lograr y mantener una salud óptima."
+            },
+            // Add translations for other pillars, sections, and text elements...
+            "footer_privacy": {
+                "en": "Privacy Policy",
+                "es": "Política de Privacidad"
+            },
+            "footer_terms": {
+                "en": "Terms of Service",
+                "es": "Términos de Servicio"
+            },
+            "footer_copy": {
+                "en": "© Equ Healthcare Technologies. All rights reserved.",
+                "es": "© Equ Healthcare Technologies. Todos los derechos reservados."
+            }
+        };
+
+        // Language Switching Functionality
+        const languageSwitcher = document.querySelector('.language-switcher');
+        const langButtons = languageSwitcher.querySelectorAll('button');
+        let currentLang = 'en';
+
+        // Function to switch language
+        function switchLanguage(lang) {
+            currentLang = lang;
+            document.documentElement.lang = lang;
+            document.querySelector('meta[http-equiv="Content-Language"]').setAttribute('content', lang);
+
+            // Update active class
+            langButtons.forEach(button => {
+                if (button.dataset.lang === lang) {
+                    button.classList.add('active');
+                } else {
+                    button.classList.remove('active');
+                }
+            });
+
+            // Update text content
+            document.querySelectorAll('[data-key]').forEach(element => {
+                const key = element.getAttribute('data-key');
+                if (translations[key] && translations[key][lang]) {
+                    element.textContent = translations[key][lang];
+                    element.setAttribute('lang', lang);
+                }
+            });
+        }
+
+        // Add event listeners to language switcher buttons
+        langButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const selectedLang = button.dataset.lang;
+                if (selectedLang !== currentLang) {
+                    switchLanguage(selectedLang);
+                }
+            });
+        });
+
+        // Initialize language on page load
+        switchLanguage('en');
+
+        // Smooth Scrolling for Navigation Links
+        document.querySelectorAll('a.nav__link').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                target.scrollIntoView({ behavior: 'smooth' });
+
+                // Close mobile menu after clicking
+                if (mobileMenu.classList.contains('open')) {
+                    mobileMenu.classList.remove('open');
+                    hamburger.classList.remove('open');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
