@@ -1,6 +1,13 @@
-// scripts.js
+// assets/js/main.js
 
-// Ensure the script runs after the DOM is fully loaded
+/**
+ * main.js
+ * 
+ * This script initializes various interactive components of the Equ Healthcare website,
+ * including scroll progress indicator, hamburger menu, contact form handling, language switching,
+ * and smooth scrolling. It ensures accessibility, performance optimization, and security considerations.
+ */
+
 document.addEventListener('DOMContentLoaded', () => {
     initScrollProgress();
     initHamburgerMenu();
@@ -11,91 +18,151 @@ document.addEventListener('DOMContentLoaded', () => {
 
 /**
  * Initializes the scroll progress indicator.
+ * Enhances performance by debouncing the scroll event listener.
  */
 function initScrollProgress() {
     const progressBar = document.getElementById('progress-bar');
 
-    window.addEventListener('scroll', () => {
+    /**
+     * Debounce function to limit the rate at which a function can fire.
+     * @param {Function} func - The function to debounce.
+     * @param {number} wait - The delay in milliseconds.
+     * @returns {Function} - The debounced function.
+     */
+    function debounce(func, wait = 20) {
+        let timeout;
+        return function(...args) {
+            clearTimeout(timeout);
+            timeout = setTimeout(() => func.apply(this, args), wait);
+        };
+    }
+
+    /**
+     * Updates the width of the progress bar based on scroll position.
+     */
+    function updateProgressBar() {
         const scrollTop = document.documentElement.scrollTop;
         const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
         const scrollPercent = (scrollTop / scrollHeight) * 100;
         progressBar.style.width = `${scrollPercent}%`;
-    });
+    }
+
+    window.addEventListener('scroll', debounce(updateProgressBar, 100));
 }
 
 /**
  * Initializes the hamburger menu toggle functionality.
+ * Ensures accessibility by updating ARIA attributes.
  */
 function initHamburgerMenu() {
     const hamburger = document.getElementById('hamburger');
     const mobileMenu = document.getElementById('mobileMenu');
 
-    hamburger.addEventListener('click', () => {
+    /**
+     * Toggles the mobile menu visibility and updates ARIA attributes.
+     */
+    function toggleMobileMenu() {
         const isOpen = hamburger.classList.toggle('open');
         mobileMenu.classList.toggle('open');
 
         // Update ARIA attributes for accessibility
         hamburger.setAttribute('aria-expanded', isOpen);
         mobileMenu.setAttribute('aria-hidden', !isOpen);
-    });
+    }
 
-    // Close mobile menu when a navigation link is clicked
+    hamburger.addEventListener('click', toggleMobileMenu);
+
+    /**
+     * Closes the mobile menu when a navigation link is clicked.
+     */
+    function closeMobileMenuOnLinkClick() {
+        if (mobileMenu.classList.contains('open')) {
+            mobileMenu.classList.remove('open');
+            hamburger.classList.remove('open');
+            hamburger.setAttribute('aria-expanded', false);
+            mobileMenu.setAttribute('aria-hidden', true);
+        }
+    }
+
+    // Attach click event listeners to all navigation links in the mobile menu
     mobileMenu.querySelectorAll('.nav__link').forEach(link => {
-        link.addEventListener('click', () => {
-            if (mobileMenu.classList.contains('open')) {
-                mobileMenu.classList.remove('open');
-                hamburger.classList.remove('open');
-                hamburger.setAttribute('aria-expanded', false);
-                mobileMenu.setAttribute('aria-hidden', true);
-            }
-        });
+        link.addEventListener('click', closeMobileMenuOnLinkClick);
     });
 }
 
 /**
- * Initializes the contact form submission handling.
+ * Initializes the contact form submission handling with backend integration.
+ * Ensures secure data handling and provides user feedback.
  */
 function initContactForm() {
     const contactForm = document.querySelector('.contact__form');
     const successMessage = document.querySelector('.success-message');
 
-    contactForm.addEventListener('submit', (e) => {
+    /**
+     * Handles form submission by sending data to the backend securely.
+     * @param {Event} e - The submit event.
+     */
+    async function handleFormSubmit(e) {
         e.preventDefault();
 
-        // Simple form validation
         const emailInput = contactForm.querySelector('input[type="email"]');
         const messageTextarea = contactForm.querySelector('textarea');
 
+        // Perform client-side validation
         if (emailInput.checkValidity() && messageTextarea.checkValidity()) {
-            // Simulate form submission (e.g., AJAX request)
-            // Here, we'll just display the success message
-            successMessage.style.display = 'block';
-            contactForm.reset();
+            try {
+                const response = await fetch('/api/contact', { // Replace with actual backend endpoint
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        email: emailInput.value.trim(),
+                        message: messageTextarea.value.trim()
+                    })
+                });
 
-            // Optionally hide the message after a few seconds
-            setTimeout(() => {
-                successMessage.style.display = 'none';
-            }, 5000);
+                if (response.ok) {
+                    // Display success message and reset form
+                    successMessage.style.display = 'block';
+                    contactForm.reset();
+
+                    // Hide the success message after 5 seconds
+                    setTimeout(() => {
+                        successMessage.style.display = 'none';
+                    }, 5000);
+                } else {
+                    // Handle server errors
+                    const errorData = await response.json();
+                    alert(errorData.message || 'There was an error submitting your message. Please try again later.');
+                }
+            } catch (error) {
+                console.error('Form submission error:', error);
+                alert('There was an error submitting your message. Please try again later.');
+            }
         } else {
             // Highlight invalid fields
             emailInput.reportValidity();
             messageTextarea.reportValidity();
         }
-    });
+    }
+
+    contactForm.addEventListener('submit', handleFormSubmit);
 }
 
 /**
  * Initializes the language switching functionality.
+ * Enhances efficiency by minimizing DOM queries and leveraging data attributes.
  */
 function initLanguageSwitcher() {
     const languageSwitcher = document.querySelector('.language-switcher');
-    const langButtons = languageSwitcher.querySelectorAll('button');
+    const langButtons = languageSwitcher.querySelectorAll('button[data-lang]');
     let currentLang = 'en';
 
     const translations = {
         "nav_about": {
-            "en": "About",
-            "es": "Acerca de"
+            "en": "About Us",
+            "es": "Sobre Nosotros"
         },
         "nav_solutions": {
             "en": "Solutions",
@@ -424,28 +491,40 @@ function initLanguageSwitcher() {
         "footer_copy": {
             "en": "© Equ Healthcare Technologies. All rights reserved.",
             "es": "© Equ Healthcare Technologies. Todos los derechos reservados."
+        },
+        "label_email": {
+            "en": "Your Email",
+            "es": "Tu Correo Electrónico"
+        },
+        "label_message": {
+            "en": "Your Message",
+            "es": "Tu Mensaje"
+        },
+        "submit_button": {
+            "en": "Send Message",
+            "es": "Enviar Mensaje"
         }
     };
 
     /**
      * Switches the website language.
+     * Updates text content based on the selected language.
      * @param {string} lang - The language code ('en' or 'es').
      */
     function switchLanguage(lang) {
         currentLang = lang;
         document.documentElement.lang = lang;
+
         const metaContentLanguage = document.querySelector('meta[http-equiv="Content-Language"]');
         if (metaContentLanguage) {
             metaContentLanguage.setAttribute('content', lang);
         }
 
-        // Update active class on language buttons
+        // Update active class and ARIA attributes on language buttons
         langButtons.forEach(button => {
-            if (button.dataset.lang === lang) {
-                button.classList.add('active');
-            } else {
-                button.classList.remove('active');
-            }
+            const isActive = button.dataset.lang === lang;
+            button.classList.toggle('active', isActive);
+            button.setAttribute('aria-pressed', isActive);
         });
 
         // Update text content for all elements with data-key
@@ -456,24 +535,46 @@ function initLanguageSwitcher() {
                 element.setAttribute('lang', lang);
             }
         });
+
+        // Update form labels
+        const emailLabel = document.querySelector('label[for="email"]');
+        const messageLabel = document.querySelector('label[for="message"]');
+        if (emailLabel && translations['label_email'] && translations['label_email'][lang]) {
+            emailLabel.textContent = translations['label_email'][lang];
+        }
+        if (messageLabel && translations['label_message'] && translations['label_message'][lang]) {
+            messageLabel.textContent = translations['label_message'][lang];
+        }
+
+        // Update submit button text
+        const submitButton = document.querySelector('.contact__form button[type="submit"]');
+        if (submitButton && translations['submit_button'] && translations['submit_button'][lang]) {
+            submitButton.textContent = translations['submit_button'][lang];
+        }
     }
 
-    // Add event listeners to language switcher buttons
-    langButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            const selectedLang = button.dataset.lang;
-            if (selectedLang !== currentLang) {
-                switchLanguage(selectedLang);
-            }
+    /**
+     * Adds event listeners to language switcher buttons.
+     */
+    function addLanguageSwitcherEventListeners() {
+        langButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const selectedLang = button.dataset.lang;
+                if (selectedLang !== currentLang) {
+                    switchLanguage(selectedLang);
+                }
+            });
         });
-    });
+    }
 
-    // Initialize language on page load
-    switchLanguage('en');
+    // Initialize language switcher
+    switchLanguage('en'); // Set default language to English
+    addLanguageSwitcherEventListeners();
 }
 
 /**
  * Initializes smooth scrolling for navigation links.
+ * Enhances user experience by providing smooth transitions to sections.
  */
 function initSmoothScrolling() {
     document.querySelectorAll('a.nav__link').forEach(anchor => {

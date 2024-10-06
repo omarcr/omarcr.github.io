@@ -6,8 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Meta tag for content language -->
     <meta http-equiv="Content-Language" content="en">
+    <!-- Meta Description for SEO -->
+    <meta name="description" content="Equ Healthcare offers interpretable AI solutions tailored for the Hispanic/Latino community, focusing on health equity and precision medicine.">
+    <!-- Meta Keywords for SEO -->
+    <meta name="keywords" content="AI healthcare, Hispanic health, precision medicine, neurosymbolic AI, health equity">
     <!-- External CSS -->
     <link rel="stylesheet" href="styles.css">
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
 </head>
 <body>
     <!-- Skip Link for Accessibility -->
@@ -18,14 +24,14 @@
     
     <!-- Navigation -->
     <header>
-        <nav class="nav">
+        <nav class="nav" role="navigation" aria-label="Main Navigation">
             <div class="nav__logo">
                 <!-- Logo SVG -->
                 <img src="assets/AdobeStock_961244866.svg" alt="Equ Healthcare Logo" class="logo" />
                 <span>Equ Healthcare</span>
             </div>
             <ul class="nav__menu">
-                <li class="nav__item"><a href="#about" class="nav__link" data-key="nav_about">About</a></li>
+                <li class="nav__item"><a href="#about" class="nav__link" data-key="nav_about">About Us</a></li>
                 <li class="nav__item"><a href="#solutions" class="nav__link" data-key="nav_solutions">Solutions</a></li>
                 <li class="nav__item"><a href="#approach" class="nav__link" data-key="nav_approach">Approach</a></li>
                 <li class="nav__item"><a href="#technology" class="nav__link" data-key="nav_technology">Technology</a></li>
@@ -33,12 +39,12 @@
                 <li class="nav__item"><a href="#contact" class="nav__link" data-key="nav_contact">Contact</a></li>
             </ul>
             <!-- Language Switcher -->
-            <div class="language-switcher">
-                <button id="lang-en" class="active" data-lang="en">EN</button> | 
-                <button id="lang-es" data-lang="es">ES</button>
+            <div class="language-switcher" aria-label="Language Switcher">
+                <button id="lang-en" class="active" data-lang="en" aria-pressed="true">EN</button> | 
+                <button id="lang-es" data-lang="es" aria-pressed="false">ES</button>
             </div>
             <!-- Hamburger Menu -->
-            <button class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false">
+            <button class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false" aria-controls="mobileMenu">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -46,7 +52,7 @@
         </nav>
         <!-- Mobile Menu -->
         <ul class="nav__menu--mobile" id="mobileMenu" aria-hidden="true">
-            <li class="nav__item"><a href="#about" class="nav__link" data-key="nav_about">About</a></li>
+            <li class="nav__item"><a href="#about" class="nav__link" data-key="nav_about">About Us</a></li>
             <li class="nav__item"><a href="#solutions" class="nav__link" data-key="nav_solutions">Solutions</a></li>
             <li class="nav__item"><a href="#approach" class="nav__link" data-key="nav_approach">Approach</a></li>
             <li class="nav__item"><a href="#technology" class="nav__link" data-key="nav_technology">Technology</a></li>
@@ -58,9 +64,9 @@
     <!-- Main Content -->
     <main id="main">
         <!-- Hero Section -->
-        <section class="hero">
+        <section class="hero" aria-labelledby="hero-title">
             <div class="hero__content">
-                <h1 class="hero__title" data-key="hero_title">Balancing health and equity for the Hispanic community in the United States, one equation at a time.</h1>
+                <h1 class="hero__title" id="hero-title" data-key="hero_title">Balancing health and equity for the Hispanic community in the United States, one equation at a time.</h1>
                 <p class="hero__subtitle" data-key="hero_subtitle">Empowering the Hispanic/Latino community with culturally tailored, transparent AI healthcare solutions for a healthier future.</p>
                 <div class="hero__cta-group">
                     <a href="#solutions" class="hero__cta" data-key="hero_cta_explore">Explore Our Solutions</a>
@@ -90,9 +96,12 @@
                 <!-- Pillar 1 -->
                 <div class="pillar">
                     <h3 data-key="pillar1_title">
-                        <!-- Icon SVG -->
+                        <!-- Updated Icon SVG for Equilibrium -->
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
-                            <circle cx="12" cy="12" r="10" stroke="var(--primary-blue)" stroke-width="2" fill="none"/>
+                            <!-- Balanced scale icon to represent equilibrium -->
+                            <circle cx="12" cy="12" r="10" stroke="var(--primary-blue)" stroke-width="2" fill="none" />
+                            <line x1="12" y1="6" x2="12" y2="18" stroke="var(--primary-blue)" stroke-width="2" />
+                            <line x1="9" y1="18" x2="15" y2="18" stroke="var(--primary-blue)" stroke-width="2" />
                         </svg>
                         Equilibrium | Equilibrio
                     </h3>
@@ -101,9 +110,12 @@
                 <!-- Pillar 2 -->
                 <div class="pillar">
                     <h3 data-key="pillar2_title">
-                        <!-- Icon SVG -->
+                        <!-- Updated Icon SVG for Equation -->
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
-                            <rect x="4" y="4" width="16" height="16" stroke="var(--primary-blue)" stroke-width="2" fill="none"/>
+                            <!-- Mathematical symbols for representing equations -->
+                            <rect x="4" y="4" width="16" height="16" stroke="var(--primary-blue)" stroke-width="2" fill="none" />
+                            <line x1="8" y1="12" x2="16" y2="12" stroke="var(--primary-blue)" stroke-width="2" />
+                            <line x1="12" y1="8" x2="12" y2="16" stroke="var(--primary-blue)" stroke-width="2" />
                         </svg>
                         Equation | Ecuación
                     </h3>
@@ -112,9 +124,11 @@
                 <!-- Pillar 3 -->
                 <div class="pillar">
                     <h3 data-key="pillar3_title">
-                        <!-- Icon SVG -->
+                        <!-- Updated Icon SVG for Equity -->
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+                            <!-- Scale of justice for equity -->
                             <path d="M12 2L2 22h20L12 2z" stroke="var(--primary-blue)" stroke-width="2" fill="none"/>
+                            <line x1="8" y1="18" x2="16" y2="18" stroke="var(--primary-blue)" stroke-width="2" />
                         </svg>
                         Equity | Equidad
                     </h3>
@@ -123,11 +137,12 @@
                 <!-- Pillar 4 -->
                 <div class="pillar">
                     <h3 data-key="pillar4_title">
-                        <!-- Icon SVG -->
+                        <!-- Updated Icon SVG for Equality -->
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+                            <!-- Equality icon with two balanced circles -->
                             <circle cx="12" cy="12" r="8" stroke="var(--primary-blue)" stroke-width="2" fill="none"/>
-                            <line x1="2" y1="12" x2="22" y2="12" stroke="var(--primary-blue)" stroke-width="2"/>
-                            <line x1="12" y1="2" x2="12" y2="22" stroke="var(--primary-blue)" stroke-width="2"/>
+                            <line x1="6" y1="12" x2="18" y2="12" stroke="var(--primary-blue)" stroke-width="2"/>
+                            <line x1="12" y1="6" x2="12" y2="18" stroke="var(--primary-blue)" stroke-width="2"/>
                         </svg>
                         Equality | Igualdad
                     </h3>
@@ -135,6 +150,20 @@
                 </div>
             </div>
         </section>
+
+        <style>
+            /* Add hover animations */
+            .pillar svg:hover {
+                transform: scale(1.1);
+                transition: transform 0.3s ease;
+            }
+
+            .pillar svg {
+                max-width: 50px; /* Ensure consistency in size */
+                display: inline-block;
+            }
+        </style>
+
         
         <!-- Our Mission Section -->
         <section class="mission">
@@ -221,27 +250,63 @@
             <div class="approach__grid">
                 <!-- Approach 1 -->
                 <div class="approach__item">
-                    <h3 data-key="approach1_title">Modularity</h3>
+                    <h3 data-key="approach1_title">
+                        <!-- Icon SVG for Modularity -->
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+                            <!-- Cube structure to represent modularity -->
+                            <rect x="3" y="3" width="8" height="8" fill="var(--primary-blue)" />
+                            <rect x="13" y="3" width="8" height="8" fill="var(--primary-blue)" />
+                            <rect x="3" y="13" width="8" height="8" fill="var(--primary-blue)" />
+                            <rect x="13" y="13" width="8" height="8" fill="var(--primary-blue)" />
+                        </svg>
+                        Modularity
+                    </h3>
                     <p data-key="approach1_text">Our solutions operate as distinct components, transforming complex healthcare processes into manageable, focused units.</p>
                 </div>
                 <!-- Approach 2 -->
                 <div class="approach__item">
-                    <h3 data-key="approach2_title">Abstraction</h3>
+                    <h3 data-key="approach2_title">
+                        <!-- Icon SVG for Abstraction -->
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+                            <!-- Layers with transparent rectangles representing abstraction layers -->
+                            <rect x="2" y="16" width="20" height="6" stroke="var(--primary-blue)" stroke-width="2" fill="none" />
+                            <rect x="4" y="10" width="16" height="6" stroke="var(--primary-blue)" stroke-width="2" fill="none" />
+                            <rect x="6" y="4" width="12" height="6" stroke="var(--primary-blue)" stroke-width="2" fill="none" />
+                        </svg>
+                        Abstraction
+                    </h3>
                     <p data-key="approach2_text">By abstracting key healthcare operations, we streamline personalized care with AI-driven modules addressing specific needs.</p>
                 </div>
                 <!-- Approach 3 -->
                 <div class="approach__item">
-                    <h3 data-key="approach3_title">Scalability</h3>
+                    <h3 data-key="approach3_title">
+                        <!-- Icon SVG for Scalability -->
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+                            <!-- Upward arrow with multiple steps to represent scalability -->
+                            <path d="M4 20h2v-4H4v4zm4-6h2v6H8v-6zm4-4h2v10h-2V10zm4-4h2v14h-2V6z" fill="var(--primary-blue)" />
+                            <path d="M12 2l5 5-5-5z" fill="var(--primary-blue)" />
+                        </svg>
+                        Scalability
+                    </h3>
                     <p data-key="approach3_text">Our adaptable system scales with evolving healthcare demands, incorporating advanced AI functionalities to serve broader populations.</p>
                 </div>
                 <!-- Approach 4 -->
                 <div class="approach__item">
-                    <h3 data-key="approach4_title">Interoperability</h3>
+                    <h3 data-key="approach4_title">
+                        <!-- Icon SVG for Interoperability -->
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+                            <!-- Two interconnected circles to represent interoperability -->
+                            <circle cx="8" cy="12" r="5" stroke="var(--primary-blue)" stroke-width="2" fill="none" />
+                            <circle cx="16" cy="12" r="5" stroke="var(--primary-blue)" stroke-width="2" fill="none" />
+                            <path d="M10 12h4" stroke="var(--primary-blue)" stroke-width="2" />
+                        </svg>
+                        Interoperability
+                    </h3>
                     <p data-key="approach4_text">Each module integrates seamlessly within the healthcare ecosystem, ensuring efficient data exchange and enhancing care delivery.</p>
                 </div>
             </div>
         </section>
-        
+
         <!-- Technology Section -->
         <section class="technology" id="technology">
             <h2 class="section-title" data-key="technology_title">Neurosymbolic AI: The Future of Healthcare</h2>
@@ -287,23 +352,21 @@
         </section>
         
         <!-- Supporters Section -->
-        <section class="supporters">
-            <h2 class="section-title" data-key="supporters_title">Our Supporters</h2>
+        <section class="supporters" aria-labelledby="supporters-title">
+            <h2 class="section-title" id="supporters-title" data-key="supporters_title">Our Supporters</h2>
             <div class="supporters__grid">
                 <div class="supporter">
-                    <img src="assets/mit_lockup_std-one-line_rgb_bright-red.png" alt="MIT" width="500" />
-                    <p data-key="MIT" lang="en"></p>
+                    <img src="assets/mit_lockup_std-one-line_rgb_bright-red.png" alt="Massachusetts Institute of Technology" width="500" />
                 </div>
                 <div class="supporter">
                     <img src="assets/hms-logo-final-rgb.png" alt="Harvard Medical School" width="400" />
-                    <p data-key="harv" lang="en"></p>
                 </div>
             </div>
         </section>
         
         <!-- Team Section -->
-        <section class="team" id="team">
-            <h2 class="section-title" data-key="team_title">Meet Our Founder</h2>
+        <section class="team" id="team" aria-labelledby="team-title">
+            <h2 class="section-title" id="team-title" data-key="team_title">Meet Our Founder</h2>
             <div class="team__grid">
                 <div class="team-member">
                     <div class="avatar">
@@ -312,41 +375,48 @@
                     <h3 data-key="founder_name">Dr. Omar Costilla-Reyes</h3>
                     <p data-key="founder_title">Founder & CEO</p>
                     <div class="social-links">
-                        <a href="https://www.linkedin.com/in/omarcore/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-                        <a href="https://x.com/konet" target="_blank" rel="noopener noreferrer">Twitter</a>
+                        <a href="https://www.linkedin.com/in/omarcore/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile">LinkedIn</a>
+                        <a href="https://x.com/konet" target="_blank" rel="noopener noreferrer" aria-label="Twitter Profile">Twitter</a>
                     </div>
                 </div>
             </div>
         </section>
         
-        <!-- Contact Section -->
-        <section class="contact" id="contact">
-            <h2 class="section-title" data-key="contact_title">Contact Us</h2>
-            <form class="contact__form" novalidate>
-                <input type="email" placeholder="Your Email" aria-label="Your Email" required>
-                <textarea rows="5" placeholder="Your Message" aria-label="Your Message" required></textarea>
-                <button type="submit">Send Message</button>
-                <!-- Success message -->
-                <p class="success-message" style="display:none;">Thank you! We'll get back to you soon.</p>
-            </form>
-        </section>
-    </main>
-    
-    <!-- Footer -->
-    <footer>
-        <div class="footer__links">
-            <a href="#" data-key="footer_privacy">Privacy Policy</a> | 
-            <a href="#" data-key="footer_terms">Terms of Service</a>
-        </div>
-        <p data-key="footer_copy">© Equ Healthcare Technologies. All rights reserved.</p>
-        <!-- Social Media Icons -->
-        <div class="social-links">
-            <a href="#" aria-label="LinkedIn">LinkedIn</a>
-            <a href="#" aria-label="Twitter">Twitter</a>
-        </div>
-    </footer>
-    
-    <!-- External JavaScript -->
-    <script src="scripts.js" defer></script>
-</body>
-</html>
+            <!-- Contact Section -->
+            <section class="contact" id="contact" aria-labelledby="contact-title">
+                <h2 class="section-title" id="contact-title" data-key="contact_title">Contact Us</h2>
+                <form class="contact__form" novalidate aria-describedby="contact-form-description">
+                    <fieldset>
+                        <div class="form-group">
+                            <label for="email" data-key="label_email">Your Email</label>
+                            <input type="email" id="email" name="email" placeholder="Your Email" aria-label="Your Email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message" data-key="label_message">Your Message</label>
+                            <textarea id="message" name="message" rows="5" placeholder="Your Message" aria-label="Your Message" required></textarea>
+                        </div>
+                        
+                        <button type="submit" data-key="submit_button">Send Message</button>
+                        <!-- Success message -->
+                        <p class="success-message" style="display:none;" role="status">Thank you! We'll get back to you soon.</p>
+                    </fieldset>
+                </form>
+            </section>
+        </main>
+        
+        <!-- Footer -->
+        <footer aria-labelledby="footer-title">
+            <h2 class="visually-hidden" id="footer-title">Footer</h2>
+            <div class="footer__links">
+                <a href="#" data-key="footer_privacy">Privacy Policy</a> | 
+                <a href="#" data-key="footer_terms">Terms of Service</a>
+            </div>
+            <p data-key="footer_copy">© Equ Healthcare Technologies. All rights reserved.</p>
+            <!-- Social Media Icons -->
+        </footer>
+        
+        <!-- External JavaScript -->
+        <script src="scripts.js" defer></script>
+    </body>
+    </html>
