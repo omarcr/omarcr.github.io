@@ -1,7 +1,6 @@
-// assets/js/main.js
 
 /**
- * main.js
+ * scripts.js
  * 
  * This script initializes various interactive components of the Equ Healthcare website,
  * including scroll progress indicator, hamburger menu, contact form handling, language switching,
@@ -94,61 +93,61 @@ function initHamburgerMenu() {
  * Initializes the contact form submission handling with backend integration.
  * Ensures secure data handling and provides user feedback.
  */
-function initContactForm() {
-    const contactForm = document.querySelector('.contact__form');
-    const successMessage = document.querySelector('.success-message');
+// function initContactForm() {
+//     const contactForm = document.querySelector('.contact__form');
+//     const successMessage = document.querySelector('.success-message');
 
-    /**
-     * Handles form submission by sending data to the backend securely.
-     * @param {Event} e - The submit event.
-     */
-    async function handleFormSubmit(e) {
-        e.preventDefault();
+//     /**
+//      * Handles form submission by sending data to the backend securely.
+//      * @param {Event} e - The submit event.
+//      */
+//     async function handleFormSubmit(e) {
+//         e.preventDefault();
 
-        const emailInput = contactForm.querySelector('input[type="email"]');
-        const messageTextarea = contactForm.querySelector('textarea');
+//         const emailInput = contactForm.querySelector('input[type="email"]');
+//         const messageTextarea = contactForm.querySelector('textarea');
 
-        // Perform client-side validation
-        if (emailInput.checkValidity() && messageTextarea.checkValidity()) {
-            try {
-                const response = await fetch('/api/contact', { // Replace with actual backend endpoint
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({
-                        email: emailInput.value.trim(),
-                        message: messageTextarea.value.trim()
-                    })
-                });
+//         // Perform client-side validation
+//         if (emailInput.checkValidity() && messageTextarea.checkValidity()) {
+//             try {
+//                 const response = await fetch('/api/contact', { // Replace with actual backend endpoint
+//                     method: 'POST',
+//                     headers: {
+//                         'Content-Type': 'application/json'
+//                     },
+//                     body: JSON.stringify({
+//                         email: emailInput.value.trim(),
+//                         message: messageTextarea.value.trim()
+//                     })
+//                 });
 
-                if (response.ok) {
-                    // Display success message and reset form
-                    successMessage.style.display = 'block';
-                    contactForm.reset();
+//                 if (response.ok) {
+//                     // Display success message and reset form
+//                     successMessage.style.display = 'block';
+//                     contactForm.reset();
 
-                    // Hide the success message after 5 seconds
-                    setTimeout(() => {
-                        successMessage.style.display = 'none';
-                    }, 5000);
-                } else {
-                    // Handle server errors
-                    const errorData = await response.json();
-                    alert(errorData.message || 'There was an error submitting your message. Please try again later.');
-                }
-            } catch (error) {
-                console.error('Form submission error:', error);
-                alert('There was an error submitting your message. Please try again later.');
-            }
-        } else {
-            // Highlight invalid fields
-            emailInput.reportValidity();
-            messageTextarea.reportValidity();
-        }
-    }
+//                     // Hide the success message after 5 seconds
+//                     setTimeout(() => {
+//                         successMessage.style.display = 'none';
+//                     }, 5000);
+//                 } else {
+//                     // Handle server errors
+//                     const errorData = await response.json();
+//                     alert(errorData.message || 'There was an error submitting your message. Please try again later.');
+//                 }
+//             } catch (error) {
+//                 console.error('Form submission error:', error);
+//                 alert('There was an error submitting your message. Please try again later.');
+//             }
+//         } else {
+//             // Highlight invalid fields
+//             emailInput.reportValidity();
+//             messageTextarea.reportValidity();
+//         }
+//     }
 
-    contactForm.addEventListener('submit', handleFormSubmit);
-}
+//     contactForm.addEventListener('submit', handleFormSubmit);
+// }
 
 /**
  * Initializes the language switching functionality.
@@ -160,6 +159,7 @@ function initLanguageSwitcher() {
     let currentLang = 'en';
 
     const translations = {
+        // Navigation
         "nav_about": {
             "en": "About Us",
             "es": "Sobre Nosotros"
@@ -184,41 +184,47 @@ function initLanguageSwitcher() {
             "en": "Contact",
             "es": "Contacto"
         },
+
+        // Hero Section
         "hero_title": {
             "en": "Balancing health and equity for the Hispanic community in the United States, one equation at a time.",
             "es": "Equilibrando salud y equidad para la comunidad hispana en Estados Unidos, una ecuación a la vez."
         },
         "hero_subtitle": {
-            "en": "Empowering the Hispanic/Latino community with culturally tailored, transparent AI healthcare solutions for a healthier future.",
-            "es": "Empoderando a la comunidad hispana/latina con soluciones de salud basadas en IA culturalmente adaptadas y transparentes para un futuro más saludable."
+            "en": "Revolutionizing healthcare for the Hispanic/Latino community through transparent, interpretable AI technologies rooted in cultural understanding.",
+            "es": "Revolucionando la atención médica para la comunidad hispana/latina a través de tecnologías de IA transparentes e interpretables, basadas en la comprensión cultural."
         },
-        "hero_cta_explore": {
-            "en": "Explore Our Solutions",
-            "es": "Explora Nuestras Soluciones"
+        "hero_cta_discover": {
+            "en": "Discover Our Innovative Solutions",
+            "es": "Descubre Nuestras Soluciones Innovadoras"
         },
-        "hero_cta_start": {
-            "en": "Start Your Health Journey",
-            "es": "Comienza Tu Viaje de Salud"
+        "hero_cta_join": {
+            "en": "Join Us in Advancing Health Equity",
+            "es": "Únete a Nosotros para Avanzar la Equidad en Salud"
         },
+
+        // About Us Section
         "about_title": {
             "en": "About Us",
             "es": "Sobre Nosotros"
         },
         "about_p1": {
-            "en": "At Equ Healthcare, we specialize in developing interpretable AI solutions that are transparent and culturally tailored for the Hispanic/Latino community. Our focus on balance, precision, and equity ensures that our technology not only advances healthcare outcomes but also fosters trust and engagement.",
-            "es": "En Equ Healthcare, nos especializamos en desarrollar soluciones de IA interpretables que son transparentes y culturalmente adaptadas para la comunidad hispana/latina. Nuestro enfoque en el equilibrio, la precisión y la equidad garantiza que nuestra tecnología no solo mejore los resultados de salud, sino que también fomente la confianza y el compromiso."
+            "en": "Equ Healthcare—a proud spin-out from MIT and Harvard Medical School, supported by the National Science Foundation—is dedicated to revolutionizing healthcare for the Hispanic/Latino community. By delivering transparent, culturally tailored AI solutions, we aim to bridge the gap in health equity and foster trust in technology-driven care.",
+            "es": "Equ Healthcare—una orgullosa derivación de MIT y Harvard Medical School, apoyada por la National Science Foundation—está dedicada a revolucionar la atención médica para la comunidad hispana/latina. Al ofrecer soluciones de IA transparentes y culturalmente adaptadas, buscamos cerrar la brecha en la equidad en salud y fomentar la confianza en el cuidado impulsado por la tecnología."
         },
         "about_p2": {
-            "en": "Founded as a spin-out from research at MIT and Harvard Medical School, Equ Healthcare is built upon a strong foundation of scientific innovation. Supported by the National Science Foundation, we leverage cutting-edge technology to bridge gaps in healthcare disparities.",
-            "es": "Fundada como una derivación de investigaciones en MIT y Harvard Medical School, Equ Healthcare se basa en una sólida fundación de innovación científica. Con el apoyo de la National Science Foundation, aprovechamos la tecnología de vanguardia para cerrar brechas en las disparidades de atención médica."
+            "en": "Our commitment to balance, precision, and equity ensures that our technology not only advances healthcare outcomes but also empowers individuals to take control of their health.",
+            "es": "Nuestro compromiso con el equilibrio, la precisión y la equidad asegura que nuestra tecnología no solo mejora los resultados de salud, sino que también empodera a las personas para que tomen el control de su salud."
         },
+
+        // Pillars Section
         "pillars_title": {
             "en": "Our Pillars",
             "es": "Nuestros Pilares"
         },
         "pillar1_title": {
             "en": "Equilibrium | Equilibrio",
-            "es": "Equilibrio | Equilibrium"
+            "es": "Equilibrium | Equilibrio"
         },
         "pillar1_text": {
             "en": "Our AI platform harmonizes metabolic, nutritional, and mental health by leveraging real-time data and adaptive algorithms. This ensures personalized, actionable insights that empower individuals to achieve and maintain optimal health.",
@@ -248,53 +254,53 @@ function initLanguageSwitcher() {
             "en": "By employing white-box AI models, we ensure fairness and transparency in healthcare delivery. Our technology supports equitable treatment and outcomes for all individuals, regardless of socioeconomic background.",
             "es": "Empleando modelos de IA de caja blanca, garantizamos equidad y transparencia en la prestación de atención médica. Nuestra tecnología respalda un tratamiento y resultados equitativos para todos, independientemente del origen socioeconómico."
         },
+
+        // Mission Section
         "mission_title": {
             "en": "Our Mission",
             "es": "Nuestra Misión"
         },
         "mission_text": {
-            "en": "At Equ Healthcare, we are dedicated to revolutionizing precision healthcare for the Hispanic/Latino community through scientifically validated, culturally responsive, and transparent AI solutions.",
-            "es": "En Equ Healthcare, estamos dedicados a revolucionar la atención médica de precisión para la comunidad hispana/latina a través de soluciones de IA científicamente validadas, culturalmente receptivas y transparentes."
+            "en": "Our mission is to advance health equity by providing the Hispanic/Latino community with culturally resonant, transparent AI healthcare solutions—empowering individuals to take control of their health with confidence and clarity.",
+            "es": "Nuestra misión es avanzar la equidad en salud proporcionando a la comunidad hispana/latina soluciones de atención médica basadas en IA culturalmente resonantes y transparentes—empoderando a las personas para que tomen el control de su salud con confianza y claridad."
         },
+
+        // Products Section
         "solutions_title": {
             "en": "Our Solutions",
             "es": "Nuestras Soluciones"
         },
         "product1_status": {
-            "en": "In Development",
-            "es": "En Desarrollo"
+            "en": "Coming Soon",
+            "es": "Próximamente"
         },
         "product1_title": {
             "en": "Equ-1 Amigo",
             "es": "Equ-1 Amigo"
         },
         "product1_desc": {
-            "en": "AI-Powered Diet and Physical Activity Coach for the Hispanic Community.",
-            "es": "Entrenador de Dieta y Actividad Física impulsado por IA para la Comunidad Hispana."
+            "en": "Equ-1 Amigo is our AI-powered diet and physical activity coach, uniquely designed for the Hispanic/Latino community. By providing personalized diet plans rooted in cultural preferences and interactive support, Equ-1 Amigo empowers individuals to achieve optimal health.",
+            "es": "Equ-1 Amigo es nuestro entrenador de dieta y actividad física impulsado por IA, diseñado exclusivamente para la comunidad hispana/latina. Al proporcionar planes de dieta personalizados basados en preferencias culturales y soporte interactivo, Equ-1 Amigo empodera a las personas para lograr una salud óptima."
         },
         "product1_feature1": {
-            "en": "Personalized diet recommendations based on cultural preferences.",
-            "es": "Recomendaciones de dieta personalizadas según preferencias culturales."
+            "en": "Personalized, culturally tailored diet recommendations.",
+            "es": "Recomendaciones de dieta personalizadas y culturalmente adaptadas."
         },
         "product1_feature2": {
-            "en": "Activity tracking and goal setting.",
-            "es": "Seguimiento de actividad y establecimiento de metas."
+            "en": "Activity tracking with goal setting and progress monitoring.",
+            "es": "Seguimiento de actividad con establecimiento de metas y monitoreo de progreso."
         },
         "product1_feature3": {
             "en": "Interactive daily tips and motivational messages.",
             "es": "Consejos diarios interactivos y mensajes motivacionales."
-        },
-        "product1_feature4": {
-            "en": "Progress tracking with rewards and achievements.",
-            "es": "Seguimiento del progreso con recompensas y logros."
         },
         "product1_progress": {
             "en": "Prototype Testing Phase (70%)",
             "es": "Fase de Pruebas del Prototipo (70%)"
         },
         "product1_cta": {
-            "en": "Join Waitlist",
-            "es": "Únete a la Lista de Espera"
+            "en": "Waitlist",
+            "es": "Lista de Espera"
         },
         "product2_status": {
             "en": "In Development",
@@ -305,69 +311,63 @@ function initLanguageSwitcher() {
             "es": "Equ-2 Amiga"
         },
         "product2_desc": {
-            "en": "AI Assistant for Healthcare Providers in Complex Clinical Analysis.",
-            "es": "Asistente de IA para Proveedores de Atención Médica en Análisis Clínicos Complejos."
+            "en": "Equ-2 Amiga is an AI assistant for healthcare providers, offering evidence-based treatment recommendations and clear, interpretable insights to enhance decision-making and patient outcomes.",
+            "es": "Equ-2 Amiga es un asistente de IA para proveedores de atención médica, que ofrece recomendaciones de tratamiento basadas en evidencia e información clara e interpretable para mejorar la toma de decisiones y los resultados de los pacientes."
         },
         "product2_feature1": {
-            "en": "Evidence-based treatment recommendations.",
-            "es": "Recomendaciones de tratamiento basadas en evidencia."
+            "en": "Evidence-based, culturally sensitive treatment recommendations.",
+            "es": "Recomendaciones de tratamiento basadas en evidencia y culturalmente sensibles."
         },
         "product2_feature2": {
-            "en": "Clear, interpretable insights to enhance decision-making.",
-            "es": "Información clara e interpretable para mejorar la toma de decisiones."
-        },
-        "product2_feature3": {
             "en": "Seamless integration with existing healthcare systems.",
             "es": "Integración sin problemas con los sistemas de atención médica existentes."
         },
-        "product2_feature4": {
-            "en": "Support for improved patient outcomes.",
-            "es": "Soporte para mejorar los resultados de los pacientes."
+        "product2_feature3": {
+            "en": "Supports improved patient outcomes and satisfaction.",
+            "es": "Apoya la mejora de los resultados y la satisfacción de los pacientes."
         },
         "product2_progress": {
             "en": "Development Phase (50%)",
             "es": "Fase de Desarrollo (50%)"
         },
         "product2_cta": {
-            "en": "Sign Up for Updates",
-            "es": "Regístrate para Actualizaciones"
+            "en": "Waitlist",
+            "es": "Lista de Espera"
         },
         "product3_status": {
-            "en": "In Development",
-            "es": "En Desarrollo"
+            "en": "Research Phase",
+            "es": "Fase de Investigación"
         },
         "product3_title": {
             "en": "Equ-3 Abu",
             "es": "Equ-3 Abu"
         },
         "product3_desc": {
-            "en": "Connects individuals with the right therapist to meet their unique needs, ensuring culturally sensitive mental health support.",
-            "es": "Conecta a las personas con el terapeuta adecuado para satisfacer sus necesidades únicas, asegurando un apoyo de salud mental culturalmente sensible."
+            "en": "Equ-3 Abu connects individuals with the right therapist to meet their unique needs, ensuring culturally sensitive mental health support that is both accessible and personalized.",
+            "es": "Equ-3 Abu conecta a las personas con el terapeuta adecuado para satisfacer sus necesidades únicas, asegurando un apoyo de salud mental culturalmente sensible que es accesible y personalizado."
         },
         "product3_feature1": {
-            "en": "Personalized matching based on individual preferences.",
-            "es": "Emparejamiento personalizado basado en preferencias individuales."
+            "en": "Personalized matching with culturally competent therapists.",
+            "es": "Emparejamiento personalizado con terapeutas culturalmente competentes."
         },
         "product3_feature2": {
-            "en": "Network of culturally competent therapists.",
-            "es": "Red de terapeutas culturalmente competentes."
-        },
-        "product3_feature3": {
             "en": "Confidential and user-friendly platform.",
             "es": "Plataforma confidencial y fácil de usar."
         },
-        "product3_feature4": {
-            "en": "Support in both English and Spanish.",
-            "es": "Soporte tanto en inglés como en español."
+        "product3_feature3": {
+            "en": "Support available in both English and Spanish.",
+            "es": "Soporte disponible tanto en inglés como en español."
         },
         "product3_progress": {
             "en": "Research Phase (30%)",
             "es": "Fase de Investigación (30%)"
         },
         "product3_cta": {
-            "en": "Learn More",
-            "es": "Aprende Más"
+            "en": "Waitlist",
+            "es": "Lista de Espera"
         },
+
+        // Approach Section
         "approach_title": {
             "en": "Our Approach",
             "es": "Nuestro Enfoque"
@@ -404,29 +404,31 @@ function initLanguageSwitcher() {
             "en": "Each module integrates seamlessly within the healthcare ecosystem, ensuring efficient data exchange and enhancing care delivery.",
             "es": "Cada módulo se integra sin problemas dentro del ecosistema de atención médica, asegurando un intercambio de datos eficiente y mejorando la prestación de atención."
         },
+
+        // Technology Section
         "technology_title": {
             "en": "Neurosymbolic AI: The Future of Healthcare",
             "es": "IA Neurosimbólica: El Futuro de la Atención Médica"
         },
         "technology_p1": {
-            "en": "Our commitment to R&D drives us to the forefront of AI innovation in healthcare. We leverage neurosymbolic intelligence—a fusion of neural networks and symbolic AI—to manage complex health data and deliver precise, interpretable solutions.",
-            "es": "Nuestro compromiso con la I+D nos lleva a la vanguardia de la innovación en IA en la atención médica. Aprovechamos la inteligencia neurosimbólica—una fusión de redes neuronales e IA simbólica—para gestionar datos de salud complejos y ofrecer soluciones precisas e interpretables."
+            "en": "Our commitment to R&D drives us to the forefront of technology innovation in healthcare. We leverage neurosymbolic intelligence—a groundbreaking blend of advanced machine learning and logical reasoning—to transform complex health data into clear, actionable insights. This ensures our solutions are not only highly accurate but also fully transparent, fostering trust among users and healthcare professionals alike.",
+            "es": "Nuestro compromiso con la I+D nos impulsa a la vanguardia de la innovación tecnológica en la atención médica. Aprovechamos la inteligencia neurosimbólica—una combinación innovadora de aprendizaje automático avanzado y razonamiento lógico—para transformar datos de salud complejos en conocimientos claros y accionables. Esto asegura que nuestras soluciones no solo sean altamente precisas, sino también totalmente transparentes, fomentando la confianza entre los usuarios y los profesionales de la salud por igual."
         },
         "technology_h3_nn": {
             "en": "Neural Networks",
             "es": "Redes Neuronales"
         },
         "technology_p2": {
-            "en": "Excel at pattern recognition, uncovering trends and anomalies within vast datasets encompassing metabolic, nutritional, and mental health metrics.",
-            "es": "Excelentes en el reconocimiento de patrones, descubren tendencias y anomalías dentro de vastos conjuntos de datos que abarcan métricas metabólicas, nutricionales y de salud mental."
+            "en": "Recognize patterns and trends within vast datasets encompassing metabolic, nutritional, and mental health metrics.",
+            "es": "Reconocen patrones y tendencias dentro de vastos conjuntos de datos que abarcan métricas metabólicas, nutricionales y de salud mental."
         },
         "technology_h3_sa": {
             "en": "Symbolic AI",
             "es": "IA Simbólica"
         },
         "technology_p3": {
-            "en": "Utilize logical reasoning and decision-making frameworks, applying clinical knowledge to provide clear, structured treatment recommendations.",
-            "es": "Utilizan razonamiento lógico y marcos de toma de decisiones, aplicando conocimientos clínicos para proporcionar recomendaciones de tratamiento claras y estructuradas."
+            "en": "Applies clinical knowledge through logical reasoning to provide clear, evidence-based recommendations.",
+            "es": "Aplica conocimientos clínicos a través de razonamiento lógico para proporcionar recomendaciones claras y basadas en evidencia."
         },
         "technology_h3_integration": {
             "en": "Integration",
@@ -436,6 +438,8 @@ function initLanguageSwitcher() {
             "en": "By integrating these AI paradigms, our neurosymbolic AI offers a holistic and transparent approach to complex medical challenges, enhancing predictive accuracy and ensuring understandable reasoning behind each decision.",
             "es": "Al integrar estos paradigmas de IA, nuestra IA neurosimbólica ofrece un enfoque holístico y transparente para desafíos médicos complejos, mejorando la precisión predictiva y asegurando un razonamiento comprensible detrás de cada decisión."
         },
+
+        // N=1 Section
         "n1_title": {
             "en": "N=1 for Precision Medicine",
             "es": "N=1 para Medicina de Precisión"
@@ -444,6 +448,8 @@ function initLanguageSwitcher() {
             "en": "At Equ Healthcare, we embrace the concept of 'n=1' in precision medicine, designing digital health solutions that address the unique needs of each individual. By integrating personalized care with interpretable technology, we provide support precisely tailored to each person's circumstances.",
             "es": "En Equ Healthcare, adoptamos el concepto de 'n=1' en la medicina de precisión, diseñando soluciones de salud digital que abordan las necesidades únicas de cada individuo. Al integrar el cuidado personalizado con tecnología interpretable, proporcionamos un apoyo precisamente adaptado a las circunstancias de cada persona."
         },
+
+        // Vision Section
         "vision_title": {
             "en": "Our Vision",
             "es": "Nuestra Visión"
@@ -452,6 +458,8 @@ function initLanguageSwitcher() {
             "en": "We start in the Hispanic community in the US with a goal to expand to Latin America, bringing equitable healthcare solutions to a broader audience.",
             "es": "Comenzamos en la comunidad hispana en EE. UU. con el objetivo de expandirnos a América Latina, llevando soluciones de atención médica equitativas a una audiencia más amplia."
         },
+
+        // Supporters Section
         "supporters_title": {
             "en": "Our Supporters",
             "es": "Nuestros Patrocinadores"
@@ -464,6 +472,8 @@ function initLanguageSwitcher() {
             "en": "Harvard Medical School",
             "es": "Escuela de Medicina de Harvard"
         },
+
+        // Team Section
         "team_title": {
             "en": "Meet Our Founder",
             "es": "Conoce a Nuestro Fundador"
@@ -476,21 +486,11 @@ function initLanguageSwitcher() {
             "en": "Founder & CEO",
             "es": "Fundador y CEO"
         },
+
+        // Contact Section
         "contact_title": {
-            "en": "Contact Us",
+            "en": "Get in Touch",
             "es": "Contáctanos"
-        },
-        "footer_privacy": {
-            "en": "Privacy Policy",
-            "es": "Política de Privacidad"
-        },
-        "footer_terms": {
-            "en": "Terms of Service",
-            "es": "Términos de Servicio"
-        },
-        "footer_copy": {
-            "en": "© Equ Healthcare Technologies. All rights reserved.",
-            "es": "© Equ Healthcare Technologies. Todos los derechos reservados."
         },
         "label_email": {
             "en": "Your Email",
@@ -503,6 +503,24 @@ function initLanguageSwitcher() {
         "submit_button": {
             "en": "Send Message",
             "es": "Enviar Mensaje"
+        },
+        "success_message": {
+            "en": "Thank you! We'll get back to you soon.",
+            "es": "¡Gracias! Nos pondremos en contacto contigo pronto."
+        },
+
+        // Footer
+        "footer_privacy": {
+            "en": "Privacy Policy",
+            "es": "Política de Privacidad"
+        },
+        "footer_terms": {
+            "en": "Terms of Service",
+            "es": "Términos de Servicio"
+        },
+        "footer_copy": {
+            "en": "© Equ Healthcare Technologies. All rights reserved.",
+            "es": "© Equ Healthcare Technologies. Todos los derechos reservados."
         }
     };
 
@@ -511,6 +529,11 @@ function initLanguageSwitcher() {
      * Updates text content based on the selected language.
      * @param {string} lang - The language code ('en' or 'es').
      */
+/**
+ * Switches the website language.
+ * Updates text content and lang attributes based on the selected language.
+ * @param {string} lang - The language code ('en' or 'es').
+ */
     function switchLanguage(lang) {
         currentLang = lang;
         document.documentElement.lang = lang;
@@ -527,7 +550,7 @@ function initLanguageSwitcher() {
             button.setAttribute('aria-pressed', isActive);
         });
 
-        // Update text content for all elements with data-key
+        // Update text content and lang attributes for all elements with data-key
         document.querySelectorAll('[data-key]').forEach(element => {
             const key = element.getAttribute('data-key');
             if (translations[key] && translations[key][lang] !== undefined) {
@@ -536,22 +559,18 @@ function initLanguageSwitcher() {
             }
         });
 
-        // Update form labels
-        const emailLabel = document.querySelector('label[for="email"]');
-        const messageLabel = document.querySelector('label[for="message"]');
-        if (emailLabel && translations['label_email'] && translations['label_email'][lang]) {
-            emailLabel.textContent = translations['label_email'][lang];
-        }
-        if (messageLabel && translations['label_message'] && translations['label_message'][lang]) {
-            messageLabel.textContent = translations['label_message'][lang];
-        }
+        // Update form placeholders and ARIA labels
+        const emailInput = document.getElementById('email');
+        const messageTextarea = document.getElementById('message');
 
-        // Update submit button text
-        const submitButton = document.querySelector('.contact__form button[type="submit"]');
-        if (submitButton && translations['submit_button'] && translations['submit_button'][lang]) {
-            submitButton.textContent = translations['submit_button'][lang];
+        if (translations['placeholder_email'] && translations['placeholder_email'][lang]) {
+            emailInput.setAttribute('placeholder', translations['placeholder_email'][lang]);
+        }
+        if (translations['placeholder_message'] && translations['placeholder_message'][lang]) {
+            messageTextarea.setAttribute('placeholder', translations['placeholder_message'][lang]);
         }
     }
+
 
     /**
      * Adds event listeners to language switcher buttons.
