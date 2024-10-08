@@ -594,8 +594,10 @@ section {
 .vision {
     background-color: #FFFFFF;
     text-align: center;
+    padding: 40px 20px; /* Add padding to give sections space */
 }
 
+/* Center the content within each section */
 .about__content,
 .mission__content,
 .technology__content,
@@ -603,48 +605,76 @@ section {
 .vision__content {
     max-width: 800px;
     margin: 0 auto;
+    padding: 0 20px; /* Add padding for better mobile readability */
 }
 
+/* Paragraph styling for all sections */
 .about__content p,
 .mission__content p,
 .technology__content p,
 .n1__content p,
 .vision__content p {
     font-size: var(--text-base);
+    line-height: 1.6; /* Improve readability with more line spacing */
     margin-bottom: 1.5rem;
+    color: var(--text-dark); /* Ensure consistent text color */
 }
 
+/* Approach grid layout and items */
 .approach__grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 2rem;
     margin-top: 2rem;
+    max-width: 1200px; /* Add a max-width for a cleaner layout on large screens */
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto; /* Center the grid within its section */
 }
 
+/* Individual grid item styling */
 .approach__item {
     background-color: #F9F9F9;
     padding: 2rem;
     border-radius: 10px;
     transition: transform var(--duration-normal), box-shadow var(--duration-normal);
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center; /* Ensure text within each item is centered */
 }
 
+/* Hover effects for approach items */
 .approach__item:hover,
 .approach__item:focus-within {
     transform: translateY(-10px);
     box-shadow: 0 20px 40px rgba(0,0,0,0.1);
 }
 
+/* Headings inside approach items */
 .approach__item h3 {
     font-family: var(--font-primary);
     font-size: var(--text-xl);
     margin-bottom: 1rem;
     color: var(--text-dark);
+    text-align: center;
 }
 
+/* Paragraphs inside approach items */
 .approach__item p {
     font-size: var(--text-base);
     color: var(--text-dark);
+    margin-top: 1rem;
+    line-height: 1.6; /* Consistent line height for readability */
+}
+
+/* SVG icons inside approach items */
+.approach__item svg {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 1rem;
+    fill: var(--primary-blue); /* Ensure consistent color for SVGs */
 }
 
 /* ===================================================== */
@@ -1013,3 +1043,68 @@ footer .social-links a:focus {
 }
 
 
+.contact-content {
+    text-align: center;
+    padding: 20px;
+}
+
+.email-contact {
+    margin-top: 20px;
+}
+
+.email-button {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    background-color: #0073e6;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.email-button:hover {
+    background-color: #005bb5;
+}
+
+.email-icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+}
+
+.email-text {
+    font-size: 16px;
+}
+
+
+section {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers content horizontally */
+    text-align: center;  /* Ensures text is centered */
+    padding: 20px;       /* Optional: Adds some space around sections */
+}
+
+/* Center images within their containers */
+.n1-image-container, .vision-image-container {
+    display: flex;
+    justify-content: center; /* Centers image horizontally */
+}
+
+.n1-image, .vision-image {
+    max-width: 100%;
+    height: auto;  /* Keeps the aspect ratio */
+}
+
+/* Center headings */
+.section-title {
+    margin-bottom: 20px; /* Optional: Adds spacing under titles */
+    text-align: center;   /* Ensures title text is centered */
+}
+
+/* Optional: Center section paragraphs */
+.n1__content p, .vision__content p {
+    max-width: 800px;  /* Limits paragraph width for readability */
+    text-align: center; /* Centers paragraph text */
+}   
