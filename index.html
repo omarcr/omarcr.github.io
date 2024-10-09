@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
 <head>
     <meta charset="UTF-8">
-    <title>Equ Healthcare - Empowering Hispanic Health with AI</title>
+    <title>Equ Healthcare</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Meta tag for content language -->
     <meta http-equiv="Content-Language" content="en">
@@ -19,206 +19,183 @@
     <!-- Skip Link for Accessibility -->
     <a href="#main" class="skip-link">Skip to main content</a>
     
-    <!-- Scroll Progress Indicator -->
+    <!-- Scroll Progress Bar -->
     <div class="progress-bar" id="progress-bar"></div>
     
     <!-- Navigation -->
-    <header>
-        <nav class="nav" role="navigation" aria-label="Main Navigation">
-            <div class="nav__logo">
-                <!-- Logo SVG -->
-                <img src="assets/AdobeStock_961244866.svg" alt="Equ Healthcare Logo" class="logo" />
-                <span>Equ Healthcare</span>
-            </div>
-            <ul class="nav__menu">
-                <li class="nav__item"><a href="#about" class="nav__link">About Us</a></li>
-                <li class="nav__item"><a href="#solutions" class="nav__link">Solutions</a></li>
-                <li class="nav__item"><a href="#approach" class="nav__link">Approach</a></li>
-                <li class="nav__item"><a href="#technology" class="nav__link">Technology</a></li>
-                <li class="nav__item"><a href="#team" class="nav__link">Team</a></li>
-                <li class="nav__item"><a href="#contact" class="nav__link">Contact</a></li>
-            </ul>
-            <!-- Language Switcher -->
-            <div class="language-switcher" aria-label="Language Switcher">
-                <button id="lang-en" class="active" data-lang="en" aria-pressed="true">EN</button> | 
-                <button id="lang-es" data-lang="es" aria-pressed="false">ES</button>
-            </div>
-            <!-- Hamburger Menu -->
-            <button class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false" aria-controls="mobileMenu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-        </nav>
-        <!-- Mobile Menu -->
-        <ul class="nav__menu--mobile" id="mobileMenu" aria-hidden="true">
-            <li class="nav__item"><a href="#about" class="nav__link">About Us</a></li>
-            <li class="nav__item"><a href="#solutions" class="nav__link">Solutions</a></li>
-            <li class="nav__item"><a href="#approach" class="nav__link">Approach</a></li>
-            <li class="nav__item"><a href="#technology" class="nav__link">Technology</a></li>
-            <li class="nav__item"><a href="#team" class="nav__link">Team</a></li>
-            <li class="nav__item"><a href="#contact" class="nav__link">Contact</a></li>
+    <nav class="nav">
+        <div class="nav__logo">
+            <img src="assets/AdobeStock_961244866.svg" alt="Equ Healthcare Logo" class="logo">
+            <span>Equ Healthcare</span>
+        </div>
+        
+        <!-- Desktop Menu -->
+        <ul class="nav__menu">
+            <li class="nav__item"><a href="#about" class="nav__link" data-key="nav_about">About Us</a></li>
+            <li class="nav__item"><a href="#solutions" class="nav__link" data-key="nav_solutions">Solutions</a></li>
+            <li class="nav__item"><a href="#approach" class="nav__link" data-key="nav_approach">Approach</a></li>
+            <li class="nav__item"><a href="#technology" class="nav__link" data-key="nav_technology">Technology</a></li>
+            <li class="nav__item"><a href="#team" class="nav__link" data-key="nav_team">Team</a></li>
+            <li class="nav__item"><a href="#contact" class="nav__link" data-key="nav_contact">Contact</a></li>
         </ul>
-    </header>
+        
+        <!-- Language Switcher -->
+        <div class="language-switcher">
+            <button class="language-switcher__button active" data-lang="en" aria-pressed="true">EN</button>
+            <span class="language-switcher__separator">|</span>
+            <button class="language-switcher__button" data-lang="es" aria-pressed="false">ES</button>
+        </div>
+        
+        <!-- Hamburger Menu for Mobile -->
+        <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobileMenu">
+            <span class="hamburger__bar"></span>
+            <span class="hamburger__bar"></span>
+            <span class="hamburger__bar"></span>
+        </button>
+    </nav>
+    
+    <!-- Mobile Menu -->
+    <ul class="nav__menu--mobile" id="mobileMenu" aria-hidden="true">
+        <li class="nav__item"><a href="#about" class="nav__link" data-key="nav_about">About Us</a></li>
+        <li class="nav__item"><a href="#solutions" class="nav__link" data-key="nav_solutions">Solutions</a></li>
+        <li class="nav__item"><a href="#approach" class="nav__link" data-key="nav_approach">Approach</a></li>
+        <li class="nav__item"><a href="#technology" class="nav__link" data-key="nav_technology">Technology</a></li>
+        <li class="nav__item"><a href="#team" class="nav__link" data-key="nav_team">Team</a></li>
+        <li class="nav__item"><a href="#contact" class="nav__link" data-key="nav_contact">Contact</a></li>
+    </ul>
     
     <!-- Main Content -->
     <main id="main">
         <!-- Hero Section -->
-        <section class="hero" aria-labelledby="hero-title">
-            <div class="hero__content">
-                <h1 class="hero__title" id="hero-title">Balancing health and equity for the Hispanic community in the United States, one equation at a time</h1>
-                <p class="hero__subtitle">Revolutionizing healthcare for the Hispanic/Latino community through transparent, interpretable AI technologies rooted in cultural understanding.</p>
-                <div class="hero__cta-group">
-                    <a href="#solutions" class="hero__cta">Discover Our Innovative Solutions</a>
-                    <a href="#about" class="hero__cta hero__cta--secondary">Join Us in Advancing Health Equity</a>
-                </div>
+    <section class="hero" aria-labelledby="hero-title">
+        <div class="hero__content">
+            <h1 class="hero__title" id="hero-title" data-key="hero_title">Balancing health and equity for the Hispanic community in the United States, one equation at a time.</h1>
+            <p class="hero__subtitle" data-key="hero_subtitle">Advancing healthcare for the Hispanic/Latino community through transparent, interpretable AI technologies rooted in cultural understanding.</p>
+            <div class="hero__cta-group">
+                <a href="#solutions" class="hero__cta" data-key="hero_cta_discover">Discover Our Innovative Solutions</a>
+                <a href="https://forms.gle/BgNnaCxruTxFjEPq9"  target="_blank" class="hero__cta hero__cta--secondary" data-key="hero_cta_join">Join our product waitlist</a>
             </div>
-        </section>
+        </div>
+    </section>
         
         <!-- About Us Section -->
         <section class="about" id="about">
-            <h2 class="section-title" data-key="about_title" lang="en">About Us</h2>
+            <h2 class="section-title" data-key="about_title">About Us</h2>
             <!-- Centered Logo -->
             <div class="about__logo-container">
                 <img src="assets/AdobeStock_961244866.svg" alt="Equ Healthcare Logo" class="about-logo">
             </div>
             <div class="about__content">
-                <p data-key="about_p1" lang="en">Equ Healthcare—a proud spin-out from MIT and Harvard Medical School, supported by the National Science Foundation—is dedicated to revolutionizing healthcare for the Hispanic/Latino community. By delivering transparent, culturally tailored AI solutions, we aim to bridge the gap in health equity and foster trust in technology-driven care.</p>
-                <p data-key="about_p2" lang="en">Our commitment to balance, precision, and equity ensures that our technology not only advances healthcare outcomes but also empowers individuals to take control of their health.</p>
+                <p data-key="about_p1">Equ Healthcare—a proud spin-out from MIT and Harvard Medical School, supported by the National Science Foundation—is dedicated to revolutionizing healthcare for the Hispanic/Latino community. By delivering transparent, culturally tailored AI solutions, we aim to bridge the gap in health equity and foster trust in technology-driven care.</p>
+                <p data-key="about_p2">Our commitment to balance, precision, and equity ensures that our technology not only advances healthcare outcomes but also empowers individuals to take control of their health.</p>
             </div>
         </section>
         
         <!-- Pillars Section -->
-        <section class="pillars">
-            <h2 class="section-title" data-key="pillars_title" lang="en">Our Pillars</h2>
+        <section class="pillars" id="pillars">
+            <h2 class="section-title" data-key="pillars_title">Our Pillars</h2>
             <div class="pillars__grid">
                 <!-- Pillar 1 -->
                 <div class="pillar">
-                    <h3 data-key="pillar1_title" lang="en">
-                        Equilibrium | Equilibrio
-                    </h3>
-                    <p data-key="pillar1_text" lang="en">Our AI platform harmonizes metabolic, nutritional, and mental health by leveraging real-time data and adaptive algorithms. This ensures personalized, actionable insights that empower individuals to achieve and maintain optimal health.</p>
+                    <h3 data-key="pillar1_title">Equilibrium | Equilibrio</h3>
+                    <p data-key="pillar1_text">Our AI platform harmonizes metabolic, nutritional, and mental health by leveraging real-time data and adaptive algorithms. This ensures personalized, actionable insights that empower individuals to achieve and maintain optimal health.</p>
                 </div>
                 <!-- Pillar 2 -->
                 <div class="pillar">
-                    <h3 data-key="pillar2_title" lang="en">
-                        <!-- Updated Icon SVG for Equation -->
-                        Equation | Ecuación
-                    </h3>
-                    <p data-key="pillar2_text" lang="en">We utilize advanced neurosymbolic AI, integrating neural networks for pattern recognition with symbolic reasoning for decision-making. This unique approach delivers precise, evidence-based interventions while maintaining full transparency.</p>
+                    <h3 data-key="pillar2_title">Equation | Ecuación</h3>
+                    <p data-key="pillar2_text">We utilize advanced neurosymbolic AI, integrating neural networks for pattern recognition with symbolic reasoning for decision-making. This unique approach delivers precise, evidence-based interventions while maintaining full transparency.</p>
                 </div>
                 <!-- Pillar 3 -->
                 <div class="pillar">
-                    <h3 data-key="pillar3_title" lang="en">
-                        <!-- Updated Icon SVG for Equity -->
-                        Equity | Equidad
-                    </h3>
-                    <p data-key="pillar3_text" lang="en">Our dedication to healthcare equity means delivering culturally tailored, accessible, and interpretable care. We enable underserved Hispanic/Latino communities to confidently engage with personalized health plans.</p>
+                    <h3 data-key="pillar3_title">Equity | Equidad</h3>
+                    <p data-key="pillar3_text">Our dedication to healthcare equity means delivering culturally tailored, accessible, and interpretable care. We enable underserved Hispanic/Latino communities to confidently engage with personalized health plans.</p>
                 </div>
                 <!-- Pillar 4 -->
                 <div class="pillar">
-                    <h3 data-key="pillar4_title" lang="en">
-                        <!-- Updated Icon SVG for Equality -->
-                        Equality | Igualdad
-                    </h3>
-                    <p data-key="pillar4_text" lang="en">By employing white-box AI models, we ensure fairness and transparency in healthcare delivery. Our technology supports equitable treatment and outcomes for all individuals, regardless of socioeconomic background.</p>
+                    <h3 data-key="pillar4_title">Equality | Igualdad</h3>
+                    <p data-key="pillar4_text">By employing white-box AI models, we ensure fairness and transparency in healthcare delivery. Our technology supports equitable treatment and outcomes for all individuals, regardless of socioeconomic background.</p>
                 </div>
             </div>
         </section>
 
-        <style>
-            /* Add hover animations */
-            .pillar svg:hover {
-                transform: scale(1.1);
-                transition: transform 0.3s ease;
-            }
-
-            .pillar svg {
-                max-width: 50px; /* Ensure consistency in size */
-                display: inline-block;
-            }
-        </style>
-
-
         <!-- Our Mission Section -->
-        <section class="mission">
-            <h2 class="section-title" data-key="mission_title" lang="en">Our Mission</h2>
+        <section class="mission" id="mission">
+            <h2 class="section-title" data-key="mission_title">Our Mission</h2>
             <div class="mission__content">
-                <p data-key="mission_text" lang="en">Our mission is to advance health equity by providing the Hispanic/Latino community with culturally resonant, transparent AI healthcare solutions—empowering individuals to take control of their health with confidence and clarity.</p>
+                <p data-key="mission_text">Our mission is to advance health equity by providing the Hispanic/Latino community with culturally resonant, transparent AI healthcare solutions—empowering individuals to take control of their health with confidence and clarity.</p>
             </div>
         </section>
         
         <!-- Products Section -->
         <section class="products" id="solutions">
-            <h2 class="section-title" data-key="solutions_title" lang="en">Our Solutions</h2>
+            <h2 class="section-title" data-key="solutions_title">Our Solutions</h2>
             <div class="products__grid">
                 <!-- Equ-1 Amigo -->
                 <div class="product-card">
-                    <span class="status-badge">In Development</span>
-                    <h3 data-key="product1_title" lang="en">Equ-1 Amigo</h3>
+                    <span class="status-badge" data-key="product1_status">In Development</span>
+                    <h3 data-key="product1_title">Equ-1 Amigo</h3>
                     <!-- Image for Equ-1 Amigo -->
                     <div class="product-image-container">
                         <img src="assets/AdobeStock_779927281.svg" alt="Equ-1 Amigo" class="product-image">
                     </div>
-                    <p data-key="product1_desc" lang="en">Equ-1 Amigo is our AI-powered diet and physical activity coach, uniquely designed for the Hispanic/Latino community. By providing personalized diet plans rooted in cultural preferences and interactive support, Equ-1 Amigo empowers individuals to achieve optimal health.</p>
+                    <p data-key="product1_desc">Equ-1 Amigo is our AI-powered diet and physical activity coach, uniquely designed for the Hispanic/Latino community. By providing personalized diet plans rooted in cultural preferences and interactive support, Equ-1 Amigo empowers individuals to achieve optimal health.</p>
                     <ul>
-                        <li data-key="product1_feature1" lang="en">Personalized, culturally tailored diet recommendations.</li>
-                        <li data-key="product1_feature2" lang="en">Activity tracking with goal setting and progress monitoring.</li>
-                        <li data-key="product1_feature3" lang="en">Interactive daily tips and motivational messages.</li>
+                        <li data-key="product1_feature1">Personalized, culturally tailored diet recommendations.</li>
+                        <li data-key="product1_feature2">Activity tracking with goal setting and progress monitoring.</li>
+                        <li data-key="product1_feature3">Interactive daily tips and motivational messages.</li>
                     </ul>
-                    <div class="progress-bar product-progress-bar">
-                        <div class="progress" style="--progress:20%;"></div>
+                    <div class="progress-bar" aria-hidden="true">
+                        <div class="progress" style="--progress:70%;"></div>
                     </div>
-                    <button class="cta" data-key="product1_cta" lang="en">Waitlist</button>
+                    <button class="cta" data-key="product1_cta">Waitlist</button>
                 </div>
                 <!-- Equ-2 Amiga -->
                 <div class="product-card">
-                    <span class="status-badge">In Development</span>
-                    <h3 data-key="product2_title" lang="en">Equ-2 Amiga</h3>
+                    <span class="status-badge" data-key="product2_status">In Development</span>
+                    <h3 data-key="product2_title">Equ-2 Amiga</h3>
                     <!-- Image for Equ-2 Amiga -->
                     <div class="product-image-container">
                         <img src="assets/AdobeStock_776091365.svg" alt="Equ-2 Amiga" class="product-image">
                     </div>
-                    <p data-key="product2_desc" lang="en">Equ-2 Amiga is an AI assistant for healthcare providers, offering evidence-based treatment recommendations and clear, interpretable insights to enhance decision-making and patient outcomes.</p>
+                    <p data-key="product2_desc">Equ-2 Amiga is an AI assistant for healthcare providers, offering evidence-based treatment recommendations and clear, interpretable insights to enhance decision-making and patient outcomes.</p>
                     <ul>
-                        <li data-key="product2_feature1" lang="en">Evidence-based, culturally sensitive treatment recommendations.</li>
-                        <li data-key="product2_feature2" lang="en">Seamless integration with existing healthcare systems.</li>
-                        <li data-key="product2_feature3" lang="en">Supports improved patient outcomes and satisfaction.</li>
+                        <li data-key="product2_feature1">Evidence-based, culturally sensitive treatment recommendations.</li>
+                        <li data-key="product2_feature2">Seamless integration with existing healthcare systems.</li>
+                        <li data-key="product2_feature3">Supports improved patient outcomes and satisfaction.</li>
                     </ul>
-                    <div class="progress-bar product-progress-bar">
-                        <div class="progress" style="--progress:10%;"></div>
+                    <div class="progress-bar" aria-hidden="true">
+                        <div class="progress" style="--progress:50%;"></div>
                     </div>
-                    <button class="cta" data-key="product2_cta" lang="en">Waitlist</button>
+                    <button class="cta" data-key="product2_cta">Waitlist</button>
                 </div>
                 <!-- Equ-3 Abu -->
                 <div class="product-card">
-                    <span class="status-badge">In Development</span>
-                    <h3 data-key="product3_title" lang="en">Equ-3 Abu</h3>
+                    <span class="status-badge" data-key="product3_status">In Development</span>
+                    <h3 data-key="product3_title">Equ-3 Abu</h3>
                     <!-- Image for Equ-3 Abu -->
                     <div class="product-image-container">
                         <img src="assets/abu.png" alt="Equ-3 Abu" class="product-image">
                     </div>
-                    <p data-key="product3_desc" lang="en">Equ-3 Abu connects individuals with the right therapist to meet their unique needs, ensuring culturally sensitive mental health support that is both accessible and personalized.</p>
+                    <p data-key="product3_desc">Equ-3 Abu connects individuals with the right therapist to meet their unique needs, ensuring culturally sensitive mental health support that is both accessible and personalized.</p>
                     <ul>
-                        <li data-key="product3_feature1" lang="en">Personalized matching with culturally competent therapists.</li>
-                        <li data-key="product3_feature2" lang="en">Confidential and user-friendly platform.</li>
-                        <li data-key="product3_feature3" lang="en">Support available in both English and Spanish.</li>
+                        <li data-key="product3_feature1">Personalized matching with culturally competent therapists.</li>
+                        <li data-key="product3_feature2">Confidential and user-friendly platform.</li>
                     </ul>
-                    <div class="progress-bar product-progress-bar">
-                        <div class="progress" style="--progress:5%;"></div>
+                    <div class="progress-bar" aria-hidden="true">
+                        <div class="progress" style="--progress:30%;"></div>
                     </div>
-                    <button class="cta" data-key="product3_cta" lang="en">Waitlist</button>
+                    <button class="cta" data-key="product3_cta">Waitlist</button>
                 </div>
             </div>
         </section>
         
         <!-- Approach Section -->
         <section class="approach" id="approach">
-            <h2 class="section-title" data-key="approach_title" lang="en">Our Approach</h2>
+            <h2 class="section-title" data-key="approach_title">Our Approach</h2>
             <div class="approach__grid">
                 <!-- Approach 1 -->
                 <div class="approach__item">
-                    <h3 data-key="approach1_title" lang="en">
+                    <h3 data-key="approach1_title">
                         <!-- Icon SVG for Modularity -->
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
                             <!-- Cube structure to represent modularity -->
@@ -229,11 +206,11 @@
                         </svg>
                         Modularity
                     </h3>
-                    <p data-key="approach1_text" lang="en">Our solutions operate as distinct components, transforming complex healthcare processes into manageable, focused units.</p>
+                    <p data-key="approach1_text">Our solutions operate as distinct components, transforming complex healthcare processes into manageable, focused units.</p>
                 </div>
                 <!-- Approach 2 -->
                 <div class="approach__item">
-                    <h3 data-key="approach2_title" lang="en">
+                    <h3 data-key="approach2_title">
                         <!-- Icon SVG for Abstraction -->
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
                             <!-- Layers with transparent rectangles representing abstraction layers -->
@@ -243,11 +220,11 @@
                         </svg>
                         Abstraction
                     </h3>
-                    <p data-key="approach2_text" lang="en">By abstracting key healthcare operations, we streamline personalized care with AI-driven modules addressing specific needs.</p>
+                    <p data-key="approach2_text">By abstracting key healthcare operations, we streamline personalized care with AI-driven modules addressing specific needs.</p>
                 </div>
                 <!-- Approach 3 -->
                 <div class="approach__item">
-                    <h3 data-key="approach3_title" lang="en">
+                    <h3 data-key="approach3_title">
                         <!-- Icon SVG for Scalability -->
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
                             <!-- Upward arrow with multiple steps to represent scalability -->
@@ -256,11 +233,11 @@
                         </svg>
                         Scalability
                     </h3>
-                    <p data-key="approach3_text" lang="en">Our adaptable system scales with evolving healthcare demands, incorporating advanced AI functionalities to serve broader populations.</p>
+                    <p data-key="approach3_text">Our adaptable system scales with evolving healthcare demands, incorporating advanced AI functionalities to serve broader populations.</p>
                 </div>
                 <!-- Approach 4 -->
                 <div class="approach__item">
-                    <h3 data-key="approach4_title" lang="en">
+                    <h3 data-key="approach4_title">
                         <!-- Icon SVG for Interoperability -->
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
                             <!-- Two interconnected circles to represent interoperability -->
@@ -270,136 +247,189 @@
                         </svg>
                         Interoperability
                     </h3>
-                    <p data-key="approach4_text" lang="en">Each module integrates seamlessly within the healthcare ecosystem, ensuring efficient data exchange and enhancing care delivery.</p>
+                    <p data-key="approach4_text">Each module integrates seamlessly within the healthcare ecosystem, ensuring efficient data exchange and enhancing care delivery.</p>
                 </div>
             </div>
         </section>
 
-
         <!-- Technology Section -->
         <section class="technology" id="technology">
-            <h2 class="section-title" data-key="technology_title" lang="en">Neurosymbolic AI: The Future of Healthcare</h2>
+            <h2 class="section-title" data-key="technology_title">Neurosymbolic AI: The Future of Healthcare</h2>
             <div class="technology__content">
-                <p data-key="technology_p1" lang="en">Our commitment to R&D drives us to the forefront of technology innovation in healthcare. We leverage neurosymbolic intelligence—a groundbreaking blend of advanced machine learning and logical reasoning—to transform complex health data into clear, actionable insights. This ensures our solutions are not only highly accurate but also fully transparent, fostering trust among users and healthcare professionals alike.</p>
+                <p data-key="technology_p1">Our commitment to R&D drives us to the forefront of technology innovation in healthcare. We leverage neurosymbolic intelligence—a groundbreaking blend of advanced machine learning and logical reasoning—to transform complex health data into clear, actionable insights. This ensures our solutions are not only highly accurate but also fully transparent, fostering trust among users and healthcare professionals alike.</p>
                 <!-- Image for Neurosymbolic AI -->
                 <div class="ai-image-container">
-                    <img src="assets/AdobeStock_786500293.jpeg" alt="Neurosymbolic AI Image" class="ai-image">
+                    <img src="assets/AdobeStock_786500293.jpeg" alt="Neurosymbolic AI Representation" class="ai-image">
                 </div>
-                <h3 data-key="technology_h3_nn" lang="en">How It Works</h3>
-                <p data-key="technology_p2" lang="en"><strong>Neural Networks:</strong> Recognize patterns and trends within vast datasets encompassing metabolic, nutritional, and mental health metrics.</p>
-                <p data-key="technology_p3" lang="en"><strong>Symbolic AI:</strong> Applies clinical knowledge through logical reasoning to provide clear, evidence-based recommendations.</p>
-                <p data-key="technology_p4" lang="en"><strong>The Result:</strong> By integrating these AI paradigms, our neurosymbolic AI offers a holistic and transparent approach to complex medical challenges, enhancing predictive accuracy and ensuring understandable reasoning behind each decision.</p>
+                <h3 data-key="technology_h3_nn">Neural Networks</h3>
+                <p data-key="technology_p2">Recognize patterns and trends within vast datasets encompassing metabolic, nutritional, and mental health metrics.</p>
+                <h3 data-key="technology_h3_sa">Symbolic AI</h3>
+                <p data-key="technology_p3">Applies clinical knowledge through logical reasoning to provide clear, evidence-based recommendations.</p>
+                <p data-key="technology_p4">By integrating these AI paradigms, our neurosymbolic AI offers a holistic and transparent approach to complex medical challenges, enhancing predictive accuracy and ensuring understandable reasoning behind each decision.</p>
             </div>
         </section>
         
         <!-- N=1 Section with Image -->
         <section class="n1" id="n1">
-            <h2 class="section-title" data-key="n1_title" lang="en">N=1 for Precision Medicine</h2>
+            <h2 class="section-title" data-key="n1_title">N=1 for Precision Medicine</h2>
             <div class="n1__content">
-                <p data-key="n1_text" lang="en">At Equ Healthcare, we embrace the concept of 'n=1' in precision medicine, designing digital health solutions that address the unique needs of each individual. By integrating personalized care with interpretable technology, we provide support precisely tailored to each person's circumstances.</p>
+                <p data-key="n1_text">At Equ Healthcare, we embrace the concept of 'n=1' in precision medicine, designing digital health solutions that address the unique needs of each individual. By integrating personalized care with interpretable technology, we provide support precisely tailored to each person's circumstances.</p>
             </div>
             <!-- Full-width image -->
             <div class="n1-image-container">
-                <img src="assets/AdobeStock_187198026.jpeg" alt="N=1 Approach" class="n1-image">
+                <img src="assets/AdobeStock_187198026.jpeg" alt="N=1 Precision Medicine Approach" class="n1-image">
             </div>
         </section>
         
         <!-- Vision Section -->
         <section class="vision" id="vision">
-            <h2 class="section-title" data-key="vision_title" lang="en">Our Vision</h2>
+            <h2 class="section-title" data-key="vision_title">Our Vision</h2>
             <div class="vision__content">
-                <p data-key="vision_text" lang="en">We start in the Hispanic community in the US with a goal to expand to Latin America, bringing equitable healthcare solutions to a broader audience.</p>
+                <p data-key="vision_text">We start in the Hispanic community in the US with a goal to expand to Latin America, bringing equitable healthcare solutions to a broader audience.</p>
                 <!-- Image of Vision -->
                 <div class="vision-image-container">
-                    <img src="assets/image17.jpg" alt="Vision Image" class="vision-image">
+                    <img src="assets/image17.jpg" alt="Our Vision Representation" class="vision-image">
                 </div>
             </div>
         </section>
         
-    <!-- Supporters Section -->
-    <section class="supporters" aria-labelledby="supporters-title">
-        <h2 class="section-title" id="supporters-title" data-key="supporters_title" lang="en">Our Supporters</h2>
-        <div class="supporters__grid">
-            <div class="supporter">
-                <img src="assets/mit_lockup_std-one-line_rgb_bright-red.png" alt="Massachusetts Institute of Technology" width="500" />
+        <!-- Supporters Section -->
+        <section class="supporters" aria-labelledby="supporters-title">
+            <h2 class="section-title" id="supporters-title" data-key="supporters_title">Our Supporters</h2>
+            <div class="supporters__grid">
+                <div class="supporter">
+                    <img src="assets/mit_lockup_std-one-line_rgb_bright-red.png" alt="Massachusetts Institute of Technology Logo" width="400" />
+                </div>
+                <div class="supporter">
+                    <img src="assets/hms-logo-final-rgb.png" alt="Harvard Medical School Logo" width="300" />
+                </div>
+                <div class="supporter">
+                    <img src="assets/NSF-Symbol.png" alt="National Science Foundation Logo" width="200" />
+                </div>
             </div>
-            <div class="supporter">
-                <img src="assets/hms-logo-final-rgb.png" alt="Harvard Medical School" width="400" />
-            </div>
-            <div class="supporter">
-                <img src="assets/NSF-Symbol.png" alt="National Science Foundation" width="350" />
-            </div>
-        </div>
-    </section>
-
-        
+        </section>
+    
         <!-- Team Section -->
         <section class="team" id="team" aria-labelledby="team-title">
-            <h2 class="section-title" id="team-title" data-key="team_title" lang="en">Meet Our Founder</h2>
+            <h2 class="section-title" id="team-title" data-key="team_title">Meet Our Team</h2>
             <div class="team__grid">
+                <!-- Dr. Omar Costilla-Reyes -->
                 <div class="team-member">
                     <div class="avatar">
-                        <img src="assets/0217_9637_lightroom.jpg" alt="Dr. Omar Costilla-Reyes" />
+                        <img src="assets/omar.jpeg" alt="Dr. Omar Costilla-Reyes" />
                     </div>
-                    <h3 data-key="founder_name" lang="en">Dr. Omar Costilla-Reyes</h3>
-                    <p data-key="founder_title" lang="en">Founder & CEO</p>
+                    <h3 data-key="founder_name">Dr. Omar Costilla-Reyes</h3>
+                    <p data-key="founder_title">CEO & Founder</p>
+                    <p data-key="founder_position1">Research Scientist, MIT CSAIL</p>
                     <div class="social-links">
                         <a href="https://www.linkedin.com/in/omarcore/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile">LinkedIn</a>
                         <a href="https://x.com/konet" target="_blank" rel="noopener noreferrer" aria-label="Twitter Profile">Twitter</a>
                     </div>
                 </div>
-            </div>
+
+                <!-- Vishal Bhalla -->
+                <div class="team-member">
+                    <div class="avatar">
+                        <img src="assets/vishal.jpeg" alt="Vishal Bhalla" />
+                    </div>
+                    <h3 data-key="team_member_vishal_name">Vishal Bhalla</h3>
+                    <p data-key="team_member_vishal_title">Business Director</p>
+                    <p data-key="team_member_vishal_position1">Board-member, Advisor, Healthcare experience officer expert</p>
+                </div>
+
+                <!-- Jennifer Miles-Thomas -->
+                <div class="team-member">
+                    <div class="avatar">
+                        <img src="assets/jennifer.jpeg" alt="Jennifer Miles-Thomas" />
+                    </div>
+                    <h3 data-key="team_member_jennifer_name">Dr. Jennifer Miles-Thomas</h3>
+                    <p data-key="team_member_jennifer_title">Medical Director</p>
+                    <p data-key="team_member_jennifer_position1">Vice Chair of Integration and Innovation, Northwestern Medicine Department of Urology</p>
+                    <p data-key="team_member_jennifer_position2">Assistant Professor, Department of Urology, Eastern Virginia Medical School</p>
+                </div>
+
+                <!-- Alfredo Costilla Reyes -->
+                <div class="team-member">
+                    <div class="avatar">
+                        <img src="assets/alfredo.jpeg" alt="Alfredo Costilla Reyes" />
+                    </div>
+                    <h3 data-key="team_member_alfredo_name">Dr. Alfredo Costilla Reyes</h3>
+                    <p data-key="team_member_alfredo_title">Technology Director</p>
+                    <p data-key="team_member_alfredo_position1">AI Research, AI POW LLC (AutoEdge.ai)</p>
+                </div>
+
+                <!-- Morgan Talbot -->
+                <div class="team-member">
+                    <div class="avatar">
+                        <img src="assets/morgan.jpeg" alt="Morgan Talbot" />
+                    </div>
+                    <h3 data-key="team_member_morgan_name">Morgan Talbot</h3>
+                    <p data-key="team_member_morgan_title">Data Scientist</p>
+                    <p data-key="team_member_morgan_position1">MD-PhD Candidate, Massachusetts Institute of Technology</p>
+                </div>
+
+                <!-- Jesse Hamel -->
+                <div class="team-member">
+                    <div class="avatar">
+                        <img src="assets/jesse.jpeg" alt="Jesse Hamel" />
+                    </div>
+                    <h3 data-key="team_member_jesse_name">Jesse Hamel</h3>
+                    <p data-key="team_member_jesse_title">Strategic Advisor</p>
+                    <p data-key="team_member_jesse_position1">Founder & Principal, Victus Key Ventures</p>
+                </div>
         </section>
 
+
+
         <!-- Investor Relations Section -->
-        <section class="investor-relations">
-            <h2 class="section-title" data-key="investor_relations_title" lang="en">Invest in the Future of Healthcare</h2>
-            <div class="investor-content">
-                <p data-key="investor_relations_text" lang="en">Equ Healthcare is at the forefront of a transformative movement in healthcare. By investing with us, you are contributing to a solution that combines cutting-edge technology with cultural empathy, addressing a significant market need.</p>
+        <section class="investor-relations" id="investor-relations">
+            <h2 class="section-title" data-key="investor_relations_title">Invest in the Future of Healthcare</h2>
+            <div class="investor__content">
+                <p data-key="investor_relations_text">Equ Healthcare is at the forefront of a transformative movement in healthcare. By investing with us, you are contributing to a solution that combines cutting-edge technology with cultural empathy, addressing a significant market need.</p>
             </div>
         </section>
 
         <!-- Healthcare Professionals Section -->
-        <section class="healthcare-professionals">
-            <h2 class="section-title" data-key="healthcare_professionals_title" lang="en">Collaborate with Us</h2>
-            <div class="professionals-content">
-                <p data-key="healthcare_professionals_text" lang="en">Are you a healthcare professional passionate about advancing health equity? Partner with Equ Healthcare to bring culturally tailored AI solutions to your patients. Together, we can enhance patient outcomes and transform healthcare delivery.</p>
+        <section class="healthcare-professionals" id="healthcare-professionals">
+            <h2 class="section-title" data-key="healthcare_professionals_title">Collaborate with Us</h2>
+            <div class="healthcare-professionals__content">
+                <p data-key="healthcare_professionals_text">Are you a healthcare professional passionate about advancing health equity? Partner with Equ Healthcare to bring culturally tailored AI solutions to your patients. Together, we can enhance patient outcomes and transform healthcare delivery.</p>
             </div>
         </section>
         
+        <!-- Contact Section -->
         <section class="contact" id="contact" aria-labelledby="contact-title">
-            <h2 class="section-title" id="contact-title" data-key="contact_title" lang="en">Get in Touch</h2>
+            <h2 class="section-title" id="contact-title" data-key="contact_title">Get in Touch</h2>
             <div class="contact-content">
-                <p data-key="contact_text" lang="en">
+                <p data-key="contact_text">
                     Ready to join us on this journey towards building the future of healthcare? Whether you are an investor, healthcare professional, or community member, we would love to hear from you.
                 </p>
 
                 <!-- Email Icon Button -->
                 <div class="email-contact">
-                    <a href="mailto:omar@equ.care" class="email-button">
-                        <span class="email-text" data-key="email_contact" lang="en">Email us at omar@equ.care</span>
+                    <a href="mailto:omar@equ.care" class="email-button" aria-label="Email us at omar@equ.care">
+                        <img src="assets/AdobeStock_509074953.svg" alt="" class="email-icon">
+                        <span class="email-text" data-key="contact_email_text">Email us at omar@equ.care</span>
                     </a>
                 </div>
 
                 <!-- Success message -->
-                <p class="success-message" style="display:none;" role="status" data-key="success_message" lang="en">
+                <p class="success-message" style="display:none;" role="status" data-key="success_message">
                     Thank you! We'll get back to you soon.
                 </p>
             </div>
         </section>
-
-
     </main>
     
     <!-- Footer -->
     <footer aria-labelledby="footer-title">
         <h2 class="visually-hidden" id="footer-title">Footer</h2>
         <div class="footer__links">
-            <a href="#" data-key="footer_privacy" lang="en">Privacy Policy</a> | 
-            <a href="#" data-key="footer_terms" lang="en">Terms of Service</a>
+            <a href="#" data-key="footer_privacy">Privacy Policy</a> | 
+            <a href="#" data-key="footer_terms">Terms of Service</a>
         </div>
-        <p data-key="footer_copy" lang="en">© Equ Healthcare Technologies. All rights reserved.</p>
-        <!-- Social Media Icons -->
+        <p data-key="footer_copy">© Equ Healthcare Technologies. All rights reserved.</p>
+        <!-- Social Media Icons (if any) can be added here -->
     </footer>
     
     <!-- External JavaScript -->
