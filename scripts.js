@@ -383,8 +383,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Supporters Section
             "supporters_title": {
-                "en": "Our Supporters",
-                "es": "Nuestros Patrocinadores"
+                "en": "Our supporters and experience",
+                "es": "Nuestros patrocinadores y experiencia"
             },
 
             // Team Section
