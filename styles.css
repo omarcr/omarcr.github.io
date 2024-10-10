@@ -75,6 +75,7 @@ body {
     color: var(--text-dark);
     background-color: #fff;
     line-height: 1.6;
+    text-align: center; /* Center all text by default */
 }
 
 a {
@@ -91,6 +92,7 @@ a:focus {
 img {
     max-width: 100%;
     display: block;
+    margin: 0 auto; /* Ensure images are centered */
 }
 
 /* ===================================================== */
@@ -157,6 +159,7 @@ textarea:focus {
 .nav__menu {
     display: flex;
     gap: 1.5rem;
+    justify-content: center; /* Center navigation items */
 }
 
 .nav__item {
@@ -311,7 +314,7 @@ textarea:focus {
     display: flex;
     align-items: center;
     justify-content: center;
-    text-align: left;
+    text-align: center; /* Changed from left to center */
     color: var(--text-dark);
     overflow: hidden;
     padding: 0 2rem;
@@ -342,6 +345,8 @@ textarea:focus {
 .hero__cta-group {
     display: flex;
     gap: 1rem;
+    flex-direction: column; /* Stack buttons on smaller screens */
+    align-items: center; /* Center buttons horizontally */
 }
 
 .hero__cta {
@@ -406,6 +411,7 @@ textarea:focus {
 
 section {
     padding: 4rem 2rem;
+    text-align: center; /* Ensure all sections have centered text */
 }
 
 .section-title {
@@ -1080,7 +1086,7 @@ footer .social-links a:focus {
     }
 
     .hero {
-        text-align: center;
+        text-align: center; /* Ensure hero text is centered on mobile */
     }
 
     .hero__content {
@@ -1089,6 +1095,7 @@ footer .social-links a:focus {
 
     .hero__cta-group {
         flex-direction: column;
+        align-items: center; /* Center buttons on mobile */
     }
 
     .nav__menu--mobile {
