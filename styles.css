@@ -766,7 +766,11 @@ section {
     height: auto;
     max-width: 100%;
     border-radius: 10px;
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+    /* Removed box shadow */
+    box-shadow: none;
+    /* Reduce image height to 50% */
+    height: 50%;
+    object-fit: cover; /* This ensures the image fills the container */
 }
 
 /* ===================================================== */
@@ -1341,11 +1345,7 @@ footer .social-links a:focus {
 }
 
 /* ===================================================== */
-/*                  END OF STYLES.CSS                     */
-/* ===================================================== */
-
-/* ===================================================== */
-/*             NEUROSYMBOLIC AI SECTION                   */
+/*                  NEUROSYMBOLIC AI SECTION              */
 /* ===================================================== */
 
 .neurosymbolic-ai {
@@ -1360,10 +1360,6 @@ footer .social-links a:focus {
     padding: 0 20px;
     font-family: var(--font-secondary);
     line-height: 1.6;
-<<<<<<< HEAD
-=======
-    border: 1px;
->>>>>>> 03968b1f7f56681dd34fb4e0eb05d9d00ac3a0b5
 }
 
 .neurosymbolic-ai__content p {
@@ -1423,6 +1419,7 @@ footer .social-links a:focus {
         max-width: 100%;
     }
 }
+
 /* ===================================================== */
 /*             SCIENTIFIC DISCOVERY SECTION               */
 /* ===================================================== */
@@ -1504,4 +1501,26 @@ footer .social-links a:focus {
         width: 100%;
         text-align: center;
     }
+}
+
+/* ===================================================== */
+/*                  NEUROSYMBOLIC AI SECTION              */
+/* ===================================================== */
+
+/* .neurosymbolic-ai and its related styles have already been defined above */
+
+/* ===================================================== */
+/*                  ADDITIONAL COMPONENT STYLES            */
+/* ===================================================== */
+
+/* Ensuring consistent styling for all additional components */
+
+/* ===================================================== */
+/*                  END OF STYLES.CSS                     */
+/* ===================================================== */
+
+
+.reduced-image {
+    width: 50%;
+    height: auto;
 }
