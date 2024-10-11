@@ -1357,6 +1357,7 @@ footer .social-links a:focus {
     margin: 0 auto; /* Center the section horizontally */
     font-family: var(--font-secondary); /* Use the existing secondary font */
     line-height: 1.6;
+    border: 1px;
 }
 
 .neurosym-ai__content p {
@@ -1372,7 +1373,7 @@ footer .social-links a:focus {
 }
 
 .neurosym-ai__image img {
-    max-width: 60%; /* Set a maximum width for images */
+    max-width: 40%; /* Set a maximum width for images */
     height: auto; /* Maintain aspect ratio */
     border-radius: 10px; /* Add subtle rounding for consistency with other visuals */
     box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1); /* Soft shadow for a polished look */
