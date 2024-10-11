@@ -1345,47 +1345,49 @@ footer .social-links a:focus {
 /* ===================================================== */
 
 /* ===================================================== */
-/*              NEUROSYMBOLIC AI SECTION                 */
+/*             NEUROSYMBOLIC AI SECTION                   */
 /* ===================================================== */
 
-/* Neurosymbolic AI Section Styles */
-.neurosym-ai {
-    padding: 3rem 2rem; /* Match the previous section's padding */
-    background-color: #fff; /* Maintain the background consistency */
-    text-align: justify; /* Align text on both sides */
-    max-width: 1200px; /* Limit section width to match the layout */
-    margin: 0 auto; /* Center the section horizontally */
-    font-family: var(--font-secondary); /* Use the existing secondary font */
+.neurosymbolic-ai {
+    background-color: #FFFFFF;
+    text-align: center;
+    padding: 4rem 2rem;
+}
+
+.neurosymbolic-ai__content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    font-family: var(--font-secondary);
     line-height: 1.6;
     border: 1px;
 }
 
-.neurosym-ai__content p {
-    font-size: var(--text-base); /* Keep text size consistent */
-    color: var(--text-dark); /* Maintain consistent text color */
-    margin-bottom: 1.5rem; /* Add spacing between paragraphs */
+.neurosymbolic-ai__content p {
+    font-size: var(--text-base);
+    color: var(--text-dark);
+    margin-bottom: 1.5rem;
 }
 
-/* Image Styling */
-.neurosym-ai__image {
-    margin: 2rem auto; /* Space above and below images, center aligned */
-    text-align: center;
+.ai-image-container {
+    display: flex;
+    justify-content: center;
+    margin: 2rem 0;
 }
 
 .neurosym-ai__image img {
-    max-width: 40%; /* Set a maximum width for images */
+    max-width: 60%; /* Set a maximum width for images */
     height: auto; /* Maintain aspect ratio */
     border-radius: 10px; /* Add subtle rounding for consistency with other visuals */
     box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1); /* Soft shadow for a polished look */
 }
 
-/* Section Title Styling */
 .section-title {
-    font-family: var(--font-primary); /* Use primary font for titles */
-    font-size: var(--text-3xl); /* Set appropriate size for the title */
-    color: var(--text-dark); /* Use dark text color */
-    margin-bottom: 2rem; /* Add space below the title */
-    text-align: center; /* Center the title */
+    font-family: var(--font-primary);
+    font-size: var(--text-3xl);
+    color: var(--text-dark);
+    margin-bottom: 2rem;
+    text-align: center;
     position: relative;
 }
 
@@ -1394,27 +1396,108 @@ footer .social-links a:focus {
     position: absolute;
     width: 50px;
     height: 4px;
-    background: var(--accent-warm); /* Add an underline effect */
+    background: var(--accent-warm);
     left: 50%;
     transform: translateX(-50%);
     bottom: -10px;
 }
 
-/* Responsive Adjustments */
+/* ===================================================== */
+/*                RESPONSIVE STYLES FOR NEUROSYMBOLIC AI   */
+/* ===================================================== */
+
 @media (max-width: var(--tablet)) {
-    .neurosym-ai {
+    .neurosymbolic-ai {
         padding: 2rem 1rem;
     }
 
-    .section-title {
-        font-size: var(--text-2xl); /* Smaller title size on tablets */
+    .neurosymbolic-ai__content p {
+        font-size: var(--text-sm);
     }
 
-    .neurosym-ai__content p {
-        font-size: var(--text-sm); /* Smaller text for better readability on small screens */
+    .ai-image {
+        max-width: 100%;
     }
-    
-    .neurosym-ai__image img {
-        max-width: 100%; /* Full width images on smaller screens */
+}
+/* ===================================================== */
+/*             SCIENTIFIC DISCOVERY SECTION               */
+/* ===================================================== */
+
+.scientific-discovery {
+    background-color: #FFFFFF;
+    text-align: center;
+    padding: 4rem 2rem;
+}
+
+.scientific-discovery__content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    font-family: var(--font-secondary);
+    line-height: 1.6;
+}
+
+.scientific-discovery__content p {
+    font-size: var(--text-base);
+    color: var(--text-dark);
+    margin-bottom: 1.5rem;
+}
+
+.scientific-discovery__image-container {
+    display: flex;
+    justify-content: center;
+    margin: 2rem 0;
+}
+
+.scientific-discovery__image {
+    width: 100%;
+    max-width: 800px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.scientific-discovery__cta {
+    margin-top: 2rem;
+}
+
+.scientific-discovery__cta .cta {
+    display: inline-block;
+    padding: 0.75rem 2rem;
+    background-color: var(--primary-blue);
+    color: var(--text-light);
+    border-radius: 8px;
+    font-size: var(--text-base);
+    font-family: var(--font-primary);
+    cursor: pointer;
+    transition: background-color var(--duration-normal);
+    text-decoration: none;
+}
+
+.scientific-discovery__cta .cta:hover,
+.scientific-discovery__cta .cta:focus {
+    background-color: var(--hover-state);
+}
+
+/* ===================================================== */
+/*                RESPONSIVE STYLES FOR SC.DISCOVERY      */
+/* ===================================================== */
+
+@media (max-width: var(--tablet)) {
+    .scientific-discovery {
+        padding: 2rem 1rem;
+    }
+
+    .scientific-discovery__content p {
+        font-size: var(--text-sm);
+    }
+
+    .scientific-discovery__image {
+        max-width: 100%;
+    }
+
+    .scientific-discovery__cta .cta {
+        width: 100%;
+        text-align: center;
     }
 }

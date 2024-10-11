@@ -29,15 +29,16 @@
             <span>Equ Healthcare</span>
         </div>
         
-        <!-- Desktop Menu -->
-        <ul class="nav__menu">
-            <li class="nav__item"><a href="#about" class="nav__link" data-key="nav_about">About Us</a></li>
-            <li class="nav__item"><a href="#solutions" class="nav__link" data-key="nav_solutions">Solutions</a></li>
-            <li class="nav__item"><a href="#approach" class="nav__link" data-key="nav_approach">Approach</a></li>
-            <li class="nav__item"><a href="#technology" class="nav__link" data-key="nav_technology">Technology</a></li>
-            <li class="nav__item"><a href="#team" class="nav__link" data-key="nav_team">Team</a></li>
-            <li class="nav__item"><a href="#contact" class="nav__link" data-key="nav_contact">Contact</a></li>
-        </ul>
+    <!-- Desktop Menu -->
+    <ul class="nav__menu">
+        <li class="nav__item"><a href="#about" class="nav__link" data-key="nav_about">About Us</a></li>
+        <li class="nav__item"><a href="#solutions" class="nav__link" data-key="nav_solutions">Solutions</a></li>
+        <li class="nav__item"><a href="#approach" class="nav__link" data-key="nav_approach">Approach</a></li>
+        <li class="nav__item"><a href="#technology" class="nav__link" data-key="nav_technology">Technology</a></li>
+        <li class="nav__item"><a href="#scientific-discovery" class="nav__link" data-key="nav_scientific_discovery">Scientific Discovery</a></li>
+        <li class="nav__item"><a href="#team" class="nav__link" data-key="nav_team">Team</a></li>
+        <li class="nav__item"><a href="#contact" class="nav__link" data-key="nav_contact">Contact</a></li>
+    </ul>
         
         <!-- Language Switcher -->
         <div class="language-switcher">
@@ -60,6 +61,7 @@
         <li class="nav__item"><a href="#solutions" class="nav__link" data-key="nav_solutions">Solutions</a></li>
         <li class="nav__item"><a href="#approach" class="nav__link" data-key="nav_approach">Approach</a></li>
         <li class="nav__item"><a href="#technology" class="nav__link" data-key="nav_technology">Technology</a></li>
+        <li class="nav__item"><a href="#scientific-discovery" class="nav__link" data-key="nav_scientific_discovery">Scientific Discovery</a></li>
         <li class="nav__item"><a href="#team" class="nav__link" data-key="nav_team">Team</a></li>
         <li class="nav__item"><a href="#contact" class="nav__link" data-key="nav_contact">Contact</a></li>
     </ul>
@@ -294,33 +296,51 @@
             </div>
         </section>
 
-        <!-- Neurosymbolic AI Section -->
-        <section class="neurosym-ai" id="neurosym-ai">
-            <h2 class="section-title" data-key="neurosym_ai_title">Neurosymbolic AI: Interpretability in Healthcare explained</h2>
-            <div class="neurosym-ai__content">
-                <p data-key="neurosym_ai_p1">
-                    The Framingham Risk Score, a transparent model uses specific risk factors, like age and cholesterol, to calculate a patient's 10-year cardiovascular risk. Each factor is weighted by its significance (β<sub>i</sub>), providing a clear, interpretable outcome for clinicians. This model allows healthcare professionals to easily understand how each factor contributes to overall risk, supporting informed decisions:
-                </p>
-
-                <!-- Image for Framingham Risk Score (Symbolic Model) -->
-                <div class="neurosym-ai__image">
-                    <img src="assets/equ-sym.jpg" alt="Framingham Risk Score Equation" class="ai-image">
+            <!-- Scientific Discovery Section -->
+            <section class="scientific-discovery" id="scientific-discovery">
+                <h2 class="section-title" data-key="scientific_discovery_title">Empowering Scientific Discovery</h2>
+                <div class="scientific-discovery__content">
+                    <p data-key="scientific_discovery_p1">
+                        At Equ Healthcare, we are at the forefront of transforming healthcare through groundbreaking neurosymbolic AI technologies. Our mission is to enable unprecedented scientific discoveries that drive advancements in medical research, personalized medicine, and health equity.
+                    </p>
+                    <p data-key="scientific_discovery_p2">
+                        By leveraging our advanced AI platform, researchers and healthcare professionals can accelerate their work, making faster and more informed decisions that lead to better patient outcomes. Our technology not only enhances the efficiency of scientific research but also ensures that discoveries are actionable and scalable across diverse populations.
+                    </p>
+                    <!-- Image for Scientific Discovery -->
+                    <div class="scientific-discovery__image-container">
+                        <img src="assets/sd.jpg" alt="Neurosymbolic AI Driving Scientific Discovery in Healthcare" class="scientific-discovery__image">
+                    </div>
                 </div>
+            </section>
 
-                <p data-key="neurosym_ai_p2">
-                    In a neural network the inputs are the same patient data (age, cholesterol, blood pressure, etc.), but the data is processed through multiple hidden layers. The output is a cardiovascular risk score, similar to the Framingham model, but the relationships between the inputs and the final prediction are less interpretable:
-                </p>
 
-                <!-- Image for Neural Network Diagram -->
-                <div class="neurosym-ai__image">
-                    <img src="assets/AdobeStock_237839124.jpeg" alt="Neural Network Diagram" class="ai-image">
-                </div>
+<!-- Neurosymbolic AI Section -->
+<section class="neurosymbolic-ai" id="neurosymbolic-ai">
+    <h2 class="section-title" data-key="neurosymbolic_ai_title">Neurosymbolic AI: Interpretability in Healthcare explained</h2>
+    <div class="neurosymbolic-ai__content">
+        <p data-key="neurosymbolic_ai_p1">
+            The Framingham Risk Score, a transparent model, uses specific risk factors like age and cholesterol to calculate a patient's 10-year cardiovascular risk. Each factor is weighted by its significance (β<sub>i</sub>), providing a clear, interpretable outcome for clinicians. This model allows healthcare professionals to easily understand how each factor contributes to overall risk, supporting informed decisions:
+        </p>
 
-                <p data-key="neurosym_ai_p3">
-                    Neurosymbolic AI bridges these two approaches. It combines the interpretability of symbolic models like the Framingham Risk Score with the learning power of neural networks. This creates systems that produce accurate cardiovascular risk predictions while maintaining transparency, helping clinicians understand not just the result, but also how different risk factors contributed to it.
-                </p>
-            </div>
-        </section>
+        <!-- Image for Framingham Risk Score (Symbolic Model) -->
+        <div class="ai-image-container">
+            <img src="assets/equ-sym.jpg" alt="Framingham Risk Score Equation" class="ai-image2">
+        </div>
+
+        <p data-key="neurosymbolic_ai_p2">
+            In a neural network, the inputs are the same patient data (age, cholesterol, blood pressure, etc.), but the data is processed through multiple hidden layers. The output is a cardiovascular risk score, similar to the Framingham model, but the relationships between the inputs and the final prediction are less interpretable:
+        </p>
+
+        <!-- Image for Neural Network Diagram -->
+        <div class="ai-image-container">
+            <img src="assets/AdobeStock_237839124.jpeg" alt="Neural Network Diagram" class="ai-image2">
+        </div>
+
+        <p data-key="neurosymbolic_ai_p3">
+            Neurosymbolic AI bridges these two approaches. It combines the interpretability of symbolic models like the Framingham Risk Score with the learning power of neural networks. This creates systems that produce accurate cardiovascular risk predictions while maintaining transparency, helping clinicians understand not just the result, but also how different risk factors contributed to it.
+        </p>
+    </div>
+</section>
 
 
         <!-- N=1 Section with Image -->
@@ -466,7 +486,8 @@
         <section class="investor-relations" id="investor-relations">
             <h2 class="section-title" data-key="investor_relations_title">Invest in the Future of Healthcare</h2>
             <div class="investor__content">
-                <p data-key="investor_relations_text">Equ Healthcare is at the forefront of a transformative movement in healthcare. By investing with us, you are contributing to a solution that combines cutting-edge technology with cultural empathy, addressing a significant market need.</p>
+                <p data-key="investor_relations_text">Equ Healthcare is at the forefront of a transformative movement in healthcare. By investing with us, you are contributing to a solution that combines cutting-edge technology with cultural empathy, addressing a significant market need.             Investing in Equ Healthcare means partnering with a team dedicated to pushing the boundaries of what’s possible in healthcare. Our unique neurosymbolic AI framework positions us to lead the next wave of medical innovations, addressing critical challenges in disease prediction, treatment personalization, and health equity.
+                </p>
             </div>
         </section>
 
