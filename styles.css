@@ -742,32 +742,31 @@ section {
 }
 
 .n1__content {
-    max-width: 400px; /* Reduced from 800px */
+    max-width: 800px;
     margin: 0 auto;
-    padding: 0 10px; /* Reduced from 20px */
+    padding: 0 20px;
 }
 
 .n1__content p {
-    font-size: calc(var(--text-base) / 2); /* Reduced font size by half */
+    font-size: var(--text-base);
     line-height: 1.6;
-    margin-bottom: 0.75rem; /* Reduced margin */
+    margin-bottom: 1.5rem;
     color: var(--text-dark);
 }
 
 .n1-image-container {
     position: relative;
-    width: 50vw; /* Reduced from 100vw */
-    margin-left: calc(-25vw + 50%); /* Adjusted for reduced width */
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
 }
 
 .n1-image {
-    width: 100%;
+    width: 80%;
     height: auto;
-    max-width: 50%; /* Reduced max-width */
+    max-width: 80%;
     border-radius: 10px;
     box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
 }
-
 /* ===================================================== */
 /*                      VISION SECTION                    */
 /* ===================================================== */
