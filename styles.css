@@ -736,6 +736,7 @@ section {
 /* ===================================================== */
 /*                      N=1 SECTION                      */
 /* ===================================================== */
+
 .n1 {
     background-color: #FFFFFF;
     text-align: center;
@@ -767,6 +768,7 @@ section {
     border-radius: 10px;
     box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
 }
+
 /* ===================================================== */
 /*                      VISION SECTION                    */
 /* ===================================================== */
@@ -1187,6 +1189,12 @@ footer .social-links a:focus {
     box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
 }
 
+/* N=1 Section Image */
+.n1-image-container {
+    position: relative;
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+}
 
 .n1-image {
     width: 100%;
@@ -1352,7 +1360,10 @@ footer .social-links a:focus {
     padding: 0 20px;
     font-family: var(--font-secondary);
     line-height: 1.6;
+<<<<<<< HEAD
+=======
     border: 1px;
+>>>>>>> 03968b1f7f56681dd34fb4e0eb05d9d00ac3a0b5
 }
 
 .neurosymbolic-ai__content p {
@@ -1367,11 +1378,12 @@ footer .social-links a:focus {
     margin: 2rem 0;
 }
 
-.neurosym-ai__image img {
-    max-width: 60%; /* Set a maximum width for images */
-    height: auto; /* Maintain aspect ratio */
-    border-radius: 10px; /* Add subtle rounding for consistency with other visuals */
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1); /* Soft shadow for a polished look */
+.ai-image2 {
+    width: 30%;
+    max-width: 800px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
 }
 
 .section-title {
