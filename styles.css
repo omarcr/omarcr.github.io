@@ -761,9 +761,9 @@ section {
 }
 
 .n1-image {
-    width: 80%;
+    width: 100%;
     height: auto;
-    max-width: 80%;
+    max-width: 100%;
     border-radius: 10px;
     box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
 }
@@ -1187,12 +1187,6 @@ footer .social-links a:focus {
     box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
 }
 
-/* N=1 Section Image */
-.n1-image-container {
-    position: relative;
-    width: 100vw;
-    margin-left: calc(-50vw + 50%);
-}
 
 .n1-image {
     width: 100%;
