@@ -1343,3 +1343,77 @@ footer .social-links a:focus {
 /* ===================================================== */
 /*                  END OF STYLES.CSS                     */
 /* ===================================================== */
+
+/* ===================================================== */
+/*              NEUROSYMBOLIC AI SECTION                 */
+/* ===================================================== */
+
+/* Neurosymbolic AI Section Styles */
+.neurosym-ai {
+    padding: 3rem 2rem; /* Match the previous section's padding */
+    background-color: #fff; /* Maintain the background consistency */
+    text-align: justify; /* Align text on both sides */
+    max-width: 1200px; /* Limit section width to match the layout */
+    margin: 0 auto; /* Center the section horizontally */
+    font-family: var(--font-secondary); /* Use the existing secondary font */
+    line-height: 1.6;
+}
+
+.neurosym-ai__content p {
+    font-size: var(--text-base); /* Keep text size consistent */
+    color: var(--text-dark); /* Maintain consistent text color */
+    margin-bottom: 1.5rem; /* Add spacing between paragraphs */
+}
+
+/* Image Styling */
+.neurosym-ai__image {
+    margin: 2rem auto; /* Space above and below images, center aligned */
+    text-align: center;
+}
+
+.neurosym-ai__image img {
+    max-width: 60%; /* Set a maximum width for images */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 10px; /* Add subtle rounding for consistency with other visuals */
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1); /* Soft shadow for a polished look */
+}
+
+/* Section Title Styling */
+.section-title {
+    font-family: var(--font-primary); /* Use primary font for titles */
+    font-size: var(--text-3xl); /* Set appropriate size for the title */
+    color: var(--text-dark); /* Use dark text color */
+    margin-bottom: 2rem; /* Add space below the title */
+    text-align: center; /* Center the title */
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 4px;
+    background: var(--accent-warm); /* Add an underline effect */
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -10px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: var(--tablet)) {
+    .neurosym-ai {
+        padding: 2rem 1rem;
+    }
+
+    .section-title {
+        font-size: var(--text-2xl); /* Smaller title size on tablets */
+    }
+
+    .neurosym-ai__content p {
+        font-size: var(--text-sm); /* Smaller text for better readability on small screens */
+    }
+    
+    .neurosym-ai__image img {
+        max-width: 100%; /* Full width images on smaller screens */
+    }
+}
