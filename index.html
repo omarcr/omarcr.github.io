@@ -4,12 +4,8 @@
     <meta charset="UTF-8">
     <title>Equ Healthcare</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Meta tag for content language -->
-    <meta http-equiv="Content-Language" content="en">
     <!-- Meta Description for SEO -->
     <meta name="description" content="Equ Healthcare delivers culturally tailored, transparent AI healthcare solutions for the Hispanic/Latino community, advancing health equity through innovation.">
-    <!-- Meta Keywords for SEO -->
-    <meta name="keywords" content="AI healthcare, Hispanic health, precision medicine, neurosymbolic AI, health equity, MIT, Harvard Medical School">
     <!-- External CSS -->
     <link rel="stylesheet" href="styles.css">
     <!-- Favicon -->
@@ -20,10 +16,10 @@
     <a href="#main" class="skip-link">Skip to main content</a>
     
     <!-- Scroll Progress Bar -->
-    <div class="progress-bar" id="progress-bar"></div>
+    <div class="progress-bar" id="progress-bar" aria-hidden="true"></div>
     
     <!-- Navigation -->
-    <nav class="nav">
+    <nav class="nav" aria-label="Main Navigation">
         <div class="nav__logo">
             <img src="assets/AdobeStock_961244866.svg" alt="Equ Healthcare Logo" class="logo">
             <span>Equ Healthcare</span>
@@ -41,9 +37,9 @@
         </ul>
         
         <!-- Language Switcher -->
-        <div class="language-switcher">
+        <div class="language-switcher" role="group" aria-label="Language Switcher">
             <button class="language-switcher__button active" data-lang="en" aria-pressed="true">EN</button>
-            <span class="language-switcher__separator">|</span>
+            <span class="language-switcher__separator" aria-hidden="true">|</span>
             <button class="language-switcher__button" data-lang="es" aria-pressed="false">ES</button>
         </div>
         
@@ -78,7 +74,7 @@
                 <p class="hero__subtitle" data-key="hero_subtitle">Transparent, interpretable AI technologies grounded in cultural understanding.</p>
                 <div class="hero__cta-group">
                     <a href="#about" class="hero__cta" data-key="hero_cta_discover">Discover our solutions</a>
-                    <a href="https://forms.gle/BgNnaCxruTxFjEPq9" target="_blank" class="hero__cta hero__cta--secondary" data-key="hero_cta_join">Join our product waitlist</a>
+                    <a href="https://forms.gle/BgNnaCxruTxFjEPq9" target="_blank" rel="noopener noreferrer" class="hero__cta hero__cta--secondary" data-key="hero_cta_join">Join our product waitlist</a>
                 </div>
             </div>
         </section>
@@ -152,8 +148,10 @@
                     <div class="progress-bar" aria-hidden="true">
                         <div class="progress" style="--progress:30%;"></div>
                     </div>
-                    <button class="cta" data-key="product1_cta">Waitlist</button>
-                </div>
+                    <a href="https://forms.gle/BgNnaCxruTxFjEPq9" target="_blank">
+                        <button class="cta" data-key="product1_cta">Waitlist</button>
+                    </a>
+                    </div>
                 <!-- Equ-2 Amiga -->
                 <div class="product-card">
                     <span class="status-badge" data-key="product2_status">Developing</span>
@@ -171,8 +169,10 @@
                     <div class="progress-bar" aria-hidden="true">
                         <div class="progress" style="--progress:20%;"></div>
                     </div>
-                    <button class="cta" data-key="product2_cta">Waitlist</button>
-                </div>
+                    <a href="https://forms.gle/BgNnaCxruTxFjEPq9" target="_blank">
+                        <button class="cta" data-key="product2_cta">Waitlist</button>
+                    </a>
+                    </div>
                 <!-- Equ-3 Abu -->
                 <div class="product-card">
                     <span class="status-badge" data-key="product3_status">Developing</span>
@@ -184,14 +184,16 @@
                     <p data-key="product3_desc">Equ-3 Abu connects individuals with the right therapist to meet their unique needs, ensuring culturally sensitive mental health support that is both accessible and personalized.</p>
                     <ul>
                         <li data-key="product3_feature1">Personalized matching with culturally competent therapists.</li>
-                        <li data-key="product3_feature2">Offers outcomes tracking for value-based delivery</li>
-                        <li data-key="product3_feature3">Enables focus on important subjects between patient and therapist</li>
+                        <li data-key="product3_feature2">Offers outcomes tracking for value-based delivery.</li>
+                        <li data-key="product3_feature3">Enables focus on important subjects between patient and therapist.</li>
                     </ul>
                     <div class="progress-bar" aria-hidden="true">
                         <div class="progress" style="--progress:10%;"></div>
                     </div>
-                    <button class="cta" data-key="product3_cta">Waitlist</button>
-                </div>
+                    <a href="https://forms.gle/BgNnaCxruTxFjEPq9" target="_blank">
+                        <button class="cta" data-key="product3_cta">Waitlist</button>
+                    </a>
+                    </div>
                 <!-- Equ-4 Tote -->
                 <div class="product-card">
                     <span class="status-badge" data-key="product4_status">Developing</span>
@@ -200,7 +202,7 @@
                     <div class="product-image-container">
                         <img src="assets/tote.jpeg" alt="Equ-4 Tote" class="product-image">
                     </div>
-                    <p data-key="product4_desc">Tote is the official equ mascot that harmonizes all your medical information and shares relevant results with family members to keep everyone on a healthy track.</p>
+                    <p data-key="product4_desc">Tote is the official Equ mascot that harmonizes all your medical information and shares relevant results with family members to keep everyone on a healthy track.</p>
                     <ul>
                         <li data-key="product4_feature1">Centralized and secure management of medical records.</li>
                         <li data-key="product4_feature2">Real-time health monitoring with personalized insights.</li>
@@ -209,7 +211,9 @@
                     <div class="progress-bar" aria-hidden="true">
                         <div class="progress" style="--progress:15%;"></div>
                     </div>
-                    <button class="cta" data-key="product4_cta">Waitlist</button>
+                    <a href="https://forms.gle/BgNnaCxruTxFjEPq9" target="_blank">
+                        <button class="cta" data-key="product3_cta">Waitlist</button>
+                    </a>
                 </div>
             </div>
         </section>
@@ -277,7 +281,6 @@
             </div>
         </section>
 
-
         <!-- Technology Section -->
         <section class="technology" id="technology">
             <h2 class="section-title" data-key="technology_title">Neurosymbolic AI: The Future of Healthcare</h2>
@@ -295,7 +298,7 @@
             </div>
         </section>
 
-        <!-- Scientific Discovery Section -->
+       <!-- Empowering Scientific Discovery Section -->
         <section class="scientific-discovery" id="scientific-discovery">
             <h2 class="section-title" data-key="scientific_discovery_title">Empowering Scientific Discovery</h2>
             <div class="scientific-discovery__content">
@@ -312,34 +315,33 @@
             </div>
         </section>
 
+        <!-- Neurosymbolic AI Section -->
+        <section class="neurosymbolic-ai" id="neurosymbolic-ai">
+            <h2 class="section-title" data-key="neurosymbolic_ai_title">Neurosymbolic AI: Interpretability in Healthcare Explained</h2>
+            <div class="neurosymbolic-ai__content">
+                <p data-key="neurosymbolic_ai_p1">
+                    The Framingham Risk Score, a transparent model, uses specific risk factors like age and cholesterol to calculate a patient's 10-year cardiovascular risk. Each factor is weighted by its significance (β<sub>i</sub>), providing a clear, interpretable outcome for clinicians. This model allows healthcare professionals to easily understand how each factor contributes to overall risk, supporting informed decisions:
+                </p>
 
-    <!-- Neurosymbolic AI Section -->
-    <section class="neurosymbolic-ai" id="neurosymbolic-ai">
-        <h2 class="section-title" data-key="neurosymbolic_ai_title">Neurosymbolic AI: Interpretability in Healthcare explained</h2>
-        <div class="neurosymbolic-ai__content">
-            <p data-key="neurosymbolic_ai_p1">
-                The Framingham Risk Score, a transparent model, uses specific risk factors like age and cholesterol to calculate a patient's 10-year cardiovascular risk. Each factor is weighted by its significance (β<sub>i</sub>), providing a clear, interpretable outcome for clinicians. This model allows healthcare professionals to easily understand how each factor contributes to overall risk, supporting informed decisions:
-            </p>
+                <!-- Image for Framingham Risk Score (Symbolic Model) -->
+                <div class="ai-image-container">
+                    <img src="assets/equ-sym.jpg" alt="Framingham Risk Score Equation" class="reduced-image">
+                </div>
 
-            <!-- Image for Framingham Risk Score (Symbolic Model) -->
-            <div class="ai-image-container">
-                <img src="assets/equ-sym.jpg" alt="Framingham Risk Score Equation" class="reduced-image">
+                <p data-key="neurosymbolic_ai_p2">
+                    In a neural network, the inputs are the same patient data (age, cholesterol, blood pressure, etc.), but the data is processed through multiple hidden layers. The output is a cardiovascular risk score, similar to the Framingham model, but the relationships between the inputs and the final prediction are less interpretable:
+                </p>
+
+                <!-- Image for Neural Network Diagram -->
+                <div class="ai-image-container">
+                    <img src="assets/AdobeStock_237839124.jpeg" alt="Neural Network Diagram" class="reduced-image">
+                </div>
+
+                <p data-key="neurosymbolic_ai_p3">
+                    Neurosymbolic AI bridges these two approaches. It combines the interpretability of symbolic models like the Framingham Risk Score with the learning power of neural networks. This creates systems that produce accurate cardiovascular risk predictions while maintaining transparency, helping clinicians understand not just the result, but also how different risk factors contributed to it.
+                </p>
             </div>
-
-            <p data-key="neurosymbolic_ai_p2">
-                In a neural network, the inputs are the same patient data (age, cholesterol, blood pressure, etc.), but the data is processed through multiple hidden layers. The output is a cardiovascular risk score, similar to the Framingham model, but the relationships between the inputs and the final prediction are less interpretable:
-            </p>
-
-            <!-- Image for Neural Network Diagram -->
-            <div class="ai-image-container">
-                <img src="assets/AdobeStock_237839124.jpeg" alt="Neural Network Diagram" class="reduced-image">
-            </div>
-
-            <p data-key="neurosymbolic_ai_p3">
-                Neurosymbolic AI bridges these two approaches. It combines the interpretability of symbolic models like the Framingham Risk Score with the learning power of neural networks. This creates systems that produce accurate cardiovascular risk predictions while maintaining transparency, helping clinicians understand not just the result, but also how different risk factors contributed to it.
-            </p>
-        </div>
-    </section>
+        </section>
     
     <!-- N=1 Section with Image -->
     <section class="n1" id="n1">
@@ -367,7 +369,7 @@
     
     <!-- Supporters Section -->
     <section class="supporters" aria-labelledby="supporters-title">
-        <h2 class="section-title" id="supporters-title" data-key="supporters_title">Our supporters and experience</h2>
+        <h2 class="section-title" id="supporters-title" data-key="supporters_title">Our Supporters and Experience</h2>
         <div class="supporters__grid">
             <div class="supporter">
                 <img src="assets/mit_lockup_std-one-line_rgb_bright-red.png" alt="Massachusetts Institute of Technology Logo" width="400" />
@@ -390,7 +392,7 @@
     
     <!-- Team Section -->
     <section class="team" id="team" aria-labelledby="team-title">
-        <h2 class="section-title" id="team-title" data-key="team_title">Meet our team</h2>
+        <h2 class="section-title" id="team-title" data-key="team_title">Meet Our Team</h2>
         <div class="team__grid">
             <!-- Dr. Omar Costilla-Reyes -->
             <div class="team-member">
@@ -461,9 +463,9 @@
                 <div class="avatar">
                     <img src="assets/alfredo.jpeg" alt="Dr. Alfredo Costilla Reyes" />
                 </div>
-                <h3 data-key="team_member_daniel_name">Dr. Alfredo Costilla Reyes</h3>
-                <p data-key="team_member_daniel_title">Business advisor</p>
-                <p data-key="team_member_daniel_position1">AI Research, autoedge.ai</p>
+                <h3 data-key="team_member_alfredo_name">Dr. Alfredo Costilla Reyes</h3>
+                <p data-key="team_member_alfredo_title">Business Advisor</p>
+                <p data-key="team_member_alfredo_position1">AI Research, autoedge.ai</p>
             </div>
                 
             <!-- Felix Reivera, MD -->

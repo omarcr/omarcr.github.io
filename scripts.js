@@ -1,5 +1,3 @@
-// scripts.js
-
 /**
  * Equ Healthcare Website Scripts
  * Author: Your Name
@@ -9,6 +7,27 @@
 
 document.addEventListener('DOMContentLoaded', () => {
     /**
+     * Utility Functions
+     */
+    const Utils = (() => {
+        /**
+         * Debounce function to limit the rate at which a function can fire.
+         * @param {Function} func - The function to debounce.
+         * @param {number} wait - The time to wait in milliseconds.
+         * @returns {Function}
+         */
+        const debounce = (func, wait) => {
+            let timeout;
+            return (...args) => {
+                clearTimeout(timeout);
+                timeout = setTimeout(() => func.apply(this, args), wait);
+            };
+        };
+
+        return { debounce };
+    })();
+
+    /**
      * ScrollProgress Module
      * Updates the width of the progress bar based on scroll position.
      */
@@ -16,6 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const progressBar = document.getElementById('progress-bar');
 
         const updateProgressBar = () => {
+            if (!progressBar) return;
             const scrollTop = window.scrollY;
             const docHeight = document.documentElement.scrollHeight - window.innerHeight;
             const scrollPercent = (scrollTop / docHeight) * 100;
@@ -24,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const init = () => {
             if (progressBar) {
-                window.addEventListener('scroll', updateProgressBar);
+                window.addEventListener('scroll', Utils.debounce(updateProgressBar, 100));
                 // Initialize on load
                 updateProgressBar();
             }
@@ -41,7 +61,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const hamburger = document.getElementById('hamburger');
         const mobileMenu = document.getElementById('mobileMenu');
 
-        const toggleMenu = () => {
+        const toggleMenu = (e) => {
+            e.stopPropagation(); // Prevent event bubbling
             const isOpen = hamburger.classList.toggle('open');
             mobileMenu.classList.toggle('open');
             hamburger.setAttribute('aria-expanded', isOpen);
@@ -57,6 +78,18 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         };
 
+        const handleClickOutside = (e) => {
+            if (!mobileMenu.contains(e.target) && !hamburger.contains(e.target)) {
+                closeMenu();
+            }
+        };
+
+        const handleEscape = (e) => {
+            if (e.key === 'Escape') {
+                closeMenu();
+            }
+        };
+
         const init = () => {
             if (hamburger && mobileMenu) {
                 hamburger.addEventListener('click', toggleMenu);
@@ -67,18 +100,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
 
                 // Close mobile menu when clicking outside
-                document.addEventListener('click', (e) => {
-                    if (!mobileMenu.contains(e.target) && !hamburger.contains(e.target)) {
-                        closeMenu();
-                    }
-                });
+                document.addEventListener('click', handleClickOutside);
 
                 // Close mobile menu on ESC key press
-                document.addEventListener('keydown', (e) => {
-                    if (e.key === 'Escape') {
-                        closeMenu();
-                    }
-                });
+                document.addEventListener('keydown', handleEscape);
             }
         };
 
@@ -197,200 +222,36 @@ document.addEventListener('DOMContentLoaded', () => {
                 "es": "Empleando modelos de IA de caja blanca, garantizamos equidad y transparencia en la prestación de atención médica. Nuestra tecnología respalda un tratamiento y resultados equitativos para todos, independientemente del origen socioeconómico."
             },
 
-            // Mission Section
-            "mission_title": {
-                "en": "Our Mission",
-                "es": "Nuestra Misión"
+            // Empowering Scientific Discovery Section
+            "scientific_discovery_title": {
+                "en": "Empowering Scientific Discovery",
+                "es": "Empoderando el Descubrimiento Científico"
             },
-            "mission_text": {
-                "en": "Our mission is to advance health equity by providing the Hispanic/Latino community with culturally resonant, transparent AI healthcare solutions—empowering individuals to take control of their health with confidence and clarity.",
-                "es": "Nuestra misión es avanzar la equidad en salud proporcionando a la comunidad hispana/latina soluciones de atención médica basadas en IA culturalmente resonantes y transparentes—empoderando a las personas para que tomen el control de su salud con confianza y claridad."
+            "scientific_discovery_p1": {
+                "en": "At Equ Healthcare, we are at the forefront of transforming healthcare through groundbreaking neurosymbolic AI technologies. Our mission is to enable unprecedented scientific discoveries that drive advancements in medical research, personalized medicine, and health equity.",
+                "es": "En Equ Healthcare, estamos a la vanguardia de la transformación de la atención médica a través de tecnologías innovadoras de IA neurosimbólica. Nuestra misión es habilitar descubrimientos científicos sin precedentes que impulsen avances en la investigación médica, la medicina personalizada y la equidad en salud."
             },
-
-            // Products Section
-            "solutions_title": {
-                "en": "Our Solutions",
-                "es": "Nuestras Soluciones"
-            },
-            "product1_status": {
-                "en": "Developing",
-                "es": "En Desarrollo"
-            },
-            "product1_title": {
-                "en": "Equ-1 Amigo",
-                "es": "Equ-1 Amigo"
-            },
-            "product1_desc": {
-                "en": "Equ-1 Amigo is our AI-powered diet and physical activity coach, uniquely designed for the Hispanic/Latino community. By providing personalized diet plans rooted in cultural preferences and interactive support, Equ-1 Amigo empowers individuals to achieve optimal health.",
-                "es": "Equ-1 Amigo es nuestro entrenador de dieta y actividad física impulsado por IA, diseñado exclusivamente para la comunidad hispana/latina. Al proporcionar planes de dieta personalizados basados en preferencias culturales y soporte interactivo, Equ-1 Amigo empodera a las personas para lograr una salud óptima."
-            },
-            "product1_feature1": {
-                "en": "Personalized, culturally tailored diet recommendations.",
-                "es": "Recomendaciones de dieta personalizadas y culturalmente adaptadas."
-            },
-            "product1_feature2": {
-                "en": "Activity tracking with goal setting and progress monitoring.",
-                "es": "Seguimiento de actividad con establecimiento de metas y monitoreo de progreso."
-            },
-            "product1_feature3": {
-                "en": "Interactive daily tips and motivational messages.",
-                "es": "Consejos diarios interactivos y mensajes motivacionales."
-            },
-            "product1_cta": {
-                "en": "Waitlist",
-                "es": "Lista de Espera"
-            },
-            "product2_status": {
-                "en": "Developing",
-                "es": "En Desarrollo"
-            },
-            "product2_title": {
-                "en": "Equ-2 Amiga",
-                "es": "Equ-2 Amiga"
-            },
-            "product2_desc": {
-                "en": "Equ-2 Amiga is an AI assistant for healthcare providers, offering evidence-based treatment recommendations and clear, interpretable insights to enhance decision-making and patient outcomes.",
-                "es": "Equ-2 Amiga es un asistente de IA para proveedores de atención médica, que ofrece recomendaciones de tratamiento basadas en evidencia e información clara e interpretable para mejorar la toma de decisiones y los resultados de los pacientes."
-            },
-            "product2_feature1": {
-                "en": "Evidence-based, culturally sensitive treatment recommendations.",
-                "es": "Recomendaciones de tratamiento basadas en evidencia y culturalmente sensibles."
-            },
-            "product2_feature2": {
-                "en": "Seamless integration with existing healthcare systems.",
-                "es": "Integración sin problemas con los sistemas de atención médica existentes."
-            },
-            "product2_feature3": {
-                "en": "Supports improved patient outcomes and satisfaction.",
-                "es": "Apoya la mejora de los resultados y la satisfacción de los pacientes."
-            },
-            "product2_cta": {
-                "en": "Waitlist",
-                "es": "Lista de Espera"
-            },
-            "product3_status": {
-                "en": "Developing",
-                "es": "En Desarrollo"
-            },
-            "product3_title": {
-                "en": "Equ-3 Abu",
-                "es": "Equ-3 Abu"
-            },
-            "product3_desc": {
-                "en": "Equ-3 Abu connects individuals with the right therapist to meet their unique needs, ensuring culturally sensitive mental health support that is both accessible and personalized.",
-                "es": "Equ-3 Abu conecta a las personas con el terapeuta adecuado para satisfacer sus necesidades únicas, asegurando un apoyo de salud mental culturalmente sensible que es accesible y personalizado."
-            },
-            "product3_feature1": {
-                "en": "Personalized matching with culturally competent therapists.",
-                "es": "Emparejamiento personalizado con terapeutas culturalmente competentes."
-            },
-            "product3_feature2": {
-                "en": "Offers outcomes tracking for value-based delivery.",
-                "es": "Ofrece seguimiento de resultados para una prestación basada en valor."
-            },
-            "product3_feature3": {
-                "en": "Enables focus on important subjects between patient and therapist.",
-                "es": "Permite centrarse en temas importantes entre el paciente y el terapeuta."
-            },
-            "product3_cta": {
-                "en": "Waitlist",
-                "es": "Lista de Espera"
-            },
-            "product4_status": {
-                "en": "Developing",
-                "es": "En Desarrollo"
-            },
-            "product4_title": {
-                "en": "Equ-4 Tote",
-                "es": "Equ-4 Tote"
-            },
-            "product4_desc": {
-                "en": "Tote is the official equ mascot that harmonizes all your medical information and shares relevant results with family members to keep everyone on a healthy track.",
-                "es": "Tote es la mascota oficial de Equ que armoniza toda tu información médica y comparte resultados relevantes con los miembros de la familia para mantener a todos en una trayectoria saludable."
-            },
-            "product4_feature1": {
-                "en": "Centralized and secure management of medical records.",
-                "es": "Gestión centralizada y segura de los registros médicos."
-            },
-            "product4_feature2": {
-                "en": "Real-time health monitoring with personalized insights.",
-                "es": "Monitoreo de salud en tiempo real con conocimientos personalizados."
-            },
-            "product4_feature3": {
-                "en": "Seamless sharing of health updates with family members.",
-                "es": "Compartir sin problemas actualizaciones de salud con los miembros de la familia."
-            },
-            "product4_cta": {
-                "en": "Waitlist",
-                "es": "Lista de Espera"
+            "scientific_discovery_p2": {
+                "en": "By leveraging our advanced AI platform, researchers and healthcare professionals can accelerate their work, making faster and more informed decisions that lead to better patient outcomes. Our technology not only enhances the efficiency of scientific research but also ensures that discoveries are actionable and scalable across diverse populations.",
+                "es": "Al aprovechar nuestra avanzada plataforma de IA, los investigadores y profesionales de la salud pueden acelerar su trabajo, tomando decisiones más rápidas e informadas que conducen a mejores resultados para los pacientes. Nuestra tecnología no solo mejora la eficiencia de la investigación científica, sino que también garantiza que los descubrimientos sean accionables y escalables en diversas poblaciones."
             },
 
-            // Approach Section
-            "approach_title": {
-                "en": "Our Approach",
-                "es": "Nuestro Enfoque"
+            // Neurosymbolic AI Section
+            "neurosymbolic_ai_title": {
+                "en": "Neurosymbolic AI: Interpretability in Healthcare Explained",
+                "es": "IA Neurosimbólica: Explicación de la Interpretabilidad en la Atención Médica"
             },
-            "approach1_title": {
-                "en": "Modularity",
-                "es": "Modularidad"
+            "neurosymbolic_ai_p1": {
+                "en": "The Framingham Risk Score, a transparent model, uses specific risk factors like age and cholesterol to calculate a patient's 10-year cardiovascular risk. Each factor is weighted by its significance (βi), providing a clear, interpretable outcome for clinicians. This model allows healthcare professionals to easily understand how each factor contributes to overall risk, supporting informed decisions:",
+                "es": "El Framingham Risk Score, un modelo transparente, utiliza factores de riesgo específicos como la edad y el colesterol para calcular el riesgo cardiovascular a 10 años de un paciente. Cada factor está ponderado por su importancia (βi), proporcionando un resultado claro e interpretable para los clínicos. Este modelo permite a los profesionales de la salud comprender fácilmente cómo cada factor contribuye al riesgo general, apoyando decisiones informadas:"
             },
-            "approach1_text": {
-                "en": "Our solutions operate as distinct components, transforming complex healthcare processes into manageable, focused units.",
-                "es": "Nuestras soluciones operan como componentes distintos, transformando procesos complejos de atención médica en unidades manejables y enfocadas."
+            "neurosymbolic_ai_p2": {
+                "en": "In a neural network, the inputs are the same patient data (age, cholesterol, blood pressure, etc.), but the data is processed through multiple hidden layers. The output is a cardiovascular risk score, similar to the Framingham model, but the relationships between the inputs and the final prediction are less interpretable:",
+                "es": "En una red neuronal, las entradas son los mismos datos del paciente (edad, colesterol, presión arterial, etc.), pero los datos se procesan a través de múltiples capas ocultas. La salida es una puntuación de riesgo cardiovascular, similar al modelo de Framingham, pero las relaciones entre las entradas y la predicción final son menos interpretables:"
             },
-            "approach2_title": {
-                "en": "Abstraction",
-                "es": "Abstracción"
-            },
-            "approach2_text": {
-                "en": "By abstracting key healthcare operations, we streamline personalized care with AI-driven modules addressing specific needs.",
-                "es": "Al abstraer operaciones clave de atención médica, optimizamos el cuidado personalizado con módulos impulsados por IA que abordan necesidades específicas."
-            },
-            "approach3_title": {
-                "en": "Scalability",
-                "es": "Escalabilidad"
-            },
-            "approach3_text": {
-                "en": "Our adaptable system scales with evolving healthcare demands, incorporating advanced AI functionalities to serve broader populations.",
-                "es": "Nuestro sistema adaptable se escala con las demandas de atención médica en evolución, incorporando funcionalidades avanzadas de IA para servir a poblaciones más amplias."
-            },
-            "approach4_title": {
-                "en": "Interoperability",
-                "es": "Interoperabilidad"
-            },
-            "approach4_text": {
-                "en": "Each module integrates seamlessly within the healthcare ecosystem, ensuring efficient data exchange and enhancing care delivery.",
-                "es": "Cada módulo se integra sin problemas dentro del ecosistema de atención médica, asegurando un intercambio de datos eficiente y mejorando la prestación de atención."
-            },
-
-            // Technology Section
-            "technology_title": {
-                "en": "Neurosymbolic AI: The Future of Healthcare",
-                "es": "IA Neurosimbólica: El Futuro de la Atención Médica"
-            },
-            "technology_p1": {
-                "en": "Our commitment to R&D drives us to the forefront of technology innovation in healthcare. We leverage neurosymbolic intelligence—a groundbreaking blend of advanced machine learning and logical reasoning—to transform complex health data into clear, actionable insights. This ensures our solutions are not only highly accurate but also fully transparent, fostering trust among users and healthcare professionals alike.",
-                "es": "Nuestro compromiso con la I+D nos impulsa a la vanguardia de la innovación tecnológica en la atención médica. Aprovechamos la inteligencia neurosimbólica—una combinación innovadora de aprendizaje automático avanzado y razonamiento lógico—para transformar datos de salud complejos en conocimientos claros y accionables. Esto asegura que nuestras soluciones no solo sean altamente precisas, sino también totalmente transparentes, fomentando la confianza entre los usuarios y los profesionales de la salud por igual."
-            },
-            "technology_h3_nn": {
-                "en": "Neural Networks",
-                "es": "Redes Neuronales"
-            },
-            "technology_p2": {
-                "en": "Recognize patterns and trends within vast datasets encompassing metabolic, nutritional, and mental health metrics.",
-                "es": "Reconocen patrones y tendencias dentro de vastos conjuntos de datos que abarcan métricas metabólicas, nutricionales y de salud mental."
-            },
-            "technology_h3_sa": {
-                "en": "Symbolic AI",
-                "es": "IA Simbólica"
-            },
-            "technology_p3": {
-                "en": "Applies clinical knowledge through logical reasoning to provide clear, evidence-based recommendations.",
-                "es": "Aplica conocimientos clínicos a través de razonamiento lógico para proporcionar recomendaciones claras y basadas en evidencia."
-            },
-            "technology_p4": {
-                "en": "By integrating these AI paradigms, our neurosymbolic AI offers a holistic and transparent approach to complex medical challenges, enhancing predictive accuracy and ensuring understandable reasoning behind each decision.",
-                "es": "Al integrar estos paradigmas de IA, nuestra IA neurosimbólica ofrece un enfoque holístico y transparente para desafíos médicos complejos, mejorando la precisión predictiva y asegurando un razonamiento comprensible detrás de cada decisión."
+            "neurosymbolic_ai_p3": {
+                "en": "Neurosymbolic AI bridges these two approaches. It combines the interpretability of symbolic models like the Framingham Risk Score with the learning power of neural networks. This creates systems that produce accurate cardiovascular risk predictions while maintaining transparency, helping clinicians understand not just the result, but also how different risk factors contributed to it.",
+                "es": "La IA neurosimbólica une estos dos enfoques. Combina la interpretabilidad de modelos simbólicos como el Framingham Risk Score con el poder de aprendizaje de las redes neuronales. Esto crea sistemas que producen predicciones precisas de riesgo cardiovascular mientras mantienen la transparencia, ayudando a los clínicos a comprender no solo el resultado, sino también cómo diferentes factores de riesgo contribuyeron a él."
             },
 
             // N=1 Section
@@ -461,7 +322,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 "es": "Directora Médica"
             },
             "team_member_jennifer_position1": {
-                "en": "Vice Chair of Integration and Innovation, Northwestern Medicine Department of Urology",
+                "en": "Vice Chair of Innovation, Northwestern Medicine Department of Urology",
                 "es": "Vicepresidenta de Integración e Innovación, Departamento de Urología de Northwestern Medicine"
             },
             "team_member_jennifer_position2": {
@@ -583,6 +444,204 @@ document.addEventListener('DOMContentLoaded', () => {
             "footer_copy": {
                 "en": "© Equ Healthcare Technologies. All rights reserved.",
                 "es": "© Equ Healthcare Technologies. Todos los derechos reservados."
+            },
+            // Mission Section
+            "mission_title": {
+                "en": "Our Mission",
+                "es": "Nuestra Misión"
+            },
+            "mission_text": {
+                "en": "Our mission is to advance health equity by providing the Hispanic/Latino community with culturally resonant, transparent AI healthcare solutions—empowering individuals to take control of their health with confidence and clarity.",
+                "es": "Nuestra misión es avanzar en la equidad en salud proporcionando a la comunidad hispana/latina soluciones de atención médica impulsadas por IA que sean culturalmente resonantes y transparentes, empoderando a los individuos para tomar el control de su salud con confianza y claridad."
+            },
+
+            // Products Section
+            "solutions_title": {
+                "en": "Our Solutions",
+                "es": "Nuestras Soluciones"
+            },
+            "product1_status": {
+                "en": "Developing",
+                "es": "En Desarrollo"
+            },
+            "product1_title": {
+                "en": "Equ-1 Amigo",
+                "es": "Equ-1 Amigo"
+            },
+            "product1_desc": {
+                "en": "Equ-1 Amigo is our AI-powered diet and physical activity coach, uniquely designed for the Hispanic/Latino community. By providing personalized diet plans rooted in cultural preferences and interactive support, Equ-1 Amigo empowers individuals to achieve optimal health.",
+                "es": "Equ-1 Amigo es nuestro entrenador de dieta y actividad física impulsado por IA, diseñado exclusivamente para la comunidad hispana/latina. Al ofrecer planes de dieta personalizados basados en preferencias culturales y soporte interactivo, Equ-1 Amigo empodera a las personas para alcanzar una salud óptima."
+            },
+            "product1_feature1": {
+                "en": "Personalized, culturally tailored diet recommendations.",
+                "es": "Recomendaciones dietéticas personalizadas y culturalmente adaptadas."
+            },
+            "product1_feature2": {
+                "en": "Activity tracking with goal setting and progress monitoring.",
+                "es": "Seguimiento de actividad con establecimiento de metas y monitoreo de progreso."
+            },
+            "product1_feature3": {
+                "en": "Interactive daily tips and motivational messages.",
+                "es": "Consejos diarios interactivos y mensajes motivacionales."
+            },
+            "product1_cta": {
+                "en": "Waitlist",
+                "es": "Lista de Espera"
+            },
+
+            "product2_status": {
+                "en": "Developing",
+                "es": "En Desarrollo"
+            },
+            "product2_title": {
+                "en": "Equ-2 Amiga",
+                "es": "Equ-2 Amiga"
+            },
+            "product2_desc": {
+                "en": "Equ-2 Amiga is an AI assistant for healthcare providers, offering evidence-based treatment recommendations and clear, interpretable insights to enhance decision-making and patient outcomes.",
+                "es": "Equ-2 Amiga es un asistente de IA para proveedores de atención médica, que ofrece recomendaciones de tratamiento basadas en evidencia e información clara e interpretable para mejorar la toma de decisiones y los resultados de los pacientes."
+            },
+            "product2_feature1": {
+                "en": "Evidence-based, culturally sensitive treatment recommendations.",
+                "es": "Recomendaciones de tratamiento basadas en evidencia y culturalmente sensibles."
+            },
+            "product2_feature2": {
+                "en": "Seamless integration with existing healthcare systems.",
+                "es": "Integración sin problemas con los sistemas de atención médica existentes."
+            },
+            "product2_feature3": {
+                "en": "Supports improved patient outcomes and satisfaction.",
+                "es": "Apoya la mejora de los resultados y la satisfacción del paciente."
+            },
+            "product2_cta": {
+                "en": "Waitlist",
+                "es": "Lista de Espera"
+            },
+
+            "product3_status": {
+                "en": "Developing",
+                "es": "En Desarrollo"
+            },
+            "product3_title": {
+                "en": "Equ-3 Abu",
+                "es": "Equ-3 Abu"
+            },
+            "product3_desc": {
+                "en": "Equ-3 Abu connects individuals with the right therapist to meet their unique needs, ensuring culturally sensitive mental health support that is both accessible and personalized.",
+                "es": "Equ-3 Abu conecta a las personas con el terapeuta adecuado para satisfacer sus necesidades únicas, asegurando un apoyo de salud mental culturalmente sensible que sea accesible y personalizado."
+            },
+            "product3_feature1": {
+                "en": "Personalized matching with culturally competent therapists.",
+                "es": "Emparejamiento personalizado con terapeutas culturalmente competentes."
+            },
+            "product3_feature2": {
+                "en": "Offers outcomes tracking for value-based delivery.",
+                "es": "Ofrece seguimiento de resultados para una entrega basada en el valor."
+            },
+            "product3_feature3": {
+                "en": "Enables focus on important subjects between patient and therapist.",
+                "es": "Permite centrarse en temas importantes entre el paciente y el terapeuta."
+            },
+            "product3_cta": {
+                "en": "Waitlist",
+                "es": "Lista de Espera"
+            },
+
+            "product4_status": {
+                "en": "Developing",
+                "es": "En Desarrollo"
+            },
+            "product4_title": {
+                "en": "Equ-4 Tote",
+                "es": "Equ-4 Tote"
+            },
+            "product4_desc": {
+                "en": "Tote is the official Equ mascot that harmonizes all your medical information and shares relevant results with family members to keep everyone on a healthy track.",
+                "es": "Tote es la mascota oficial de Equ que armoniza toda tu información médica y comparte los resultados relevantes con los miembros de la familia para mantener a todos en el camino saludable."
+            },
+            "product4_feature1": {
+                "en": "Centralized and secure management of medical records.",
+                "es": "Gestión centralizada y segura de registros médicos."
+            },
+            "product4_feature2": {
+                "en": "Real-time health monitoring with personalized insights.",
+                "es": "Monitoreo de salud en tiempo real con conocimientos personalizados."
+            },
+            "product4_feature3": {
+                "en": "Seamless sharing of health updates with family members.",
+                "es": "Compartición sin problemas de actualizaciones de salud con miembros de la familia."
+            },
+            "product4_cta": {
+                "en": "Waitlist",
+                "es": "Lista de Espera"
+            },
+
+            // Approach Section
+            "approach_title": {
+                "en": "Our Approach",
+                "es": "Nuestro Enfoque"
+            },
+            "approach1_title": {
+                "en": "Modularity",
+                "es": "Modularidad"
+            },
+            "approach1_text": {
+                "en": "Our solutions operate as distinct components, transforming complex healthcare processes into manageable, focused units.",
+                "es": "Nuestras soluciones operan como componentes distintos, transformando procesos complejos de atención médica en unidades manejables y enfocadas."
+            },
+            "approach2_title": {
+                "en": "Abstraction",
+                "es": "Abstracción"
+            },
+            "approach2_text": {
+                "en": "By abstracting key healthcare operations, we streamline personalized care with AI-driven modules addressing specific needs.",
+                "es": "Al abstraer las operaciones clave de atención médica, optimizamos la atención personalizada con módulos impulsados por IA que abordan necesidades específicas."
+            },
+            "approach3_title": {
+                "en": "Scalability",
+                "es": "Escalabilidad"
+            },
+            "approach3_text": {
+                "en": "Our adaptable system scales with evolving healthcare demands, incorporating advanced AI functionalities to serve broader populations.",
+                "es": "Nuestro sistema adaptable escala con las demandas cambiantes de atención médica, incorporando funcionalidades avanzadas de IA para servir a poblaciones más amplias."
+            },
+            "approach4_title": {
+                "en": "Interoperability",
+                "es": "Interoperabilidad"
+            },
+            "approach4_text": {
+                "en": "Each module integrates seamlessly within the healthcare ecosystem, ensuring efficient data exchange and enhancing care delivery.",
+                "es": "Cada módulo se integra perfectamente dentro del ecosistema de atención médica, asegurando un intercambio de datos eficiente y mejorando la prestación de atención."
+            },
+
+            // Technology Section
+            "technology_title": {
+                "en": "Neurosymbolic AI: The Future of Healthcare",
+                "es": "IA Neurosimbólica: El Futuro de la Atención Médica"
+            },
+            "technology_p1": {
+                "en": "Our commitment to R&D drives us to the forefront of technology innovation in healthcare. We leverage neurosymbolic intelligence—a groundbreaking blend of advanced machine learning and logical reasoning—to transform complex health data into clear, actionable insights. This ensures our solutions are not only highly accurate but also fully transparent, fostering trust among users and healthcare professionals alike.",
+                "es": "Nuestro compromiso con la I+D nos coloca a la vanguardia de la innovación tecnológica en atención médica. Aprovechamos la inteligencia neurosimbólica, una fusión innovadora de aprendizaje automático avanzado y razonamiento lógico, para transformar datos complejos de salud en conocimientos claros y accionables. Esto asegura que nuestras soluciones no solo sean altamente precisas, sino también completamente transparentes, fomentando la confianza entre usuarios y profesionales de la salud."
+            },
+            "technology_h3_nn": {
+                "en": "Neural Networks",
+                "es": "Redes Neuronales"
+            },
+            "technology_p2": {
+                "en": "Recognize patterns and trends within vast datasets encompassing metabolic, nutritional, and mental health metrics.",
+                "es": "Reconocer patrones y tendencias dentro de vastos conjuntos de datos que abarcan métricas metabólicas, nutricionales y de salud mental."
+            },
+            "technology_h3_sa": {
+                "en": "Symbolic AI",
+                "es": "IA Simbólica"
+            },
+            "technology_p3": {
+                "en": "Applies clinical knowledge through logical reasoning to provide clear, evidence-based recommendations.",
+                "es": "Aplica conocimientos clínicos mediante el razonamiento lógico para proporcionar recomendaciones claras y basadas en evidencia."
+            },
+            "technology_p4": {
+                "en": "By integrating these AI paradigms, our neurosymbolic AI offers a holistic and transparent approach to complex medical challenges, enhancing predictive accuracy and ensuring understandable reasoning behind each decision.",
+                "es": "Al integrar estos paradigmas de IA, nuestra IA neurosimbólica ofrece un enfoque holístico y transparente a desafíos médicos complejos, mejorando la precisión predictiva y garantizando un razonamiento comprensible detrás de cada decisión."
             }
         };
 
