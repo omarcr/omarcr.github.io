@@ -224,8 +224,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Empowering Scientific Discovery Section
             "scientific_discovery_title": {
-                "en": "Empowering Scientific Discovery",
-                "es": "Empoderando el Descubrimiento Científico"
+                "en": "Advancing Automatic scientific discovery",
+                "es": "Avanzando el Descubrimiento Científico"
             },
             "scientific_discovery_p1": {
                 "en": "At Equ Healthcare, we are at the forefront of transforming healthcare through groundbreaking neurosymbolic AI technologies. Our mission is to enable unprecedented scientific discoveries that drive advancements in medical research, personalized medicine, and health equity.",
