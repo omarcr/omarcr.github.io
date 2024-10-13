@@ -490,8 +490,8 @@ document.addEventListener('DOMContentLoaded', () => {
             },
 
             "product2_status": {
-                "en": "2024 Q2",
-                "es": "2024 Q2"
+                "en": "2025 Q2",
+                "es": "2025 Q2"
             },
             "product2_title": {
                 "en": "Equ-2 Amiga",
@@ -519,8 +519,8 @@ document.addEventListener('DOMContentLoaded', () => {
             },
 
             "product3_status": {
-                "en": "2024 Q4",
-                "es": "2024 Q4"
+                "en": "2025 Q4",
+                "es": "2025 Q4"
             },
             "product3_title": {
                 "en": "Equ-3 Abu",
@@ -548,8 +548,8 @@ document.addEventListener('DOMContentLoaded', () => {
             },
 
             "product4_status": {
-                "en": "2025 Q2",
-                "es": "2025 Q2"
+                "en": "2026 Q2",
+                "es": "2026 Q2"
             },
             "product4_title": {
                 "en": "Equ-4 Tote",

@@ -96,7 +96,7 @@ img {
 }
 
 /* ===================================================== */
-/*                    TYPOGRAPHY & ACCESSIBILITY          */
+/*                TYPOGRAPHY & ACCESSIBILITY             */
 /* ===================================================== */
 
 .skip-link {
@@ -314,7 +314,7 @@ textarea:focus {
     display: flex;
     align-items: center;
     justify-content: center;
-    text-align: center; /* Changed from left to center */
+    text-align: center;
     color: var(--text-dark);
     overflow: hidden;
     padding: 0 2rem;
@@ -345,8 +345,8 @@ textarea:focus {
 .hero__cta-group {
     display: flex;
     gap: 1rem;
-    flex-direction: column; /* Stack buttons on smaller screens */
-    align-items: center; /* Center buttons horizontally */
+    flex-direction: column;
+    align-items: center;
 }
 
 .hero__cta {
@@ -411,7 +411,7 @@ textarea:focus {
 
 section {
     padding: 4rem 2rem;
-    text-align: center; /* Ensure all sections have centered text */
+    text-align: center;
 }
 
 .section-title {
@@ -459,7 +459,7 @@ section {
 .pillar:hover,
 .pillar:focus-within {
     transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
 }
 
 .pillar h3 {
@@ -475,6 +475,16 @@ section {
 .pillar p {
     font-size: var(--text-base);
     color: var(--text-dark);
+}
+
+.pillar svg {
+    max-width: 50px;
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.pillar svg:hover {
+    transform: scale(1.1);
 }
 
 /* ===================================================== */
@@ -500,7 +510,7 @@ section {
 }
 
 /* ===================================================== */
-/*                    PRODUCTS SECTION                    */
+/*                    PRODUCTS SECTION                   */
 /* ===================================================== */
 
 .products {
@@ -528,7 +538,7 @@ section {
 .product-card:hover,
 .product-card:focus-within {
     transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
 }
 
 .product-card .status-badge {
@@ -552,7 +562,7 @@ section {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 15px; /* Adds space between image and text */
+    margin-bottom: 15px;
 }
 
 .product-card .product-image {
@@ -618,7 +628,7 @@ section {
 }
 
 /* ===================================================== */
-/*                    APPROACH SECTION                    */
+/*                    APPROACH SECTION                   */
 /* ===================================================== */
 
 .approach {
@@ -652,7 +662,7 @@ section {
 .approach__item:hover,
 .approach__item:focus-within {
     transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
 }
 
 .approach__item h3 {
@@ -683,8 +693,6 @@ section {
     margin-top: 1rem;
     line-height: 1.6;
 }
-
-
 
 /* ===================================================== */
 /*                      N=1 SECTION                      */
@@ -720,12 +728,11 @@ section {
     max-width: 100%;
     border-radius: 10px;
     box-shadow: none;
-    height: 50%;
-    object-fit: cover; /* Ensures the image fills the container */
+    object-fit: cover;
 }
 
 /* ===================================================== */
-/*                      VISION SECTION                    */
+/*                      VISION SECTION                   */
 /* ===================================================== */
 
 .vision {
@@ -741,7 +748,7 @@ section {
 
 .vision__content p {
     font-size: var(--text-base);
-    line-height: 1.6;   
+    line-height: 1.6;
     margin-bottom: 1.5rem;
     color: var(--text-dark);
 }
@@ -749,8 +756,7 @@ section {
 .vision-image-container {
     display: flex;
     justify-content: center;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin: 20px 0;
 }
 
 .vision-image {
@@ -762,7 +768,7 @@ section {
 }
 
 /* ===================================================== */
-/*                 SUPPORTERS SECTION                     */
+/*                 SUPPORTERS SECTION                    */
 /* ===================================================== */
 
 .supporters {
@@ -812,7 +818,7 @@ section {
 .team-member:hover,
 .team-member:focus-within {
     transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
 }
 
 .team-member .avatar {
@@ -861,7 +867,7 @@ section {
 }
 
 /* ===================================================== */
-/*                  INVESTOR RELATIONS SECTION            */
+/*                  INVESTOR RELATIONS SECTION           */
 /* ===================================================== */
 
 .investor-relations {
@@ -883,7 +889,7 @@ section {
 }
 
 /* ===================================================== */
-/*                  HEALTHCARE PROFESSIONALS SECTION      */
+/*                  HEALTHCARE PROFESSIONALS SECTION     */
 /* ===================================================== */
 
 .healthcare-professionals {
@@ -1006,7 +1012,7 @@ footer .social-links a:focus {
 }
 
 /* ===================================================== */
-/*                  VISUALLY HIDDEN CLASS                 */
+/*                  VISUALLY HIDDEN CLASS                */
 /* ===================================================== */
 
 .visually-hidden {
@@ -1017,152 +1023,12 @@ footer .social-links a:focus {
     margin: -1px;
     overflow: hidden;
     clip: rect(0, 0, 0, 0);
-    white-space: nowrap; /* Added line */
+    white-space: nowrap;
     border: 0;
 }
 
 /* ===================================================== */
-/*                  RESPONSIVE DESIGN                      */
-/* ===================================================== */
-
-@media (max-width: 768px) {
-    .nav__menu {
-        display: none;
-    }
-
-    .hamburger {
-        display: flex;
-    }
-
-    .language-switcher {
-        position: absolute;
-        top: 1rem;
-        right: 2rem;
-    }
-
-    .hero {
-        text-align: center; /* Ensure hero text is centered on mobile */
-    }
-
-    .hero__content {
-        padding: 2rem 0;
-    }
-
-    .hero__cta-group {
-        flex-direction: column;
-        align-items: center; /* Center buttons on mobile */
-    }
-
-    .nav__menu--mobile {
-        /* Transition already handled with transform and opacity */
-    }
-
-    .product-card .product-image {
-        width: 100px;
-        height: 100px;
-    }
-
-    .vision-image,
-    .ai-image,
-    .n1-image {
-        max-width: 100%;
-    }
-}
-
-/* ===================================================== */
-/*                 ADDITIONAL COMPONENT STYLES            */
-/* ===================================================== */
-
-/* Consistent icon size and hover effect for pillars */
-.pillar svg {
-    max-width: 50px;
-    display: inline-block;
-    transition: transform 0.3s ease;
-}
-
-.pillar svg:hover {
-    transform: scale(1.1);
-}
-
-/* Consistent hover animation and icon size for approach items */
-.approach__item svg {
-    width: 50px;
-    height: 50px;
-    margin-bottom: 1rem;
-    fill: var(--primary-blue);
-    transition: transform 0.3s ease;
-}
-
-.approach__item svg:hover {
-    transform: scale(1.1);
-}
-
-/* ===================================================== */
-/*                 ADDITIONAL SECTION STYLES               */
-/* ===================================================== */
-
-/* About Us Logo */
-.about__logo-container {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px; /* Add space between logo and content */
-}
-
-.about-logo {
-    width: 150px; /* Adjust the size of the logo as needed */
-    height: auto;
-}
-
-/* Vision Section Image */
-.vision-image-container {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
-    margin-bottom: 20px;
-}
-
-.vision-image {
-    width: 100%;
-    max-width: 800px;
-    height: auto;
-    border-radius: 10px;
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
-}
-
-/* AI Section Image */
-.ai-image-container {
-    display: flex;
-    justify-content: center;
-    margin: 20px 0;
-}
-
-.ai-image {
-    width: 100%;
-    max-width: 1000px;
-    height: auto;
-    border-radius: 10px;
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
-}
-
-/* N=1 Section Image */
-.n1-image-container {
-    position: relative;
-    width: 100vw;
-    margin-left: calc(-50vw + 50%);
-}
-
-.n1-image {
-    width: 100%;
-    height: auto;
-    max-width: 100%;
-    border-radius: 10px;
-    box-shadow: none;
-    height: 50%;
-    object-fit: cover; /* Ensures the image fills the container */
-}
-
-/* ===================================================== */
-/*                  GENERAL UTILITY CLASSES               */
+/*                  GENERAL UTILITY CLASSES              */
 /* ===================================================== */
 
 /* Centering Content */
@@ -1269,6 +1135,7 @@ footer .social-links a:focus {
 .px-4 {
     padding-left: 1.5rem;
     padding-right: 1.5rem;
+
 }
 
 .py-1 {
@@ -1297,28 +1164,120 @@ footer .social-links a:focus {
     height: auto;
 }
 
-
-
 /* ===================================================== */
-/*                  ADDITIONAL COMPONENT STYLES            */
+/*                       MEDIA QUERIES                   */
 /* ===================================================== */
 
-/* Ensuring consistent styling for all additional components */
+@media (max-width: 768px) {
+    .nav__menu {
+        display: none;
+    }
 
-/* ===================================================== */
-/*                  END OF STYLES.CSS                     */
-/* ===================================================== */
+    .hamburger {
+        display: flex;
+    }
 
-.reduced-image {
-    width: 50%;
-    height: auto;
+    .language-switcher {
+        position: absolute;
+        top: 1rem;
+        right: 2rem;
+    }
+
+    .hero {
+        text-align: center;
+    }
+
+    .hero__content {
+        padding: 2rem 0;
+    }
+
+    .hero__cta-group {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nav__menu--mobile {
+        /* Transition already handled with transform and opacity */
+    }
+
+    .product-card .product-image {
+        width: 100px;
+        height: 100px;
+    }
+
+    .vision-image,
+    .ai-image,
+    .n1-image {
+        max-width: 100%;
+    }
 }
 
 /* ===================================================== */
-/*                  GENERAL IMPROVEMENTS                   */
+/*                  END OF STYLES.CSS                    */
 /* ===================================================== */
 
-/* Removed duplicate .ai-image-container and .ai-image classes */
-/* Ensured all images have responsive sizing */
-/* Organized media queries for better readability */
-/* Consolidated utility classes for consistency */
+/* ===================================================== */
+/*          INTERDISCIPLINARY COMPANY SECTION            */
+/* ===================================================== */
+
+.interdisciplinary-company {
+    background-color: #FFFFFF;
+    text-align: center;
+}
+
+.interdisciplinary-company__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.interdisciplinary-company__item {
+    background-color: #F9F9F9;
+    padding: 2rem;
+    border-radius: 10px;
+    transition: transform var(--duration-normal), box-shadow var(--duration-normal);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+}
+
+.interdisciplinary-company__item:hover,
+.interdisciplinary-company__item:focus-within {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.interdisciplinary-company__item h3 {
+    font-family: var(--font-primary);
+    font-size: var(--text-xl);
+    margin-bottom: 1rem;
+    color: var(--text-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.interdisciplinary-company__item svg {
+    width: 50px;
+    height: 50px;
+    margin-right: 0.5rem;
+    fill: var(--primary-blue);
+    transition: transform 0.3s ease;
+}
+
+.interdisciplinary-company__item svg:hover {
+    transform: scale(1.1);
+}
+
+.interdisciplinary-company__item p {
+    font-size: var(--text-base);
+    color: var(--text-dark);
+    margin-top: 1rem;
+    line-height: 1.6;
+}
+
