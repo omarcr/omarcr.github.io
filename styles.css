@@ -472,12 +472,6 @@ section {
     justify-content: center;
 }
 
-.pillar h3 svg {
-    width: 30px;
-    height: 30px;
-    margin-right: 0.5rem;
-}
-
 .pillar p {
     font-size: var(--text-base);
     color: var(--text-dark);
