@@ -487,6 +487,30 @@ section {
     transform: scale(1.1);
 }
 
+
+
+/* ============================================== */
+/*                    OUR about SECTION                */
+/* ===================================================== */
+
+.about {
+    background-color: #FFFFFF;
+    text-align: center;
+}
+
+.about {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.about p {
+    font-size: var(--text-base);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    color: var(--text-dark);
+}
+
 /* ===================================================== */
 /*                    OUR MISSION SECTION                */
 /* ===================================================== */
@@ -508,6 +532,152 @@ section {
     margin-bottom: 1.5rem;
     color: var(--text-dark);
 }
+
+
+/* ===================================================== */
+/*                    OUR technology SECTION                */
+/* ===================================================== */
+
+.technology {
+    background-color: #FFFFFF;
+    text-align: center;
+}
+
+.technology__content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.technology__content p {
+    font-size: var(--text-base);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    color: var(--text-dark);
+}
+
+
+/* ===================================================== */
+/*                    OUR scientific-discovery SECTION                */
+/* ===================================================== */
+
+.scientific-discovery {
+    background-color: #FFFFFF;
+    text-align: center;
+}
+
+.scientific-discovery__content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.scientific-discovery__content p {
+    font-size: var(--text-base);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    color: var(--text-dark);
+}
+
+/* ===================================================== */
+/*                    OUR neurosymbolic-ai SECTION                */
+/* ===================================================== */
+
+.neurosymbolic-ai {
+    background-color: #FFFFFF;
+    text-align: center;
+}
+
+.neurosymbolic-ai__content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.neurosymbolic-ai__content p {
+    font-size: var(--text-base);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    color: var(--text-dark);
+}
+
+
+
+/* =================================== */
+/*                    OUR interdisciplinary SECTION                */
+/* ===================================================== */
+
+/* Interdisciplinary Expertise Styles */
+.interdisciplinary {
+    padding: 60px 20px;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.section-title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #003366;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.section-title::after {
+    content: "";
+    display: block;
+    width: 50px;
+    height: 4px;
+    background-color: #f5b942;
+    margin: 15px auto 0;
+}
+
+.interdisciplinary__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.discipline {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+
+.discipline h3 {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #003366;
+    margin-bottom: 15px;
+}
+
+.discipline p {
+    font-size: var(--text-base);
+    color: var(--text-dark);
+}
+
+.discipline svg {
+    max-width: 50px;
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.discipline svg:hover {
+    transform: scale(1.1);
+}
+
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .interdisciplinary__grid {
+        grid-template-columns: 1fr; /* Stack the disciplines vertically on smaller screens */
+    }
+}
+
+
 
 /* ===================================================== */
 /*                    PRODUCTS SECTION                   */
@@ -866,27 +1036,6 @@ section {
     color: var(--accent-alert);
 }
 
-/* ===================================================== */
-/*                  INVESTOR RELATIONS SECTION           */
-/* ===================================================== */
-
-.investor-relations {
-    background-color: #FFFFFF;
-    text-align: center;
-}
-
-.investor-relations__content {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-.investor-relations__content p {
-    font-size: var(--text-base);
-    line-height: 1.6;
-    margin-bottom: 1.5rem;
-    color: var(--text-dark);
-}
 
 /* ===================================================== */
 /*                  HEALTHCARE PROFESSIONALS SECTION     */
@@ -1164,6 +1313,31 @@ footer .social-links a:focus {
     height: auto;
 }
 
+
+/* ===================================================== */
+/*                    OUR investor-relations SECTION                */
+/* ===================================================== */
+
+.investor-relations {
+    background-color: #FFFFFF;
+    text-align: center;
+}
+
+.investor-relations__content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.investor-relations__content p {
+    font-size: var(--text-base);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    color: var(--text-dark);
+}
+
+
+
 /* ===================================================== */
 /*                       MEDIA QUERIES                   */
 /* ===================================================== */
@@ -1215,69 +1389,4 @@ footer .social-links a:focus {
 /* ===================================================== */
 /*                  END OF STYLES.CSS                    */
 /* ===================================================== */
-
-/* ===================================================== */
-/*          INTERDISCIPLINARY COMPANY SECTION            */
-/* ===================================================== */
-
-.interdisciplinary-company {
-    background-color: #FFFFFF;
-    text-align: center;
-}
-
-.interdisciplinary-company__grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    margin-top: 2rem;
-    max-width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.interdisciplinary-company__item {
-    background-color: #F9F9F9;
-    padding: 2rem;
-    border-radius: 10px;
-    transition: transform var(--duration-normal), box-shadow var(--duration-normal);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    overflow: hidden;
-}
-
-.interdisciplinary-company__item:hover,
-.interdisciplinary-company__item:focus-within {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-}
-
-.interdisciplinary-company__item h3 {
-    font-family: var(--font-primary);
-    font-size: var(--text-xl);
-    margin-bottom: 1rem;
-    color: var(--text-dark);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.interdisciplinary-company__item svg {
-    width: 50px;
-    height: 50px;
-    margin-right: 0.5rem;
-    fill: var(--primary-blue);
-    transition: transform 0.3s ease;
-}
-
-.interdisciplinary-company__item svg:hover {
-    transform: scale(1.1);
-}
-
-.interdisciplinary-company__item p {
-    font-size: var(--text-base);
-    color: var(--text-dark);
-    margin-top: 1rem;
-    line-height: 1.6;
-}
 
