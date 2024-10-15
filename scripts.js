@@ -57,59 +57,56 @@ document.addEventListener('DOMContentLoaded', () => {
      * HamburgerMenu Module
      * Toggles the mobile navigation menu and manages ARIA attributes for accessibility.
      */
-    const HamburgerMenu = (() => {
-        const hamburger = document.getElementById('hamburger');
-        const mobileMenu = document.getElementById('mobileMenu');
+const HamburgerMenu = (() => {
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
 
-        const toggleMenu = (e) => {
-            e.stopPropagation(); // Prevent event bubbling
-            const isOpen = hamburger.classList.toggle('open');
-            mobileMenu.classList.toggle('open');
-            hamburger.setAttribute('aria-expanded', isOpen);
-            mobileMenu.setAttribute('aria-hidden', !isOpen);
-        };
+    const toggleMenu = (e) => {
+        e.stopPropagation(); // Prevent event bubbling
+        const isOpen = hamburger.classList.toggle('open');
+        mobileMenu.classList.toggle('open');
+        hamburger.setAttribute('aria-expanded', isOpen);
+        mobileMenu.setAttribute('aria-hidden', !isOpen);
+    };
 
-        const closeMenu = () => {
-            if (hamburger.classList.contains('open')) {
-                hamburger.classList.remove('open');
-                mobileMenu.classList.remove('open');
-                hamburger.setAttribute('aria-expanded', false);
-                mobileMenu.setAttribute('aria-hidden', true);
-            }
-        };
+    const closeMenu = () => {
+        if (hamburger.classList.contains('open')) {
+            hamburger.classList.remove('open');
+            mobileMenu.classList.remove('open');
+            hamburger.setAttribute('aria-expanded', false);
+            mobileMenu.setAttribute('aria-hidden', true);
+        }
+    };
 
-        const handleClickOutside = (e) => {
-            if (!mobileMenu.contains(e.target) && !hamburger.contains(e.target)) {
-                closeMenu();
-            }
-        };
+    const handleClickOutside = (e) => {
+        if (!mobileMenu.contains(e.target) && !hamburger.contains(e.target)) {
+            closeMenu();
+        }
+    };
 
-        const handleEscape = (e) => {
-            if (e.key === 'Escape') {
-                closeMenu();
-            }
-        };
+    const handleEscape = (e) => {
+        if (e.key === 'Escape') {
+            closeMenu();
+        }
+    };
 
-        const init = () => {
-            if (hamburger && mobileMenu) {
-                hamburger.addEventListener('click', toggleMenu);
+    const init = () => {
+        if (hamburger && mobileMenu) {
+            hamburger.addEventListener('click', toggleMenu);
+            mobileMenu.querySelectorAll('.nav__link').forEach(link => {
+                link.addEventListener('click', closeMenu);
+            });
+            document.addEventListener('click', handleClickOutside);
+            document.addEventListener('keydown', handleEscape);
+        }
+    };
 
-                // Close mobile menu when a link is clicked
-                mobileMenu.querySelectorAll('.nav__link').forEach(link => {
-                    link.addEventListener('click', closeMenu);
-                });
+    return { init };
+})();
 
-                // Close mobile menu when clicking outside
-                document.addEventListener('click', handleClickOutside);
-
-                // Close mobile menu on ESC key press
-                document.addEventListener('keydown', handleEscape);
-            }
-        };
-
-        return { init };
-    })();
-
+document.addEventListener('DOMContentLoaded', () => {
+    HamburgerMenu.init();
+});
     /**
      * LanguageSwitcher Module
      * Handles switching between English and Spanish languages.
@@ -624,46 +621,46 @@ const LanguageSwitcher = (() => {
         },
 
         // Additional Sections
-        "interdisciplinary_title": {
-            "en": "Interdisciplinary Expertise",
-            "es": "Experiencia Interdisciplinaria"
-        },
-        "interdisciplinary_intro": {
-            "en": "At Equ Healthcare, our work is driven by the fusion of multiple scientific disciplines, enabling us to address complex healthcare challenges with precision and clarity. By integrating expertise from medicine, computer science, biology, economics, and behavioral science, we create impactful, culturally tailored solutions that meet the healthcare needs of the Hispanic/Latino community.",
-            "es": "En Equ Healthcare, nuestro trabajo se impulsa por la fusión de múltiples disciplinas científicas, lo que nos permite abordar desafíos complejos de atención médica con precisión y claridad. Al integrar la experiencia de la medicina, la informática, la biología, la economía y la ciencia del comportamiento, creamos soluciones impactantes y culturalmente adaptadas que satisfacen las necesidades de atención médica de la comunidad hispana/latina."
-        },
-        "medicine_title": {
-            "en": "Medicine for Clinical Excellence",
-            "es": "Medicina para la Excelencia Clínica"
-        },
-        "medicine_text": {
-            "en": "Grounded in evidence-based medicine, our solutions enhance clinical decision-making, improving diagnosis, treatment, and patient outcomes. By working alongside healthcare professionals, we ensure our AI tools are immediately relevant and applicable in real-world clinical settings.",
-            "es": "Basadas en la medicina basada en evidencia, nuestras soluciones mejoran la toma de decisiones clínicas, mejorando el diagnóstico, el tratamiento y los resultados de los pacientes. Al trabajar junto con profesionales de la salud, nos aseguramos de que nuestras herramientas de IA sean inmediatamente relevantes y aplicables en entornos clínicos del mundo real."
-        },
-        "cs_title": {
-            "en": "Computer Science for next generation AI",
-            "es": "Ciencias de la Computación para la IA de próxima generación"
-        },
-        "cs_text": {
-            "en": "Our team of computer scientists leverages cutting-edge AI technology, including neurosymbolic AI, to process and analyze vast amounts of health data. This enables us to deliver personalized, interpretable insights that empower healthcare providers to make precise and timely decisions, improving patient care today.",
-            "es": "Nuestro equipo de científicos de la computación aprovecha la tecnología de IA de vanguardia, incluida la IA neurosimbólica, para procesar y analizar grandes cantidades de datos de salud. Esto nos permite ofrecer conocimientos personalizados e interpretables que empoderan a los proveedores de atención médica para tomar decisiones precisas y oportunas, mejorando la atención al paciente hoy."
-        },
-        "economics_title": {
-            "en": "Health Economics for Equitable Access",
-            "es": "Economía de la Salud para el Acceso Equitativo"
-        },
-        "economics_text": {
-            "en": "Our focus on health economics allows us to develop cost-effective solutions that reduce disparities in healthcare delivery. By designing scalable, economically sustainable models, we ensure that our technologies are accessible to underserved populations, providing tangible health benefits.",
-            "es": "Nuestro enfoque en la economía de la salud nos permite desarrollar soluciones rentables que reducen las disparidades en la prestación de atención médica. Al diseñar modelos escalables y económicamente sostenibles, aseguramos que nuestras tecnologías sean accesibles para poblaciones desatendidas, proporcionando beneficios de salud tangibles."
-        },
-        "behavioral_title": {
-            "en": "Behavioral Science for Patient Engagement",
-            "es": "Ciencia del Comportamiento para el Compromiso del Paciente"
-        },
-        "behavioral_text": {
-            "en": "Behavioral science is integrated into our design to optimize patient adherence and long-term engagement with health plans. By understanding and addressing individual behaviors, our solutions actively empower patients to take control of their health, enhancing both immediate and long-term outcomes.",
-            "es": "La ciencia del comportamiento se integra en nuestro diseño para optimizar la adherencia del paciente y el compromiso a largo plazo con los planes de salud. Al comprender y abordar los comportamientos individuales, nuestras soluciones empoderan activamente a los pacientes para tomar el control de su salud, mejorando tanto los resultados inmediatos como los a largo plazo."
-        }
+		"interdisciplinary_title": {
+			"en": "Interdisciplinary Expertise",
+			"es": "Experiencia Interdisciplinaria"
+		},
+		"interdisciplinary_intro": {
+			"en": "At Equ Healthcare, we harness the power of interdisciplinary science to revolutionize healthcare delivery for the Hispanic/Latino community. By integrating cutting-edge advancements in medicine, artificial intelligence, health economics, and behavioral science, we develop scalable and economically sustainable solutions. Our approach not only addresses the most pressing healthcare challenges but also creates opportunities for significant market growth and value-driven impact.",
+			"es": "En Equ Healthcare, aprovechamos el poder de la ciencia interdisciplinaria para revolucionar la prestación de atención médica a la comunidad hispana/latina. Al integrar avances de vanguardia en medicina, inteligencia artificial, economía de la salud y ciencia del comportamiento, desarrollamos soluciones escalables y económicamente sostenibles. Nuestro enfoque no solo aborda los desafíos más urgentes en atención médica, sino que también crea oportunidades de crecimiento significativo en el mercado y un impacto orientado al valor."
+		},
+		"medicine_title": {
+			"en": "Precision Medicine for Superior Outcomes",
+			"es": "Medicina de Precisión para Resultados Superiores"
+		},
+		"medicine_text": {
+			"en": "Our evidence-based medical technologies are designed to elevate clinical decision-making with precision. By collaborating with top healthcare professionals, we ensure that our AI-driven diagnostics and treatment optimization tools translate into real-world clinical efficacy, reducing costs and improving patient outcomes at scale.",
+			"es": "Nuestras tecnologías médicas basadas en evidencia están diseñadas para elevar la toma de decisiones clínicas con precisión. Al colaborar con profesionales de salud de alto nivel, garantizamos que nuestras herramientas de diagnóstico y optimización de tratamientos impulsadas por IA se traduzcan en eficacia clínica en el mundo real, reduciendo costos y mejorando los resultados de los pacientes a escala."
+		},
+		"cs_title": {
+			"en": "AI-Powered Innovations for Data-Driven Healthcare",
+			"es": "Innovaciones Impulsadas por IA para una Atención Médica Basada en Datos"
+		},
+		"cs_text": {
+			"en": "Our AI team leverages state-of-the-art neurosymbolic AI and machine learning to unlock insights from complex health datasets. This enables us to deliver real-time, actionable intelligence that healthcare providers use to optimize patient care. Our technology not only improves patient outcomes but also scales efficiently, providing a competitive advantage and ensuring a high return on investment for stakeholders.",
+			"es": "Nuestro equipo de IA aprovecha la IA neurosimbólica de última generación y el aprendizaje automático para descubrir conocimientos a partir de conjuntos de datos de salud complejos. Esto nos permite ofrecer inteligencia procesable en tiempo real que los proveedores de atención médica utilizan para optimizar la atención del paciente. Nuestra tecnología no solo mejora los resultados de los pacientes, sino que también se escala de manera eficiente, brindando una ventaja competitiva y asegurando un alto retorno de inversión para los interesados."
+		},
+		"economics_title": {
+			"en": "Health Economics for Scalable Impact",
+			"es": "Economía de la Salud para un Impacto Escalable"
+		},
+		"economics_text": {
+			"en": "We integrate health economic strategies to design cost-effective, value-based healthcare models that are both scalable and sustainable. By focusing on reducing disparities and improving access, our solutions open new markets while enhancing profitability. Our economic models demonstrate clear pathways for reducing healthcare costs while generating significant returns for investors.",
+			"es": "Integramos estrategias económicas de salud para diseñar modelos de atención médica rentables y basados en valor que son tanto escalables como sostenibles. Al centrarnos en reducir las disparidades y mejorar el acceso, nuestras soluciones abren nuevos mercados al mismo tiempo que aumentan la rentabilidad. Nuestros modelos económicos demuestran caminos claros para reducir costos de atención médica mientras generan retornos significativos para los inversores."
+		},
+		"behavioral_title": {
+			"en": "Behavioral Science for Patient Engagement and Retention",
+			"es": "Ciencia del Comportamiento para Compromiso y Retención de Pacientes"
+		},
+		"behavioral_text": {
+			"en": "We incorporate advanced behavioral science to drive patient adherence and long-term engagement. Our solutions personalize care pathways based on behavioral insights, leading to improved patient satisfaction and retention rates. This results in a more effective and sustainable healthcare ecosystem, translating to enhanced lifetime value per patient and increased revenue streams.",
+			"es": "Incorporamos ciencia del comportamiento avanzada para impulsar la adherencia y el compromiso a largo plazo de los pacientes. Nuestras soluciones personalizan las vías de atención basadas en conocimientos conductuales, lo que lleva a una mayor satisfacción y tasas de retención de pacientes. Esto resulta en un ecosistema de atención médica más efectivo y sostenible, traduciéndose en un mayor valor de por vida por paciente y en un aumento de los flujos de ingresos."
+		}
     };
 
         /**
