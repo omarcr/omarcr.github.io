@@ -621,46 +621,46 @@ const LanguageSwitcher = (() => {
         },
 
         // Additional Sections
-		"interdisciplinary_title": {
-			"en": "Interdisciplinary Expertise",
-			"es": "Experiencia Interdisciplinaria"
-		},
-		"interdisciplinary_intro": {
-			"en": "At Equ Healthcare, we harness the power of interdisciplinary science to revolutionize healthcare delivery for the Hispanic/Latino community. By integrating cutting-edge advancements in medicine, artificial intelligence, health economics, and behavioral science, we develop scalable and economically sustainable solutions. Our approach not only addresses the most pressing healthcare challenges but also creates opportunities for significant market growth and value-driven impact.",
-			"es": "En Equ Healthcare, aprovechamos el poder de la ciencia interdisciplinaria para revolucionar la prestación de atención médica a la comunidad hispana/latina. Al integrar avances de vanguardia en medicina, inteligencia artificial, economía de la salud y ciencia del comportamiento, desarrollamos soluciones escalables y económicamente sostenibles. Nuestro enfoque no solo aborda los desafíos más urgentes en atención médica, sino que también crea oportunidades de crecimiento significativo en el mercado y un impacto orientado al valor."
-		},
-		"medicine_title": {
-			"en": "Precision Medicine for Superior Outcomes",
-			"es": "Medicina de Precisión para Resultados Superiores"
-		},
-		"medicine_text": {
-			"en": "Our evidence-based medical technologies are designed to elevate clinical decision-making with precision. By collaborating with top healthcare professionals, we ensure that our AI-driven diagnostics and treatment optimization tools translate into real-world clinical efficacy, reducing costs and improving patient outcomes at scale.",
-			"es": "Nuestras tecnologías médicas basadas en evidencia están diseñadas para elevar la toma de decisiones clínicas con precisión. Al colaborar con profesionales de salud de alto nivel, garantizamos que nuestras herramientas de diagnóstico y optimización de tratamientos impulsadas por IA se traduzcan en eficacia clínica en el mundo real, reduciendo costos y mejorando los resultados de los pacientes a escala."
-		},
-		"cs_title": {
-			"en": "AI-Powered Innovations for Data-Driven Healthcare",
-			"es": "Innovaciones Impulsadas por IA para una Atención Médica Basada en Datos"
-		},
-		"cs_text": {
-			"en": "Our AI team leverages state-of-the-art neurosymbolic AI and machine learning to unlock insights from complex health datasets. This enables us to deliver real-time, actionable intelligence that healthcare providers use to optimize patient care. Our technology not only improves patient outcomes but also scales efficiently, providing a competitive advantage and ensuring a high return on investment for stakeholders.",
-			"es": "Nuestro equipo de IA aprovecha la IA neurosimbólica de última generación y el aprendizaje automático para descubrir conocimientos a partir de conjuntos de datos de salud complejos. Esto nos permite ofrecer inteligencia procesable en tiempo real que los proveedores de atención médica utilizan para optimizar la atención del paciente. Nuestra tecnología no solo mejora los resultados de los pacientes, sino que también se escala de manera eficiente, brindando una ventaja competitiva y asegurando un alto retorno de inversión para los interesados."
-		},
-		"economics_title": {
-			"en": "Health Economics for Scalable Impact",
-			"es": "Economía de la Salud para un Impacto Escalable"
-		},
-		"economics_text": {
-			"en": "We integrate health economic strategies to design cost-effective, value-based healthcare models that are both scalable and sustainable. By focusing on reducing disparities and improving access, our solutions open new markets while enhancing profitability. Our economic models demonstrate clear pathways for reducing healthcare costs while generating significant returns for investors.",
-			"es": "Integramos estrategias económicas de salud para diseñar modelos de atención médica rentables y basados en valor que son tanto escalables como sostenibles. Al centrarnos en reducir las disparidades y mejorar el acceso, nuestras soluciones abren nuevos mercados al mismo tiempo que aumentan la rentabilidad. Nuestros modelos económicos demuestran caminos claros para reducir costos de atención médica mientras generan retornos significativos para los inversores."
-		},
-		"behavioral_title": {
-			"en": "Behavioral Science for Patient Engagement and Retention",
-			"es": "Ciencia del Comportamiento para Compromiso y Retención de Pacientes"
-		},
-		"behavioral_text": {
-			"en": "We incorporate advanced behavioral science to drive patient adherence and long-term engagement. Our solutions personalize care pathways based on behavioral insights, leading to improved patient satisfaction and retention rates. This results in a more effective and sustainable healthcare ecosystem, translating to enhanced lifetime value per patient and increased revenue streams.",
-			"es": "Incorporamos ciencia del comportamiento avanzada para impulsar la adherencia y el compromiso a largo plazo de los pacientes. Nuestras soluciones personalizan las vías de atención basadas en conocimientos conductuales, lo que lleva a una mayor satisfacción y tasas de retención de pacientes. Esto resulta en un ecosistema de atención médica más efectivo y sostenible, traduciéndose en un mayor valor de por vida por paciente y en un aumento de los flujos de ingresos."
-		}
+        "interdisciplinary_title": {
+            "en": "Interdisciplinary Expertise",
+            "es": "Experiencia Interdisciplinaria"
+        },
+        "interdisciplinary_intro": {
+            "en": "Equ Healthcare uses interdisciplinary science to transform healthcare for the Hispanic/Latino community, integrating medicine, AI, health economics, and behavioral science for scalable solutions and impactful growth.",
+            "es": "Equ Healthcare utiliza la ciencia interdisciplinaria para transformar la atención médica de la comunidad hispana/latina, integrando medicina, IA, economía de la salud y ciencia del comportamiento para soluciones escalables y crecimiento impactante."
+        },
+        "medicine_title": {
+            "en": "Precision Medicine for Superior Outcomes",
+            "es": "Medicina de Precisión para Resultados Superiores"
+        },
+        "medicine_text": {
+            "en": "Our technologies enhance clinical decisions with AI-driven diagnostics, improving outcomes and reducing costs through effective collaborations.",
+            "es": "Nuestras tecnologías mejoran las decisiones clínicas con diagnósticos impulsados por IA, mejorando resultados y reduciendo costos mediante colaboraciones efectivas."
+        },
+        "cs_title": {
+            "en": "Computer science for Data-Driven Healthcare",
+            "es": "Ciencias de la Computación para una Atención Médica Basada en Datos"
+        },
+        "cs_text": {
+            "en": "We use neurosymbolic AI and machine learning to provide real-time insights, optimizing care and ensuring efficiency.",
+            "es": "Utilizamos IA neurosimbólica y aprendizaje automático para ofrecer conocimientos en tiempo real, optimizando la atención y garantizando eficiencia."
+        },
+        "economics_title": {
+            "en": "Health Economics for Scalable Impact",
+            "es": "Economía de la Salud para un Impacto Escalable"
+        },
+        "economics_text": {
+            "en": "Our models create cost-effective, scalable healthcare solutions that reduce disparities and demonstrate clear cost-saving strategies.",
+            "es": "Nuestros modelos crean soluciones rentables y escalables que reducen disparidades y demuestran estrategias claras para ahorrar costos."
+        },
+        "behavioral_title": {
+            "en": "Behavioral Science for Patient Retention",
+            "es": "Ciencia del Comportamiento para Retención de Pacientes"
+        },
+        "behavioral_text": {
+            "en": "We use behavioral insights to boost patient adherence and satisfaction, creating a sustainable healthcare ecosystem.",
+            "es": "Utilizamos conocimientos conductuales para aumentar la adherencia y satisfacción del paciente, creando un ecosistema de atención médica sostenible."
+        }
     };
 
         /**
