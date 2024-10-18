@@ -145,6 +145,7 @@ textarea:focus {
     color: var(--text-dark);
     display: flex;
     align-items: center;
+    margin-right: 2rem; /* Added spacing between logo and menu */
 }
 
 .nav__logo img.logo {
@@ -158,8 +159,9 @@ textarea:focus {
 
 .nav__menu {
     display: flex;
-    gap: 1.5rem;
+    gap: 2rem; /* Increased gap between the menu items */
     justify-content: center; /* Center navigation items */
+    align-items: center; /* Ensure the menu items are vertically aligned */
 }
 
 .nav__item {
@@ -172,6 +174,8 @@ textarea:focus {
     padding: 0.5rem 0;
     position: relative;
     transition: color var(--duration-normal);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
 }
 
 .nav__link::after {
@@ -188,6 +192,83 @@ textarea:focus {
 .nav__link:hover::after,
 .nav__link:focus::after {
     width: 100%;
+}
+
+
+.nav__link:hover::after,
+.nav__link:focus::after {
+    width: 100%;
+}
+
+/* Google Translate Dropdown in the Navigation */
+#google_translate_element {
+    margin-left: auto; /* Push it to the right of the menu */
+    margin-right: 1.5rem; /* Add space between the dropdown and other elements */
+}
+
+.goog-te-combo {
+    font-family: var(--font-secondary); /* Match the font of your navigation */
+    padding: 0.25rem 0.5rem;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    font-size: 0.875rem;
+    color: #333;
+}
+
+/* Hamburger Menu (if applicable) */
+.hamburger {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+}
+
+.hamburger__bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: var(--text-dark);
+    transition: all var(--duration-fast);
+}
+
+.hamburger.open .hamburger__bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.hamburger.open .hamburger__bar:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.open .hamburger__bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+/* Mobile Menu */
+.nav__menu--mobile {
+    display: none; /* Hidden by default */
+}
+
+/* For small screens, show the mobile menu and hide the Google Translate dropdown */
+@media (max-width: 768px) {
+    #google_translate_element {
+        display: none; /* Hide the Google Translate element on mobile screens */
+    }
+
+    .nav__menu--mobile {
+        display: flex;
+        flex-direction: column;
+        background-color: rgba(255, 255, 255, 0.95);
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        padding: 1rem;
+        z-index: 1000;
+    }
 }
 
 /* ===================================================== */
@@ -264,20 +345,6 @@ textarea:focus {
 /* ===================================================== */
 
 /* Mobile Menu */
-.nav__menu--mobile {
-    transform: translateY(-100%);
-    opacity: 0;
-    display: flex;
-    flex-direction: column;
-    background-color: rgba(255, 255, 255, 0.95);
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    padding: 1rem 2rem;
-    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
-    z-index: 1000; /* Ensure it stays above other elements */
-}
 
 .nav__menu--mobile.open {
     transform: translateY(0);
