@@ -1475,6 +1475,16 @@ footer .social-links a:focus {
     line-height: 1.6;
 }
 
+#google_translate_element {
+    display: block !important; /* Make sure the dropdown is visible */
+    height: auto;
+    width: auto;
+    position: relative; /* Ensure it's not moved offscreen */
+}
 
+.language-switcher__button:focus ~ #google_translate_element,
+.language-switcher__button:hover ~ #google_translate_element {
+    top: initial; /* Show when a language switcher button is focused/hovered */
+}
 
 

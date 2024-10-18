@@ -11,18 +11,21 @@
     <!-- Favicon -->
     <link rel="icon" href="favicon.ico" type="image/x-icon">
 	    <!-- Google Translate script -->
+	<!-- Google Translate script -->
 	<script type="text/javascript">
 		function googleTranslateElementInit() {
 			new google.translate.TranslateElement({
-				pageLanguage: 'en', // Default language of your site
-				includedLanguages: 'en,es', // Specify the languages you want
+				pageLanguage: 'en', // Default language
+				includedLanguages: 'en,es', // Supported languages
 				layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-				autoDisplay: false
+				autoDisplay: false // Disable automatic language detection
 			}, 'google_translate_element');
 		}
 	</script>
 	<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-	<div id="google_translate_element" style="display: none;"></div>
+	<!-- Google Translate element (visible) -->
+	<div id="google_translate_element"></div>
+
 </head>
 <body>
     <!-- Skip Link for Accessibility -->

@@ -117,29 +117,51 @@ document.addEventListener('DOMContentLoaded', () => {
      * LanguageSwitcher Module
      * Handles switching between English and Spanish languages.
      */
-const LanguageSwitcher = (() => {
-    const languageSwitcher = document.querySelector('.language-switcher');
-    const langButtons = languageSwitcher ? languageSwitcher.querySelectorAll('.language-switcher__button') : [];
+document.addEventListener('DOMContentLoaded', () => {
+    const LanguageSwitcher = (() => {
+        const langButtons = document.querySelectorAll('.language-switcher__button');
+        
+        // Helper function to check if Google Translate dropdown is available
+        const ensureTranslateDropdown = (callback) => {
+            const interval = setInterval(() => {
+                const googleTranslateDropdown = document.querySelector('.goog-te-combo');
+                if (googleTranslateDropdown) {
+                    clearInterval(interval);
+                    callback(googleTranslateDropdown);
+                }
+            }, 300); // Check every 300ms until found
+        };
 
-    const switchLanguage = (lang) => {
-        const googleTranslateDropdown = document.querySelector('.goog-te-combo');
-        if (googleTranslateDropdown) {
-            googleTranslateDropdown.value = lang; // Set the value to 'en' or 'es'
-            googleTranslateDropdown.dispatchEvent(new Event('change')); // Simulate the dropdown change event
-        }
-    };
-
-    const init = () => {
-        langButtons.forEach(button => {
-            button.addEventListener('click', (e) => {
-                const lang = e.target.getAttribute('data-lang');
-                switchLanguage(lang); // Call the language switch function when a button is clicked
+        // Function to trigger the language switch
+        const switchLanguage = (lang) => {
+            ensureTranslateDropdown((googleTranslateDropdown) => {
+                googleTranslateDropdown.value = lang;  // Set language value (en or es)
+                googleTranslateDropdown.dispatchEvent(new Event('change'));  // Trigger the change event
             });
-        });
-    };
+        };
 
-    return { init };
-})();
+        // Set up event listeners for language switch buttons
+        const init = () => {
+            langButtons.forEach(button => {
+                button.addEventListener('click', (e) => {
+                    const lang = e.target.getAttribute('data-lang');
+                    switchLanguage(lang);
+                    
+                    // Update button states (for visual feedback)
+                    langButtons.forEach(btn => btn.setAttribute('aria-pressed', false));
+                    e.target.setAttribute('aria-pressed', true);
+                });
+            });
+        };
+
+        return { init };
+    })();
+
+    // Initialize the language switcher
+    LanguageSwitcher.init();
+});
+
+
 
 document.addEventListener('DOMContentLoaded', () => {
     LanguageSwitcher.init();
