@@ -29,7 +29,7 @@
     --font-secondary: 'Open Sans', sans-serif;
 
     /* Font Sizes */
-    --text-xs: 0.75rem;
+    --text-xs: 0.75rem;nav__menu--mobile
     --text-sm: 0.875rem;
     --text-base: 1rem;
     --text-lg: 1.125rem;
@@ -284,6 +284,7 @@ textarea:focus {
     opacity: 1;
 }
 
+/* Prevent the menu from closing when clicking inside */
 .nav__menu--mobile .nav__item {
     margin-bottom: 1rem;
 }
@@ -917,6 +918,51 @@ section {
 }
 
 /* ===================================================== */
+/*                    OUR investor-relations SECTION                */
+/* ===================================================== */
+
+.investor-relations {
+    background-color: #FFFFFF;
+    text-align: center;
+    padding: 4rem 2rem; /* Add padding similar to the n=1 section */
+}
+
+.investor-relations__content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.investor-relations__content p {
+    font-size: var(--text-base);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    color: var(--text-dark);
+}
+
+/* Adjusting the section title similar to n=1 */
+.investor-relations__title {
+    font-family: var(--font-primary);
+    font-size: var(--text-3xl); /* Matching the n=1 section title font size */
+    margin-bottom: 2rem; /* Increase margin for spacing */
+    color: var(--text-dark);
+    position: relative;
+    display: inline-block;
+}
+
+/* Similar to the n=1 title style */
+.investor-relations__title::after {
+    content: '';
+    position: absolute;
+    width: 50%;
+    height: 4px;
+    background: var(--accent-warm);
+    left: 25%;
+    bottom: -10px;
+}
+
+
+/* ===================================================== */
 /*                      VISION SECTION                   */
 /* ===================================================== */
 
@@ -1328,28 +1374,6 @@ footer .social-links a:focus {
     height: auto;
 }
 
-
-/* ===================================================== */
-/*                    OUR investor-relations SECTION                */
-/* ===================================================== */
-
-.investor-relations {
-    background-color: #FFFFFF;
-    text-align: center;
-}
-
-.investor-relations__content {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-.investor-relations__content p {
-    font-size: var(--text-base);
-    line-height: 1.6;
-    margin-bottom: 1.5rem;
-    color: var(--text-dark);
-}
 
 
 

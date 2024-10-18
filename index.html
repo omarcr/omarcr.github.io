@@ -10,6 +10,19 @@
     <link rel="stylesheet" href="styles.css">
     <!-- Favicon -->
     <link rel="icon" href="favicon.ico" type="image/x-icon">
+	    <!-- Google Translate script -->
+	<script type="text/javascript">
+		function googleTranslateElementInit() {
+			new google.translate.TranslateElement({
+				pageLanguage: 'en', // Default language of your site
+				includedLanguages: 'en,es', // Specify the languages you want
+				layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+				autoDisplay: false
+			}, 'google_translate_element');
+		}
+	</script>
+	<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+	<div id="google_translate_element" style="display: none;"></div>
 </head>
 <body>
     <!-- Skip Link for Accessibility -->
@@ -35,13 +48,15 @@
             <li class="nav__item"><a href="#team" class="nav__link" data-key="nav_team">Team</a></li>
             <li class="nav__item"><a href="#contact" class="nav__link" data-key="nav_contact">Contact</a></li>
         </ul>
+		    <div id="google_translate_element" style="display: none;"></div>
+
         
         <!-- Language Switcher -->
-        <div class="language-switcher" role="group" aria-label="Language Switcher">
-            <button class="language-switcher__button active" data-lang="en" aria-pressed="true">EN</button>
-            <span class="language-switcher__separator" aria-hidden="true">|</span>
-            <button class="language-switcher__button" data-lang="es" aria-pressed="false">ES</button>
-        </div>
+		<div class="language-switcher" role="group" aria-label="Language Switcher">
+			<button class="language-switcher__button" data-lang="en" aria-pressed="true">EN</button>
+			<span class="language-switcher__separator" aria-hidden="true">|</span>
+			<button class="language-switcher__button" data-lang="es" aria-pressed="false">ES</button>
+		</div>
         
         <!-- Hamburger Menu for Mobile -->
         <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobileMenu">
@@ -463,11 +478,9 @@
                 </div>
 
                 <p data-key="neurosymbolic_ai_p3">
-                    Neurosymbolic AI bridges these two approaches. It combines the interpretability of symbolic models like the Framingham Risk Score with the learning power of neural networks. This creates systems that produce accurate cardiovascular risk predictions while maintaining transparency, helping clinicians understand not just the result, but also how different risk factors contributed to it.
+                    Neurosymbolic AI bridges these two approaches. It combines the interpretability of symbolic models like the Framingham Risk Score with the learning power of neural networks. This creates systems that produce accurate cardiovascular risk predictions while maintaining transparency, helping clinicians understand not just the result, but also how different risk factors contributed to it. The solutions at Equ allow us to arrive to personalized models that adjust for hispanic/latino needs:
                 </p>
-                <p data-key="neurosymbolic_ai_p3">
-				The solutions at Equ allow us to arrive to personalized models that adjust for hispanic/latino needs:
-                </p>
+
 
                 <!-- Image for Framingham Risk Score (Symbolic Model) -->
                 <div class="ai-image-container">
