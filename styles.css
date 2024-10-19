@@ -825,11 +825,6 @@ section {
     margin-bottom: 1rem;
 }
 
-.product-card--amigo {
-    width: 50%; /* Reduce width to half */
-    margin: 0 auto; /* Center horizontally */
-    text-align: center; /* Ensure the content is centered */
-}
 
 .product-card .progress-bar .progress {
     height: 100%;
