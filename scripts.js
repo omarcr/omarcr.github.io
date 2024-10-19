@@ -45,8 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const init = () => {
             if (progressBar) {
                 window.addEventListener('scroll', Utils.debounce(updateProgressBar, 100));
-                // Initialize on load
-                updateProgressBar();
+                updateProgressBar(); // Initialize on load
             }
         };
 
@@ -57,71 +56,69 @@ document.addEventListener('DOMContentLoaded', () => {
      * HamburgerMenu Module
      * Toggles the mobile navigation menu and manages ARIA attributes for accessibility.
      */
-const HamburgerMenu = (() => {
-    const hamburger = document.getElementById('hamburger');
-    const mobileMenu = document.getElementById('mobileMenu');
+    const HamburgerMenu = (() => {
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobileMenu');
 
-    const toggleMenu = (e) => {
-        e.stopPropagation(); // Prevent event bubbling
-        const isOpen = hamburger.classList.toggle('open');
-        mobileMenu.classList.toggle('open');
-        hamburger.setAttribute('aria-expanded', isOpen);
-        mobileMenu.setAttribute('aria-hidden', !isOpen);
+        const toggleMenu = (e) => {
+            e.stopPropagation(); // Prevent event bubbling
+            const isOpen = hamburger.classList.toggle('open');
+            mobileMenu.classList.toggle('open');
+            hamburger.setAttribute('aria-expanded', isOpen);
+            mobileMenu.setAttribute('aria-hidden', !isOpen);
 
-        // Prevent the menu from closing immediately when clicking inside
-        mobileMenu.addEventListener('click', (e) => {
-            e.stopPropagation();
-        });
-    };
-
-    const closeMenu = () => {
-        if (hamburger.classList.contains('open')) {
-            hamburger.classList.remove('open');
-            mobileMenu.classList.remove('open');
-            hamburger.setAttribute('aria-expanded', false);
-            mobileMenu.setAttribute('aria-hidden', true);
-        }
-    };
-
-    const handleClickOutside = (e) => {
-        if (!mobileMenu.contains(e.target) && !hamburger.contains(e.target)) {
-            closeMenu();
-        }
-    };
-
-    const handleEscape = (e) => {
-        if (e.key === 'Escape') {
-            closeMenu();
-        }
-    };
-
-    const init = () => {
-        if (hamburger && mobileMenu) {
-            hamburger.addEventListener('click', toggleMenu);
-            mobileMenu.querySelectorAll('.nav__link').forEach(link => {
-                link.addEventListener('click', closeMenu);
+            // Prevent the menu from closing immediately when clicking inside
+            mobileMenu.addEventListener('click', (e) => {
+                e.stopPropagation();
             });
-            document.addEventListener('click', handleClickOutside);
-            document.addEventListener('keydown', handleEscape);
-        }
-    };
+        };
 
-    return { init };
-})();
+        const closeMenu = () => {
+            if (hamburger.classList.contains('open')) {
+                hamburger.classList.remove('open');
+                mobileMenu.classList.remove('open');
+                hamburger.setAttribute('aria-expanded', false);
+                mobileMenu.setAttribute('aria-hidden', true);
+            }
+        };
 
+        const handleClickOutside = (e) => {
+            if (!mobileMenu.contains(e.target) && !hamburger.contains(e.target)) {
+                closeMenu();
+            }
+        };
 
-document.addEventListener('DOMContentLoaded', () => {
-    HamburgerMenu.init();
-});
+        const handleEscape = (e) => {
+            if (e.key === 'Escape') {
+                closeMenu();
+            }
+        };
+
+        const init = () => {
+            if (hamburger && mobileMenu) {
+                hamburger.addEventListener('click', toggleMenu);
+                mobileMenu.querySelectorAll('.nav__link').forEach(link => {
+                    link.addEventListener('click', closeMenu);
+                });
+                document.addEventListener('click', handleClickOutside);
+                document.addEventListener('keydown', handleEscape);
+            }
+        };
+
+        return { init };
+    })();
+
     /**
      * LanguageSwitcher Module
      * Handles switching between English and Spanish languages.
      */
-document.addEventListener('DOMContentLoaded', () => {
+    /**
+     * LanguageSwitcher Module for Google Translate
+     */
     const LanguageSwitcher = (() => {
-        const langButtons = document.querySelectorAll('.language-switcher__button');
-        
-        // Helper function to check if Google Translate dropdown is available
+        const langButton = document.getElementById('language-toggle');
+
+        // Ensure Google Translate dropdown exists before interacting
         const ensureTranslateDropdown = (callback) => {
             const interval = setInterval(() => {
                 const googleTranslateDropdown = document.querySelector('.goog-te-combo');
@@ -135,38 +132,30 @@ document.addEventListener('DOMContentLoaded', () => {
         // Function to trigger the language switch
         const switchLanguage = (lang) => {
             ensureTranslateDropdown((googleTranslateDropdown) => {
-                googleTranslateDropdown.value = lang;  // Set language value (en or es)
-                googleTranslateDropdown.dispatchEvent(new Event('change'));  // Trigger the change event
+                googleTranslateDropdown.value = lang; // Set language value (en or es)
+                googleTranslateDropdown.dispatchEvent(new Event('change')); // Trigger the change event
             });
         };
 
-        // Set up event listeners for language switch buttons
+        // Toggle between English and Spanish
+        const toggleLanguage = () => {
+            const currentLang = langButton.getAttribute('data-lang');
+            const newLang = currentLang === 'en' ? 'es' : 'en'; // Toggle language
+            switchLanguage(newLang);
+
+            // Update button text and data attribute
+            langButton.textContent = newLang === 'en' ? 'ES' : 'EN'; 
+            langButton.setAttribute('data-lang', newLang);
+        };
+
         const init = () => {
-            langButtons.forEach(button => {
-                button.addEventListener('click', (e) => {
-                    const lang = e.target.getAttribute('data-lang');
-                    switchLanguage(lang);
-                    
-                    // Update button states (for visual feedback)
-                    langButtons.forEach(btn => btn.setAttribute('aria-pressed', false));
-                    e.target.setAttribute('aria-pressed', true);
-                });
-            });
+            if (langButton) {
+                langButton.addEventListener('click', toggleLanguage); // Add click event listener
+            }
         };
 
         return { init };
     })();
-
-    // Initialize the language switcher
-    LanguageSwitcher.init();
-});
-
-
-
-document.addEventListener('DOMContentLoaded', () => {
-    LanguageSwitcher.init();
-});
-
     /**
      * ContactForm Module
      * Handles contact form submissions (if applicable).
@@ -183,7 +172,6 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         const init = () => {
-            // Currently, there's no contact form to handle.
             // Future implementation can go here.
         };
 
@@ -197,9 +185,9 @@ document.addEventListener('DOMContentLoaded', () => {
         ScrollProgress.init();
         HamburgerMenu.init();
         LanguageSwitcher.init();
-        SmoothScrolling.init();
         ContactForm.init();
     };
 
+    // Initialize the modules when the DOM is fully loaded
     init();
 });

@@ -132,24 +132,25 @@ textarea:focus {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 2rem;
+    padding: 0.75rem 1.5rem; /* Reduced padding for sleeker appearance */
     background-color: rgba(255, 255, 255, 0.9);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px); /* For Safari */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); /* Subtle shadow for elevation */
     z-index: 999;
 }
 
 .nav__logo {
     font-family: var(--font-primary);
-    font-size: var(--text-2xl);
+    font-size: var(--text-xl); /* Slightly smaller font for logo */
     color: var(--text-dark);
     display: flex;
     align-items: center;
-    margin-right: 2rem; /* Added spacing between logo and menu */
+    margin-right: 1.5rem; /* Adjusted spacing */
 }
 
 .nav__logo img.logo {
-    width: 60px; /* Adjust as necessary */
+    width: 50px; /* Smaller logo size */
     height: auto;
 }
 
@@ -159,9 +160,9 @@ textarea:focus {
 
 .nav__menu {
     display: flex;
-    gap: 2rem; /* Increased gap between the menu items */
-    justify-content: center; /* Center navigation items */
-    align-items: center; /* Ensure the menu items are vertically aligned */
+    gap: 1.5rem; /* Slightly reduced gap between items */
+    justify-content: center;
+    align-items: center;
 }
 
 .nav__item {
@@ -170,12 +171,12 @@ textarea:focus {
 
 .nav__link {
     color: var(--text-dark);
-    font-size: var(--text-base);
+    font-size: var(--text-base); /* Base size is fine here */
     padding: 0.5rem 0;
     position: relative;
-    transition: color var(--duration-normal);
+    transition: color 0.3s ease-in-out; /* Smooth hover transition */
     text-transform: uppercase;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.075em; /* Slightly increased spacing */
 }
 
 .nav__link::after {
@@ -183,10 +184,10 @@ textarea:focus {
     position: absolute;
     left: 0;
     bottom: -5px;
-    width: 0%;
+    width: 0;
     height: 2px;
     background-color: var(--accent-warm);
-    transition: width var(--duration-normal);
+    transition: width 0.3s ease-in-out;
 }
 
 .nav__link:hover::after,
@@ -194,33 +195,27 @@ textarea:focus {
     width: 100%;
 }
 
-
-.nav__link:hover::after,
-.nav__link:focus::after {
-    width: 100%;
-}
-
-/* Google Translate Dropdown in the Navigation */
+/* Google Translate Dropdown */
 #google_translate_element {
-    margin-left: auto; /* Push it to the right of the menu */
-    margin-right: 1.5rem; /* Add space between the dropdown and other elements */
+    margin-left: auto;
+    margin-right: 1rem; /* Slightly reduced spacing */
 }
 
 .goog-te-combo {
-    font-family: var(--font-secondary); /* Match the font of your navigation */
-    padding: 0.25rem 0.5rem;
-    border-radius: 5px;
+    font-family: var(--font-secondary);
+    padding: 0.2rem 0.4rem;
+    border-radius: 4px;
     border: 1px solid #ccc;
     background-color: #fff;
     font-size: 0.875rem;
     color: #333;
 }
 
-/* Hamburger Menu (if applicable) */
+/* Hamburger Menu */
 .hamburger {
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: 4px; /* Reduced gap for cleaner look */
     cursor: pointer;
     background: none;
     border: none;
@@ -229,33 +224,21 @@ textarea:focus {
 
 .hamburger__bar {
     display: block;
-    width: 25px;
-    height: 3px;
+    width: 22px; /* Slightly smaller bars */
+    height: 2.5px;
     background-color: var(--text-dark);
-    transition: all var(--duration-fast);
-}
-
-.hamburger.open .hamburger__bar:nth-child(1) {
-    transform: translateY(8px) rotate(45deg);
-}
-
-.hamburger.open .hamburger__bar:nth-child(2) {
-    opacity: 0;
-}
-
-.hamburger.open .hamburger__bar:nth-child(3) {
-    transform: translateY(-8px) rotate(-45deg);
+    transition: all 0.3s ease-in-out;
 }
 
 /* Mobile Menu */
 .nav__menu--mobile {
-    display: none; /* Hidden by default */
+    display: none;
 }
 
-/* For small screens, show the mobile menu and hide the Google Translate dropdown */
+/* Mobile View */
 @media (max-width: 768px) {
     #google_translate_element {
-        display: none; /* Hide the Google Translate element on mobile screens */
+        display: none; /* Hidden on mobile */
     }
 
     .nav__menu--mobile {
@@ -268,6 +251,9 @@ textarea:focus {
         width: 100%;
         padding: 1rem;
         z-index: 1000;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Elevation for mobile menu */
+        transform: translateY(-10px); /* Small animation */
+        transition: transform 0.3s ease-in-out;
     }
 }
 
@@ -287,9 +273,9 @@ textarea:focus {
     border: none;
     color: var(--text-dark);
     cursor: pointer;
-    transition: color var(--duration-normal);
+    transition: color 0.3s ease-in-out; /* Smooth color transition */
     font-family: var(--font-secondary);
-    padding: 0.25rem 0.5rem;
+    padding: 0.2rem 0.5rem;
 }
 
 .language-switcher__button.active {
@@ -302,9 +288,11 @@ textarea:focus {
     outline-offset: 2px;
 }
 
+
 .language-switcher__separator {
     color: var(--text-dark);
 }
+
 
 /* ===================================================== */
 /*                   HAMBURGER MENU                      */
