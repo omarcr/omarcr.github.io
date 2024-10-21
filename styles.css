@@ -1530,3 +1530,44 @@ footer .social-links a:focus {
 }
 
 
+/* Enhanced Founder Message Section with adjusted size and placement */
+.founder-message {
+    background-color: var(--primary-blue); /* Keep standout background */
+    padding: 3rem 1.5rem; /* Reduce padding */
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Slight shadow for depth */
+    margin: 3rem 0; /* Adjust margin for better spacing between sections */
+    color: var(--text-light);
+}
+
+.founder-message h2 {
+    font-size: var(--text-3xl); /* Slightly reduce title size */
+    margin-bottom: 1.2rem;
+    color: var(--text-light); /* Ensure readability */
+}
+
+.founder-message p {
+    font-size: var(--text-base); /* Adjust font size */
+    color: var(--text-light); /* Ensure contrast */
+    margin-bottom: 1.8rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto; /* Center text block */
+}
+
+.founder-message .cta-highlight {
+    padding: 0.8rem 2.5rem; /* Adjust button size */
+    background-color: var(--accent-alert); /* Keep bright color */
+    color: var(--text-light);
+    border-radius: 50px;
+    font-size: var(--text-lg); /* Slightly smaller font for the button */
+    font-family: var(--font-primary);
+    transition: background-color var(--duration-fast), transform var(--duration-fast);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2); /* Slight shadow for button depth */
+}
+
+.founder-message .cta-highlight:hover {
+    background-color: var(--hover-state);
+    transform: translateY(-3px); /* Slight lift on hover */
+}
