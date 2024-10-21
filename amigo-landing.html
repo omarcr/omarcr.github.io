@@ -3,35 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Equ Amigo product preview</title>
+    <title>Equ Amigo Product Preview</title>
     <link rel="stylesheet" href="styles.css"> <!-- Linking to your main CSS file -->
     <style>
-        /* Container for the form */
+        /* Container for the form and content */
         .form-container {
-            max-width: 600px;
+            max-width: 700px;
             margin: 2rem auto;
-            padding: 2rem;
+            padding: 2.5rem;
             background-color: #fff;
             border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
             text-align: center;
         }
 
-        /* Heading styling, similar to "Our Pillars" */
-        h2 {
+        /* Section for introduction */
+        .intro-container {
+            margin-bottom: 2rem;
+        }
+
+        h1 {
             font-family: var(--font-primary);
-            font-size: var(--text-3xl);
+            font-size: var(--text-4xl);
             color: var(--secondary-navy);
             margin-bottom: 1rem;
         }
 
-        /* Underline style similar to the image */
         .underline {
             display: block;
             width: 50px;
             height: 4px;
             background-color: var(--accent-warm);
             margin: 0.5rem auto 1.5rem;
+        }
+
+        p {
+            font-family: var(--font-secondary);
+            font-size: var(--text-lg);
+            color: var(--text-dark);
+            margin-bottom: 2rem;
+            line-height: 1.6;
         }
 
         /* Input field style */
@@ -82,9 +93,22 @@
 <body>
 
 <div class="form-container">
-    <h2>Please provide your email to preview: Equ-1 amigo</h2>
+    <!-- Introduction Section -->
+    <div class="intro-container">
+        <h1>Equ-1 Amigo: Your Health companion</h1>
+        <span class="underline"></span>
+        <p>
+            Equ-1 Amigo is an educational AI-powered diet and physical activity coach designed specifically for the Hispanic/Latino community.
+            It provides culturally tailored, personalized recommendations to help you achieve and maintain optimal health.
+        </p>
+        <p>
+            Sign up for an exclusive preview of Equ-1 Amigo and experience how it can support you in making healthier choices and tracking your progress towards a more balanced lifestyle.
+        </p>
+    </div>
+
+    <!-- Email Form Section -->
+    <h2>Get Early Access</h2>
     <span class="underline"></span>
-    <!-- Formspree action URL here -->
     <form id="emailForm" action="https://formspree.io/f/mkgngnbl" method="post">
         <input type="email" id="email" name="email" placeholder="Enter your email" required>
         <button type="submit">Submit</button>
@@ -114,7 +138,7 @@
 
             // Display thank you message and redirect
             thankYouMessage.textContent = "Thank you! Redirecting...";
-            
+
             // Delay the redirection for 2 seconds
             setTimeout(function () {
                 window.location.href = "https://equ4-iz4pj3rme4zkc-ca.livelysea-6ee3b42d.eastus2.azurecontainerapps.io/";
